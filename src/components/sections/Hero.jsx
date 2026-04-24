@@ -8,51 +8,24 @@ export default function Hero() {
       <div className={styles.overlay} />
 
       <div className={styles.content}>
-        <span className={styles.badge}>OPG Kulin Ćorić</span>
-
+        <p className={styles.eyebrow}>OPG Kulin Ćorić · Slavonija</p>
         <h1 className={styles.title}>
-          Domaće s dušom,<br />
-          <span className={styles.titleAccent}>prirodno i svježe</span>
+          Domaće.<br />Prirodno.<br />
+          <em>S dušom.</em>
         </h1>
-
-        <div className={styles.divider}>
-          <span className={styles.dividerLine} />
-          <span className={styles.dividerIcon}>🌾</span>
-          <span className={styles.dividerLine} />
-        </div>
-
         <p className={styles.subtitle}>
-          Generacijama njegujemo tradiciju uzgoja kvalitetnih domaćih proizvoda —
-          direktno s naše slavonske farme do vašeg stola.
+          Generacijama uzgajamo, prerađujemo i čuvamo<br />
+          tradiciju slavonskog stola.
         </p>
-
         <div className={styles.actions}>
           <Button href="#products" variant="accent">Naši proizvodi</Button>
           <Button href="#about" variant="outline-white">Naša priča</Button>
         </div>
-
-        <div className={styles.stats}>
-          <div className={styles.stat}>
-            <strong>15+</strong>
-            <span>godina tradicije</span>
-          </div>
-          <div className={styles.statDivider} />
-          <div className={styles.stat}>
-            <strong>100%</strong>
-            <span>domaće</span>
-          </div>
-          <div className={styles.statDivider} />
-          <div className={styles.stat}>
-            <strong>Slavonija</strong>
-            <span>porijeklo</span>
-          </div>
-        </div>
       </div>
 
-      <a href="#about" className={styles.scrollHint} aria-label="Scroll dolje">
-        <span className={styles.scrollText}>Scroll</span>
+      <div className={styles.scrollHint}>
         <span className={styles.scrollLine} />
-      </a>
+      </div>
     </section>
   )
 }
