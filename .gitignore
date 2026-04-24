@@ -38,3 +38,6 @@ desktop.ini
 # OneDrive
 *.tmp
 ~$*
+
+# Claude Code
+.claude/
