@@ -11,8 +11,6 @@
 }
 
 /* Slika */
-.imageCol {}
-
 .imageWrap {
   position: relative;
   border-radius: var(--radius-lg);
@@ -55,8 +53,6 @@
 }
 
 /* Tekst */
-.textCol {}
-
 .body {
   color: var(--text-muted);
   margin-bottom: 40px;
@@ -74,32 +70,39 @@
   display: flex;
   align-items: flex-start;
   gap: 16px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.valueItem:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
 }
 
 .valueIcon {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   flex-shrink: 0;
   margin-top: 2px;
 }
 
 .valueItem strong {
   display: block;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-heading);
   margin-bottom: 4px;
 }
 
 .valueItem p {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
   line-height: 1.6;
 }
 
 @media (max-width: 1024px) {
-  .grid {
-    gap: 48px;
-  }
+  .grid { gap: 48px; }
 }
 
 @media (max-width: 768px) {
@@ -107,13 +110,6 @@
     grid-template-columns: 1fr;
     gap: 48px;
   }
-
-  .mainImg {
-    height: 360px;
-  }
-
-  .badge {
-    bottom: -16px;
-    right: 16px;
-  }
+  .mainImg { height: 360px; }
+  .badge { bottom: -16px; right: 16px; }
 }

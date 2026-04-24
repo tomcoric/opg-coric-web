@@ -9,36 +9,48 @@ export default function Hero() {
 
       <div className={styles.content}>
         <span className={styles.badge}>OPG Kulin Ćorić</span>
+
         <h1 className={styles.title}>
-          Priroda na<br />vašem stolu
+          Domaće s dušom,<br />
+          <span className={styles.titleAccent}>prirodno i svježe</span>
         </h1>
+
+        <div className={styles.divider}>
+          <span className={styles.dividerLine} />
+          <span className={styles.dividerIcon}>🌾</span>
+          <span className={styles.dividerLine} />
+        </div>
+
         <p className={styles.subtitle}>
-          Svježi domaći proizvodi uzgojeni s ljubavlju — direktno s naše farme do vaše kuće.
+          Generacijama njegujemo tradiciju uzgoja kvalitetnih domaćih proizvoda —
+          direktno s naše slavonske farme do vašeg stola.
         </p>
+
         <div className={styles.actions}>
-          <Button href="#products" variant="accent">Pogledaj proizvode</Button>
-          <Button href="#about" variant="outline-white">Saznaj više</Button>
+          <Button href="#products" variant="accent">Naši proizvodi</Button>
+          <Button href="#about" variant="outline-white">Naša priča</Button>
         </div>
 
         <div className={styles.stats}>
           <div className={styles.stat}>
-            <strong>10+</strong>
-            <span>godina iskustva</span>
+            <strong>15+</strong>
+            <span>godina tradicije</span>
           </div>
           <div className={styles.statDivider} />
           <div className={styles.stat}>
             <strong>100%</strong>
-            <span>prirodno</span>
+            <span>domaće</span>
           </div>
           <div className={styles.statDivider} />
           <div className={styles.stat}>
-            <strong>lokalno</strong>
-            <span>uzgojeno</span>
+            <strong>Slavonija</strong>
+            <span>porijeklo</span>
           </div>
         </div>
       </div>
 
       <a href="#about" className={styles.scrollHint} aria-label="Scroll dolje">
+        <span className={styles.scrollText}>Scroll</span>
         <span className={styles.scrollLine} />
       </a>
     </section>

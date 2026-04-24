@@ -1,23 +1,24 @@
 :root {
   /* Boje */
-  --primary:        #2d5a1b;
-  --primary-dark:   #1e3e12;
-  --primary-light:  #3d7a25;
-  --accent:         #c8860a;
-  --accent-light:   #e8a020;
+  --primary:        #7B1E1E;
+  --primary-dark:   #5C1515;
+  --primary-light:  #9B2A2A;
+  --accent:         #C8860A;
+  --accent-light:   #E8A020;
 
-  --bg:             #faf7f2;
-  --bg-section:     #f0ebe0;
-  --surface:        #ffffff;
+  --bg:             #FAF6F0;
+  --bg-section:     #F2EBE0;
+  --bg-dark:        #1C0F0A;
+  --surface:        #FFFFFF;
 
-  --text:           #4a3f2e;
-  --text-muted:     #7a6e5e;
-  --text-heading:   #1e1a12;
+  --text:           #3D2B1F;
+  --text-muted:     #7A6455;
+  --text-heading:   #2C1810;
 
-  --border:         #ddd5c0;
-  --shadow-sm:      0 2px 8px rgba(45, 90, 27, 0.08);
-  --shadow-md:      0 8px 24px rgba(45, 90, 27, 0.12);
-  --shadow-lg:      0 20px 48px rgba(45, 90, 27, 0.16);
+  --border:         #E0D5C5;
+  --shadow-sm:      0 2px 8px rgba(123, 30, 30, 0.08);
+  --shadow-md:      0 8px 24px rgba(123, 30, 30, 0.12);
+  --shadow-lg:      0 20px 48px rgba(123, 30, 30, 0.16);
 
   /* Fontovi */
   --font-heading:   'Playfair Display', Georgia, serif;

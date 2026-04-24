@@ -4,16 +4,16 @@
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 20px 0;
+  padding: 18px 0;
   background: transparent;
-  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+  transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease;
 }
 
 .scrolled {
-  background: rgba(250, 247, 242, 0.96);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 2px 20px rgba(45, 90, 27, 0.1);
-  padding: 12px 0;
+  background: rgba(250, 246, 240, 0.97);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 2px 24px rgba(123, 30, 30, 0.1);
+  padding: 10px 0;
 }
 
 .inner {
@@ -27,62 +27,105 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .logoImg {
-  height: 44px;
+  height: 48px;
   width: auto;
   object-fit: contain;
+  transition: filter 0.4s;
+}
+
+/* Na transparentnom headeru logo postaje bijel */
+.header:not(.scrolled) .logoImg {
+  filter: brightness(0) invert(1);
 }
 
 .logoText {
   font-family: var(--font-heading);
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 700;
+  line-height: 1.1;
+  transition: color 0.4s;
+}
+
+.header:not(.scrolled) .logoText {
+  color: #fff;
+}
+
+.header.scrolled .logoText {
   color: var(--text-heading);
-  line-height: 1;
 }
 
 /* Nav */
 .nav {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
 .navLink {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 500;
-  color: var(--text);
   padding: 8px 14px;
   border-radius: var(--radius-sm);
   transition: color 0.2s, background 0.2s;
   text-decoration: none;
 }
 
-.navLink:hover {
-  color: var(--primary);
-  background: rgba(45, 90, 27, 0.07);
+/* Links na transparentnom headeru */
+.header:not(.scrolled) .navLink {
+  color: rgba(255, 255, 255, 0.88);
 }
 
+.header:not(.scrolled) .navLink:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Links na bijelom headeru */
+.header.scrolled .navLink {
+  color: var(--text);
+}
+
+.header.scrolled .navLink:hover {
+  color: var(--primary);
+  background: rgba(123, 30, 30, 0.06);
+}
+
+/* CTA gumb */
 .navCta {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: #fff;
   background: var(--primary);
-  padding: 10px 20px;
+  padding: 10px 22px;
   border-radius: var(--radius-sm);
   text-decoration: none;
-  margin-left: 8px;
-  transition: background 0.2s, transform 0.2s;
+  margin-left: 10px;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  border: 1.5px solid var(--primary);
 }
 
-.navCta:hover {
+.header:not(.scrolled) .navCta {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.5);
+  backdrop-filter: blur(8px);
+}
+
+.header:not(.scrolled) .navCta:hover {
+  background: rgba(255,255,255,0.25);
+  border-color: #fff;
+}
+
+.header.scrolled .navCta:hover {
   background: var(--primary-dark);
+  border-color: var(--primary-dark);
   transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 /* Hamburger */
@@ -101,32 +144,37 @@
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--text-heading);
   border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.4s;
   transform-origin: center;
+}
+
+.header:not(.scrolled) .burger span {
+  background: #fff;
+}
+
+.header.scrolled .burger span {
+  background: var(--text-heading);
 }
 
 .burgerOpen span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .burgerOpen span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .burgerOpen span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Backdrop za mobile */
+/* Backdrop */
 .backdrop {
   display: none;
 }
 
 /* Mobile */
 @media (max-width: 768px) {
-  .burger {
-    display: flex;
-  }
+  .burger { display: flex; }
 
   .backdrop {
     display: block;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(28, 10, 8, 0.5);
     z-index: 105;
   }
 
@@ -134,33 +182,44 @@
     position: fixed;
     top: 0;
     right: -100%;
-    width: 280px;
+    width: 290px;
     height: 100svh;
     background: var(--bg);
     flex-direction: column;
     align-items: flex-start;
-    padding: 100px 32px 40px;
-    gap: 4px;
+    padding: 96px 28px 40px;
+    gap: 2px;
     z-index: 108;
-    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.12);
+    box-shadow: -8px 0 40px rgba(28, 10, 8, 0.2);
     transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .nav.open {
-    right: 0;
-  }
+  .nav.open { right: 0; }
 
-  .navLink {
-    font-size: 1.1rem;
+  /* U mobilnom meniju linkovi uvijek tamni */
+  .header:not(.scrolled) .navLink,
+  .header.scrolled .navLink {
+    color: var(--text);
+    font-size: 1.05rem;
     width: 100%;
-    padding: 12px 16px;
+    padding: 12px 14px;
   }
 
-  .navCta {
+  .header:not(.scrolled) .navLink:hover,
+  .header.scrolled .navLink:hover {
+    color: var(--primary);
+    background: rgba(123, 30, 30, 0.06);
+  }
+
+  .header:not(.scrolled) .navCta,
+  .header.scrolled .navCta {
     margin-left: 0;
-    margin-top: 16px;
+    margin-top: 12px;
     width: 100%;
     text-align: center;
     padding: 14px 20px;
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
   }
 }
