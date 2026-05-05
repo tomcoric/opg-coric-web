@@ -1,65 +1,78 @@
-/* Plutajući blok — "izvlači se" iz Hero-a prema gore */
 .wrapper {
   position: relative;
   z-index: 10;
-  margin-top: -80px;
-  padding: 0 0 0;
+  margin-top: -120px;
+  padding: 0 32px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
   background: #fff;
   border-radius: var(--radius-lg);
-  box-shadow: 0 8px 48px rgba(26, 14, 8, 0.14);
+  box-shadow: 0 24px 64px rgba(26, 14, 8, 0.18);
   overflow: hidden;
   border: 1px solid var(--border);
 }
 
 .card {
-  padding: 36px 28px;
+  position: relative;
+  padding: 40px 32px 36px;
   border-right: 1px solid var(--border);
-  transition: background 0.25s;
+  transition: background 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-.card:last-child {
-  border-right: none;
+.card:last-child { border-right: none; }
+
+/* Bordo linija na vrhu svake kartice pri hoveru */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
 }
 
-.card:hover {
-  background: var(--bg-alt);
-}
+.card:hover::before { transform: scaleX(1); }
+.card:hover { background: var(--bg-alt); }
 
 .icon {
-  display: block;
-  font-size: 2rem;
-  margin-bottom: 14px;
+  font-size: 2.2rem;
+  margin-bottom: 18px;
   line-height: 1;
+  display: block;
 }
 
 .title {
   font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
   color: var(--text-heading);
-  margin-bottom: 8px;
-  line-height: 1.3;
+  margin-bottom: 10px;
+  line-height: 1.25;
 }
 
 .desc {
   font-size: 0.85rem;
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.72;
 }
 
-/* Hero treba imati padding-bottom da ostavi mjesta za plutajući blok */
-@media (max-width: 1024px) {
-  .card { padding: 28px 20px; }
+@media (max-width: 1100px) {
+  .wrapper { padding: 0 20px; }
+  .card { padding: 32px 24px; }
 }
 
 @media (max-width: 768px) {
-  .wrapper { margin-top: -40px; }
+  .wrapper { margin-top: -60px; padding: 0 16px; }
 
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -78,7 +91,7 @@
 }
 
 @media (max-width: 480px) {
-  .wrapper { margin-top: -24px; }
+  .wrapper { margin-top: -40px; }
   .grid { grid-template-columns: 1fr; }
   .card { border-right: none; border-bottom: 1px solid var(--border); }
   .card:last-child { border-bottom: none; }
