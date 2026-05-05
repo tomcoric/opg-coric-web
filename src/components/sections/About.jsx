@@ -1,55 +1,47 @@
 import Container from '../ui/Container'
-import SectionTitle from '../ui/SectionTitle'
-import Button from '../ui/Button'
 import styles from './About.module.css'
-
-const values = [
-  { icon: '🌱', title: 'Prirodno uzgojeno', desc: 'Bez pesticida i umjetnih gnojiva — samo čista zemlja i sunce.' },
-  { icon: '🤝', title: 'Direktna prodaja', desc: 'Od naše farme do vašeg stola, bez posrednika.' },
-  { icon: '❤️', title: 'Obiteljska tradicija', desc: 'Generacijama prenosimo ljubav prema zemlji i domaćim proizvodima.' },
-]
 
 export default function About() {
   return (
-    <section id="about" className={styles.about}>
+    <section id="o-nama" className={styles.about}>
       <Container>
-        <div className={styles.grid}>
-          <div className={styles.imageCol}>
-            <div className={styles.imageWrap}>
-              <img src="/images/katedrala.png" alt="OPG Kulin Ćorić farma" className={styles.mainImg} />
-              <div className={styles.badge}>
-                <img src="/images/logo_udruge_HD.png" alt="Logo" className={styles.badgeLogo} />
-                <span>Certificirani<br />proizvođač</span>
-              </div>
-            </div>
+        <div className={styles.inner}>
+          <div className={styles.header}>
+            <span className={styles.label}>O nama</span>
+            <h2>OPG Kulin Ćorić</h2>
           </div>
 
-          <div className={styles.textCol}>
-            <SectionTitle
-              label="O nama"
-              title="Priča naše farme"
-              subtitle="OPG Kulin Ćorić je obiteljsko poljoprivredno gospodarstvo s dugogodišnjom tradicijom uzgoja kvalitetnih domaćih proizvoda."
-              align="left"
-            />
-
-            <p className={styles.body}>
-              Smješteni u srcu prirode, njegujemo tradiciju naših predaka uz primjenu suvremenih metoda uzgoja.
-              Svaki naš proizvod nastaje s pažnjom i posvećenošću — jer vjerujemo da zdrava zemlja rađa zdrave ljude.
+          <div className={styles.body}>
+            <p>
+              Drago mi je da vas mogu pozdraviti u ime OPG-a Kulin Ćorić i zaželjeti vam dobrodošlicu
+              na web stranici kojom želimo naš OPG približiti, prezentirati i pozvati sve zainteresirane
+              da nas posjete ili naruče naše proizvode.
             </p>
+            <p>
+              Ovim stranicama želimo vam na transparentan način približiti rad OPG-a, upoznati vas
+              sa aktivnostima koje provodimo te vas upoznati s kvalitetom i tradicijom naše proizvodnje.
+            </p>
+            <p>
+              Više od petnaest godina u Đakovu proizvodimo kvalitetni slavonski kulin. Baveći se
+              uzgojem svinja i preradi svinjetine prema tradicionalnim recepturama, nastavljamo
+              obiteljsku tradiciju koja datira još iz vremena naših predaka. Svaki naš proizvod
+              nastaje ručnom izradom, bez konzervansa i aditiva — samo svinjsko meso, paprika,
+              češnjak i sol.
+            </p>
+            <p>
+              OPG je osnovan s ciljem da zaštiti i promovira autohtonih, tradicionalnih suhomesnatih
+              proizvoda Slavonije. Kao ponosi član Udruge kulinara „Đakovački kulin", redovito
+              sudjelujemo na ocjenjivanjima i natjecanjima diljem Slavonije.
+            </p>
+            <p>
+              Naši proizvodi su prepoznati i nagrađivani na regionalnim i nacionalnim razinama.
+              Predsjednik OPG-a, Vladimir Ćorić, aktivno sudjeluje u promociji slavonske gastronomske
+              baštine i jedan je od vodećih proizvođača kulina u Đakovštini.
+            </p>
+          </div>
 
-            <div className={styles.values}>
-              {values.map(v => (
-                <div key={v.title} className={styles.valueItem}>
-                  <span className={styles.valueIcon}>{v.icon}</span>
-                  <div>
-                    <strong>{v.title}</strong>
-                    <p>{v.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <Button href="#contact" variant="primary">Kontaktiraj nas</Button>
+          <div className={styles.highlight}>
+            <strong>Vladimir Ćorić, vlasnik OPG-a</strong>
           </div>
         </div>
       </Container>

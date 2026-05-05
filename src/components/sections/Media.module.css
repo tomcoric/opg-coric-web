@@ -1,0 +1,87 @@
+.section {
+  padding: var(--section-py) 0;
+  background: var(--bg);
+}
+
+.header {
+  max-width: 780px;
+  margin: 0 auto 56px;
+}
+
+.label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 14px;
+  opacity: 0.85;
+}
+
+.list {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.article {
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.article:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.source {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--primary);
+  opacity: 0.85;
+}
+
+.date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  line-height: 1.72;
+  margin-bottom: 16px;
+  max-width: 640px;
+}
+
+.link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  transition: color 0.2s, letter-spacing 0.2s;
+}
+
+.link:hover {
+  color: var(--primary-dark);
+  letter-spacing: 0.5px;
+}

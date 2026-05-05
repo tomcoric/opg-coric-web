@@ -1,37 +1,32 @@
 :root {
-  /* Bordo paleta — meso, tradicija, slavonija */
-  --primary:        #7B1E1E;
-  --primary-dark:   #5C1515;
-  --primary-light:  #9B2A2A;
-  --accent:         #C8860A;
-  --accent-light:   #E8A020;
+  --primary:       #7B1E1E;
+  --primary-dark:  #5C1515;
+  --accent:        #C8860A;
+  --accent-light:  #E8A020;
 
-  --bg:             #FDFAF6;
-  --bg-section:     #F7F2EA;
-  --bg-dark:        #180C08;
-  --surface:        #FFFFFF;
+  --bg:            #FFFFFF;
+  --bg-alt:        #F9F5F0;
+  --bg-dark:       #16100C;
+  --surface:       #FFFFFF;
 
-  --text:           #3A2A1E;
-  --text-muted:     #847060;
-  --text-heading:   #200E08;
+  --text:          #2C1F17;
+  --text-muted:    #7A6A5A;
+  --text-heading:  #1A0E08;
 
-  --border:         #E8DDD0;
-  --border-light:   #F0E8DC;
+  --border:        #EAE0D5;
 
-  --shadow-sm:  0 1px 4px rgba(32, 14, 8, 0.06);
-  --shadow-md:  0 4px 20px rgba(32, 14, 8, 0.10);
-  --shadow-lg:  0 16px 48px rgba(32, 14, 8, 0.14);
+  --shadow-sm: 0 1px 4px rgba(26, 14, 8, 0.06);
+  --shadow-md: 0 4px 20px rgba(26, 14, 8, 0.09);
+  --shadow-lg: 0 16px 48px rgba(26, 14, 8, 0.13);
 
-  /* Fontovi */
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body:    'Inter', system-ui, sans-serif;
 
-  /* Geometrija */
   --radius-sm:  4px;
   --radius-md:  8px;
   --radius-lg:  16px;
-  --container:  1180px;
-  --section-py: 120px;
+  --container:  1100px;
+  --section-py: 112px;
 
   font-family: var(--font-body);
   font-size: 17px;
@@ -39,12 +34,11 @@
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 
   @media (max-width: 768px) {
     font-size: 16px;
-    --section-py: 80px;
+    --section-py: 72px;
   }
 }
 
@@ -56,49 +50,22 @@ html { scroll-behavior: smooth; }
   padding: 0;
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-}
+body { background: var(--bg); color: var(--text); }
 
-#root {
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-}
+#root { min-height: 100svh; display: flex; flex-direction: column; }
 
-/* Tipografija */
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   color: var(--text-heading);
   line-height: 1.15;
-  font-weight: 700;
 }
 
-h1 { font-size: clamp(2.8rem, 6vw, 5rem);   letter-spacing: -0.02em; }
-h2 { font-size: clamp(2rem, 4vw, 3.2rem);   letter-spacing: -0.01em; }
-h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
+h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.8rem, 3.8vw, 3rem);   font-weight: 700; letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.1rem, 2vw, 1.35rem);  font-weight: 600; }
 
-p {
-  color: var(--text);
-  line-height: 1.75;
-}
-
-a {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
+p  { color: var(--text); line-height: 1.8; }
+a  { color: var(--primary); text-decoration: none; }
+img { max-width: 100%; display: block; }
 ul { list-style: none; }
-
-button {
-  cursor: pointer;
-  font-family: var(--font-body);
-  border: none;
-  background: none;
-}
+button { cursor: pointer; font-family: var(--font-body); border: none; background: none; }

@@ -1,10 +1,10 @@
 .hero {
   position: relative;
   height: 100svh;
-  min-height: 640px;
+  min-height: 600px;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
@@ -12,97 +12,72 @@
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center 35%;
-  transition: transform 12s ease;
-  transform: scale(1.03);
+  background-position: center;
 }
 
-.hero:hover .bg {
-  transform: scale(1);
-}
-
-/* Gradient od dna prema gore — tekst čitljiv, ali slika dominira na vrhu */
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(24, 12, 8, 0.88) 0%,
-    rgba(24, 12, 8, 0.40) 45%,
-    rgba(24, 12, 8, 0.08) 100%
-  );
+  background: rgba(16, 8, 4, 0.62);
 }
 
 .content {
   position: relative;
   z-index: 2;
-  padding: 0 6vw 96px;
-  max-width: 760px;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 860px;
 }
 
-.eyebrow {
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--accent-light);
-  margin-bottom: 24px;
-  opacity: 0.9;
+.logo {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  margin: 0 auto 28px;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
 }
 
 .title {
-  font-size: clamp(3.2rem, 7vw, 6.5rem);
-  font-weight: 700;
   color: #fff;
-  line-height: 1.0;
-  margin-bottom: 28px;
-  letter-spacing: -0.02em;
-}
-
-.title em {
-  font-style: italic;
-  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .subtitle {
-  font-size: clamp(1rem, 1.6vw, 1.1rem);
-  color: rgba(255, 255, 255, 0.65);
-  line-height: 1.8;
-  margin-bottom: 44px;
-  font-weight: 400;
-  max-width: 440px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.actions {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
+.cta {
+  display: inline-block;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 12px 36px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+  border-radius: var(--radius-sm);
 }
 
-/* Scroll hint */
-.scrollHint {
-  position: absolute;
-  bottom: 40px;
-  right: 6vw;
-  z-index: 2;
-}
-
-.scrollLine {
-  display: block;
-  width: 1px;
-  height: 64px;
-  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.5));
-  animation: scrollDrop 2.4s ease-in-out infinite;
-}
-
-@keyframes scrollDrop {
-  0%   { transform: scaleY(0); transform-origin: top; opacity: 0; }
-  30%  { opacity: 1; }
-  100% { transform: scaleY(1); transform-origin: top; opacity: 0.3; }
+.cta:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
 }
 
 @media (max-width: 768px) {
-  .content  { padding: 0 24px 72px; }
-  .title    { font-size: clamp(2.8rem, 10vw, 4rem); }
-  .scrollHint { right: 24px; }
+  .logo { height: 72px; }
+  .title { letter-spacing: 0.01em; }
 }

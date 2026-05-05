@@ -1,4 +1,3 @@
-import Button from '../ui/Button'
 import styles from './Hero.module.css'
 
 export default function Hero() {
@@ -8,23 +7,14 @@ export default function Hero() {
       <div className={styles.overlay} />
 
       <div className={styles.content}>
-        <p className={styles.eyebrow}>OPG Kulin Ćorić · Slavonija</p>
+        <img src="/images/logo_veliki.png" alt="OPG Kulin Ćorić" className={styles.logo} />
         <h1 className={styles.title}>
-          Domaće.<br />Prirodno.<br />
-          <em>S dušom.</em>
+          DOBRODOŠLI NA STRANICE<br />OPG-A KULIN ĆORIĆ
         </h1>
         <p className={styles.subtitle}>
-          Generacijama uzgajamo, prerađujemo i čuvamo<br />
-          tradiciju slavonskog stola.
+          Čuvamo tradiciju slavonskog kulina i promičemo kvalitetu domaćih proizvoda već više od petnaest godina.
         </p>
-        <div className={styles.actions}>
-          <Button href="#products" variant="accent">Naši proizvodi</Button>
-          <Button href="#about" variant="outline-white">Naša priča</Button>
-        </div>
-      </div>
-
-      <div className={styles.scrollHint}>
-        <span className={styles.scrollLine} />
+        <a href="#o-nama" className={styles.cta}>Saznaj više</a>
       </div>
     </section>
   )

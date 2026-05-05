@@ -1,107 +1,65 @@
 import { useState } from 'react'
 import Container from '../ui/Container'
-import SectionTitle from '../ui/SectionTitle'
-import Button from '../ui/Button'
 import styles from './Contact.module.css'
-
-const contactInfo = [
-  { icon: '📍', label: 'Adresa', value: 'Vaša adresa, Grad, Hrvatska' },
-  { icon: '📞', label: 'Telefon', value: '+385 XX XXX XXXX' },
-  { icon: '✉️', label: 'Email', value: 'info@opg-coric.hr' },
-  { icon: '🕐', label: 'Radno vrijeme', value: 'Pon – Sub: 7:00 – 18:00' },
-]
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [sent, setSent] = useState(false)
 
   const handleChange = e => setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
-
-  const handleSubmit = e => {
-    e.preventDefault()
-    setSent(true)
-  }
+  const handleSubmit = e => { e.preventDefault(); setSent(true) }
 
   return (
-    <section id="contact" className={styles.contact}>
+    <section id="kontakt" className={styles.section}>
       <Container>
-        <SectionTitle
-          label="Kontakt"
-          title="Javite nam se"
-          subtitle="Imate pitanje o našim proizvodima? Rado ćemo vam odgovoriti."
-        />
-
-        <div className={styles.grid}>
-          <div className={styles.infoCol}>
-            <div className={styles.infoList}>
-              {contactInfo.map(item => (
-                <div key={item.label} className={styles.infoItem}>
-                  <span className={styles.infoIcon}>{item.icon}</span>
-                  <div>
-                    <strong>{item.label}</strong>
-                    <p>{item.value}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className={styles.social}>
-              <p>Pratite nas na društvenim mrežama</p>
-              <div className={styles.socialLinks}>
-                <a href="#" className={styles.socialLink} aria-label="Facebook">f</a>
-                <a href="#" className={styles.socialLink} aria-label="Instagram">ig</a>
-              </div>
-            </div>
+        <div className={styles.inner}>
+          <div className={styles.header}>
+            <span className={styles.label}>Kontakt</span>
+            <h2>Kontaktirajte nas</h2>
+            <p className={styles.subtitle}>Imate pitanja o proizvodima ili narudžbama? Javite nam se.</p>
           </div>
 
-          <div className={styles.formCol}>
-            {sent ? (
-              <div className={styles.success}>
-                <span className={styles.successIcon}>✓</span>
-                <h3>Poruka poslana!</h3>
-                <p>Javit ćemo vam se u najkraćem mogućem roku.</p>
+          <div className={styles.grid}>
+            <div className={styles.info}>
+              <div className={styles.infoItem}>
+                <strong>Adresa</strong>
+                <a href="https://www.google.com/maps?q=Petra+Preradovića+25,+31400+Đakovo" target="_blank" rel="noopener noreferrer">
+                  Petra Preradovića 25, 31400 Đakovo
+                </a>
               </div>
-            ) : (
-              <form className={styles.form} onSubmit={handleSubmit}>
-                <div className={styles.field}>
-                  <label htmlFor="name">Ime i prezime</label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    placeholder="Ivan Horvat"
-                    value={form.name}
-                    onChange={handleChange}
-                    required
-                  />
+              <div className={styles.infoItem}>
+                <strong>E-mail</strong>
+                <a href="mailto:udrugakulinaradj@gmail.com">udrugakulinaradj@gmail.com</a>
+              </div>
+              <div className={styles.infoItem}>
+                <strong>Vlasnik</strong>
+                <a href="tel:+38598223844">+385 98 223 844</a>
+              </div>
+            </div>
+
+            <div className={styles.formWrap}>
+              {sent ? (
+                <div className={styles.success}>
+                  <p>✓ Poruka je poslana. Javit ćemo vam se uskoro.</p>
                 </div>
-                <div className={styles.field}>
-                  <label htmlFor="email">Email adresa</label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="ivan@email.com"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className={styles.field}>
-                  <label htmlFor="message">Poruka</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    placeholder="Vaša poruka..."
-                    value={form.message}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <Button type="submit" variant="primary">Pošalji poruku</Button>
-              </form>
-            )}
+              ) : (
+                <form onSubmit={handleSubmit} className={styles.form}>
+                  <div className={styles.field}>
+                    <label htmlFor="name">Ime i prezime</label>
+                    <input id="name" name="name" type="text" value={form.name} onChange={handleChange} required placeholder="Ivan Horvat" />
+                  </div>
+                  <div className={styles.field}>
+                    <label htmlFor="email">E-mail</label>
+                    <input id="email" name="email" type="email" value={form.email} onChange={handleChange} required placeholder="ivan@email.com" />
+                  </div>
+                  <div className={styles.field}>
+                    <label htmlFor="message">Poruka</label>
+                    <textarea id="message" name="message" rows={5} value={form.message} onChange={handleChange} required placeholder="Vaša poruka..." />
+                  </div>
+                  <button type="submit" className={styles.submit}>Pošalji poruku</button>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       </Container>

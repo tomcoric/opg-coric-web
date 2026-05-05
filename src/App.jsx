@@ -2,10 +2,12 @@ import './App.css'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import Hero from './components/sections/Hero'
-import FeatureBanner from './components/sections/FeatureBanner'
+import Stats from './components/sections/Stats'
 import About from './components/sections/About'
-import Products from './components/sections/Products'
+import KulinInfo from './components/sections/KulinInfo'
+import Media from './components/sections/Media'
 import Contact from './components/sections/Contact'
+import CathedralDivider from './components/ui/CathedralDivider'
 
 function App() {
   return (
@@ -13,9 +15,12 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <FeatureBanner />
+        <Stats />
         <About />
-        <Products />
+        <CathedralDivider />
+        <KulinInfo />
+        <CathedralDivider />
+        <Media />
         <Contact />
       </main>
       <Footer />
