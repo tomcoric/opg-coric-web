@@ -15,7 +15,7 @@ const products = [
     name: 'Svježe povrće',
     desc: 'Sezonsko povrće uzgojeno bez pesticida, ubrano u pravom trenutku.',
     tag: 'Sezonski',
-    img: '/images/Title slika.jpg',
+    img: '/images/title-slika.jpg',
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const products = [
     name: 'Zimnica',
     desc: 'Domaće pekmeze, džemove i ukiseljeno povrće prema starim receptima.',
     tag: null,
-    img: '/images/Title slika.jpg',
+    img: '/images/title-slika.jpg',
   },
 ]
 

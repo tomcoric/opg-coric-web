@@ -3,7 +3,7 @@ import styles from './Hero.module.css'
 export default function Hero() {
   return (
     <section id="hero" className={styles.hero}>
-      <div className={styles.bg} style={{ backgroundImage: 'url(/images/Title slika.jpg)' }} />
+      <div className={styles.bg} style={{ backgroundImage: 'url(/images/title-slika.jpg)' }} />
       <div className={styles.overlay} />
 
       <div className={styles.content}>

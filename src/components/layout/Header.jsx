@@ -3,11 +3,10 @@ import Container from '../ui/Container'
 import styles from './Header.module.css'
 
 const navLinks = [
-  { href: '#hero',        label: 'Naslovnica' },
-  { href: '#o-nama',      label: 'O nama' },
-  { href: '#sto-je-kulin', label: 'Što je kulin?' },
-  { href: '#mediji',      label: 'Mediji' },
-  { href: '#kontakt',     label: 'Kontakt' },
+  { href: '#hero',     label: 'Početna' },
+  { href: '#about',    label: 'O nama' },
+  { href: '#products', label: 'Proizvodi' },
+  { href: '#contact',  label: 'Kontakt' },
 ]
 
 export default function Header() {
@@ -36,7 +35,7 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <a href="#kontakt" className={styles.navCta} onClick={closeMenu}>Kontaktiraj nas</a>
+          <a href="#contact" className={styles.navCta} onClick={closeMenu}>Kontaktiraj nas</a>
         </nav>
 
         <button
