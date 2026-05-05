@@ -1,6 +1,30 @@
+import { useState, useEffect } from 'react'
 import styles from './Hero.module.css'
 
+const headlines = [
+  'Dobro došli tamo gdje se okus nasljeđuje.',
+]
+
+const INTERVAL = 15000
+
 export default function Hero() {
+  const [current, setCurrent] = useState(0)
+  const [visible, setVisible] = useState(true)
+
+  useEffect(() => {
+    if (headlines.length <= 1) return
+
+    const timer = setInterval(() => {
+      setVisible(false)
+      setTimeout(() => {
+        setCurrent(prev => (prev + 1) % headlines.length)
+        setVisible(true)
+      }, 500)
+    }, INTERVAL)
+
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.bg} style={{ backgroundImage: 'url(/images/title-slika.jpg)' }} />
@@ -8,8 +32,8 @@ export default function Hero() {
 
       <div className={styles.content}>
         <img src="/images/logo_veliki.png" alt="OPG Kulin Ćorić" className={styles.logo} />
-        <h1 className={styles.title}>
-          DOBRODOŠLI NA STRANICE<br />OPG-A KULIN ĆORIĆ
+        <h1 className={`${styles.title} ${visible ? styles.visible : styles.hidden}`}>
+          {headlines[current]}
         </h1>
         <p className={styles.subtitle}>
           Čuvamo tradiciju slavonskog kulina i promičemo kvalitetu domaćih proizvoda već više od petnaest godina.
