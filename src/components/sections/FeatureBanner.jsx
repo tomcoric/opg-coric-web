@@ -10,11 +10,11 @@ const features = [
 
 export default function FeatureBanner() {
   return (
-    <section className={styles.banner}>
+    <div className={styles.wrapper}>
       <Container>
         <div className={styles.grid}>
           {features.map(f => (
-            <div key={f.title} className={styles.item}>
+            <div key={f.title} className={styles.card}>
               <span className={styles.icon}>{f.icon}</span>
               <h3 className={styles.title}>{f.title}</h3>
               <p className={styles.desc}>{f.desc}</p>
@@ -22,6 +22,6 @@ export default function FeatureBanner() {
           ))}
         </div>
       </Container>
-    </section>
+    </div>
   )
 }
