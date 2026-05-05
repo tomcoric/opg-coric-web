@@ -37,6 +37,12 @@
 
 .infoItem { display: flex; flex-direction: column; gap: 5px; }
 
+.infoItem span {
+  font-size: 0.97rem;
+  color: var(--text-heading);
+  font-weight: 500;
+}
+
 .infoItem strong {
   font-size: 0.72rem;
   font-weight: 700;
