@@ -2,7 +2,13 @@ import { useState, useEffect } from 'react'
 import styles from './Hero.module.css'
 
 const headlines = [
-  'Dobro došli tamo gdje se okus nasljeđuje.',
+  'Dobro došli na mjesto gdje se okus nasljeđuje.',
+  'Dobro došli na mjesto gdje tradicija postaje okus.',
+  'Dobro došli tamo gdje dim miriše na djetinjstvo, a svaki zalogaj na topli dom.',
+  'Dobro došli na mjesto gdje tradicija postaje stvarnost.',
+  'Dobro došli u srce slavonske tradicije.',
+  'Dobro došli na mjesto gdje tradicija sazrijeva u vrhunski okus.',
+  'Dobro došli u svijet pravog slavonskog okusa.',
 ]
 
 const INTERVAL = 15000
