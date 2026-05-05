@@ -23,17 +23,17 @@ export default function Contact() {
             <div className={styles.info}>
               <div className={styles.infoItem}>
                 <strong>Adresa</strong>
-                <a href="https://www.google.com/maps?q=Petra+Preradovića+25,+31400+Đakovo" target="_blank" rel="noopener noreferrer">
-                  Petra Preradovića 25, 31400 Đakovo
+                <a href="https://www.google.com/maps?q=Miroslava+Krleže+2,+31400+Đakovo" target="_blank" rel="noopener noreferrer">
+                  Miroslava Krleže 2, 31400 Đakovo
                 </a>
               </div>
               <div className={styles.infoItem}>
                 <strong>E-mail</strong>
-                <a href="mailto:udrugakulinaradj@gmail.com">udrugakulinaradj@gmail.com</a>
+                <a href="mailto:opgcoricvladimir@gmail.com">opgcoricvladimir@gmail.com</a>
               </div>
               <div className={styles.infoItem}>
-                <strong>Vlasnik</strong>
-                <a href="tel:+38598223844">+385 98 223 844</a>
+                <strong>Za sve informacije</strong>
+                <span>Vladimir Ćorić</span>
               </div>
             </div>
 
