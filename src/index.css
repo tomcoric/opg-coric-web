@@ -1,37 +1,62 @@
 :root {
-  --primary:       #7B1E1E;
-  --primary-dark:  #5C1515;
-  --accent:        #C8860A;
-  --accent-light:  #E8A020;
+  /* ═══ PALETA ═══ */
+  --ink:         #15100B;
+  --ink-soft:    #3A3027;
+  --ink-mute:    #7A6A5A;
 
-  --bg:            #FFFFFF;
-  --bg-alt:        #F9F5F0;
-  --bg-dark:       #16100C;
-  --surface:       #FFFFFF;
+  --gold:        #B8860B;
+  --gold-soft:   #C9A24A;
+  --gold-deep:   #8C660A;
 
-  --text:          #2C1F17;
-  --text-muted:    #7A6A5A;
-  --text-heading:  #1A0E08;
+  /* Bordo — JEDINO u CathedralDivider */
+  --bordo:       #6B1818;
+  --bordo-deep:  #3F0D0D;
 
-  --border:        #EAE0D5;
+  /* Pozadine */
+  --bg:          #FAF7F2;
+  --bg-elevated: #FFFFFF;
+  --bg-warm:     #F2EBE0;
+  --bg-deep:     #15100B;
 
-  --shadow-sm: 0 1px 4px rgba(26, 14, 8, 0.06);
-  --shadow-md: 0 4px 20px rgba(26, 14, 8, 0.09);
-  --shadow-lg: 0 16px 48px rgba(26, 14, 8, 0.13);
+  /* Linije */
+  --line:        #E8DFD2;
+  --line-strong: #C9BBA8;
+  --line-gold:   rgba(184, 134, 11, .35);
 
-  --font-heading: 'Playfair Display', Georgia, serif;
-  --font-body:    'Inter', system-ui, sans-serif;
+  /* Sjene */
+  --shadow-sm: 0 1px 4px rgba(21, 16, 11, 0.06);
+  --shadow-md: 0 4px 20px rgba(21, 16, 11, 0.09);
+  --shadow-lg: 0 16px 48px rgba(21, 16, 11, 0.13);
 
-  --radius-sm:  4px;
-  --radius-md:  8px;
-  --radius-lg:  16px;
+  /* ═══ TIPOGRAFIJA ═══ */
+  --display: 'EB Garamond', Georgia, serif;
+  --body:    'Inter Tight', system-ui, sans-serif;
+
+  /* ═══ LAYOUT ═══ */
+  --radius-sm:  2px;
+  --radius-md:  2px;
+  --radius-lg:  0px;
   --container:  1100px;
   --section-py: 112px;
 
-  font-family: var(--font-body);
+  /* ═══ BACKWARDS COMPAT — uklonjeno korak po korak ═══ */
+  --primary:      var(--gold);
+  --primary-dark: var(--gold-deep);
+  --accent:       var(--gold-soft);
+  --bg-alt:       var(--bg-warm);
+  --bg-dark:      var(--bg-deep);
+  --surface:      var(--bg-elevated);
+  --text:         var(--ink-soft);
+  --text-muted:   var(--ink-mute);
+  --text-heading: var(--ink);
+  --border:       var(--line);
+  --font-heading: var(--display);
+  --font-body:    var(--body);
+
+  font-family: var(--body);
   font-size: 17px;
-  line-height: 1.65;
-  color: var(--text);
+  line-height: 1.6;
+  color: var(--ink-soft);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -50,26 +75,40 @@ html { scroll-behavior: smooth; }
   padding: 0;
 }
 
-body { background: var(--bg); color: var(--text); }
+body { background: var(--bg); color: var(--ink-soft); }
 
 #root { min-height: 100svh; display: flex; flex-direction: column; }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-heading);
-  color: var(--text-heading);
+  font-family: var(--display);
+  color: var(--ink);
   line-height: 1.15;
 }
 
-h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 700; letter-spacing: -0.02em; }
-h2 { font-size: clamp(1.8rem, 3.8vw, 3rem);   font-weight: 700; letter-spacing: -0.01em; }
-h3 { font-size: clamp(1.1rem, 2vw, 1.35rem);  font-weight: 600; }
+h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 600; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.8rem, 3.8vw, 3rem);   font-weight: 600; letter-spacing: -0.01em; }
+h3 { font-size: clamp(1.1rem, 2vw, 1.35rem);  font-weight: 500; }
 
-p  { color: var(--text); line-height: 1.8; }
-a  { color: var(--primary); text-decoration: none; }
+p  { color: var(--ink-soft); line-height: 1.6; }
+a  { color: var(--gold); text-decoration: none; }
 img { max-width: 100%; display: block; }
 ul { list-style: none; }
-button { cursor: pointer; font-family: var(--font-body); border: none; background: none; }
+button { cursor: pointer; font-family: var(--body); border: none; background: none; }
 
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ═══ CATHEDRAL HEADER BACKGROUND ═══ */
 .cathedralHeader {
   position: absolute;
   top: 0;
