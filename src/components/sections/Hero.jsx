@@ -1,49 +1,56 @@
-import { useState, useEffect } from 'react'
 import styles from './Hero.module.css'
 
-const headlines = [
-  'Dobro došli na mjesto gdje se okus nasljeđuje.',
-  'Dobro došli na mjesto gdje tradicija postaje okus.',
-  'Dobro došli tamo gdje dim miriše na djetinjstvo, a svaki zalogaj na topli dom.',
-  'Dobro došli na mjesto gdje tradicija postaje stvarnost.',
-  'Dobro došli u srce slavonske tradicije.',
-  'Dobro došli na mjesto gdje tradicija sazrijeva u vrhunski okus.',
-  'Dobro došli u svijet pravog slavonskog okusa.',
-]
+function ShieldIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+      stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M7 1L2 3.5v3.5c0 2.8 2.2 4.8 5 5.5 2.8-.7 5-2.7 5-5.5V3.5L7 1z" />
+    </svg>
+  )
+}
 
-const INTERVAL = 15000
+function PinIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+      stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M7 13S2 8.8 2 5.5a5 5 0 0 1 10 0C12 8.8 7 13 7 13z" />
+      <circle cx="7" cy="5.5" r="1.8" />
+    </svg>
+  )
+}
 
 export default function Hero() {
-  const [current, setCurrent] = useState(0)
-  const [visible, setVisible] = useState(true)
-
-  useEffect(() => {
-    if (headlines.length <= 1) return
-
-    const timer = setInterval(() => {
-      setVisible(false)
-      setTimeout(() => {
-        setCurrent(prev => (prev + 1) % headlines.length)
-        setVisible(true)
-      }, 500)
-    }, INTERVAL)
-
-    return () => clearInterval(timer)
-  }, [])
-
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.bg} style={{ backgroundImage: 'url(/images/title-slika.jpg)' }} />
       <div className={styles.overlay} />
 
       <div className={styles.content}>
-        <h1 className={`${styles.title} ${visible ? styles.visible : styles.hidden}`}>
-          {headlines[current]}
+        <div className={styles.crest}>K</div>
+
+        <p className={styles.eyebrow}>OPG Kulin Ćorić · Đakovo, Slavonija · Od 2009.</p>
+
+        <h1 className={styles.title}>
+          Dobro došli u srce <em>slavonske</em> tradicije
         </h1>
+
         <p className={styles.subtitle}>
-          Čuvamo tradiciju slavonskog kulina i promičemo kvalitetu domaćih proizvoda već više od petnaest godina.
+          Čuvamo tradiciju slavonskog kulina i promičemo kvalitetu domaćih
+          proizvoda već više od petnaest godina.
         </p>
-        <a href="#o-nama" className={styles.cta}>Saznaj više</a>
+
+        <div className={styles.rule} />
+
+        <div className={styles.actions}>
+          <a href="#o-nama"   className={styles.ctaPrimary}>Saznaj više</a>
+          <a href="#kontakt"  className={styles.ctaSecondary}>Kontaktiraj nas</a>
+        </div>
+
+        <div className={styles.trust}>
+          <span className={styles.trustItem}><ShieldIcon />EU IGP zaštita</span>
+          <span className={styles.trustDivider} />
+          <span className={styles.trustItem}><PinIcon />Đakovački kulin</span>
+        </div>
       </div>
     </section>
   )
