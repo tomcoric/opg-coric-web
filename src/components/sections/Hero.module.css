@@ -33,6 +33,15 @@
   margin: 0 auto;
 }
 
+/* Hero logo */
+.logo {
+  width: 120px;
+  height: auto;
+  margin: 0 auto 28px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
 /* Eyebrow — samo gold tekst, bez boxa */
 .eyebrow {
   display: block;

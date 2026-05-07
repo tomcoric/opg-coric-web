@@ -26,6 +26,8 @@ export default function Hero() {
       <div className={styles.overlay} />
 
       <div className={styles.content}>
+        <img src="/images/Kulin_Coric_Logo_Web.png" alt="Kulin Ćorić" className={styles.logo} />
+
         <h1 className={styles.title}>
           Dobro došli u srce <em>slavonske</em> tradicije
         </h1>

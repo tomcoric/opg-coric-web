@@ -27,7 +27,7 @@ export default function Header() {
       <Container className={styles.inner}>
 
         <a href="/" className={styles.brand}>
-          <span className={styles.brandMark}>K</span>
+          <img src="/images/Kulin_Coric_Logo_Web.png" alt="" className={styles.brandLogo} />
           Kulin Ćorić
         </a>
 
