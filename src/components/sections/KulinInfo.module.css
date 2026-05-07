@@ -1,8 +1,8 @@
 .section {
+  position: relative;
+  z-index: 1;
   padding: var(--section-py) 0;
-  background: var(--bg-warm);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  background: var(--bg-deep);
 }
 
 .inner {
@@ -11,12 +11,6 @@
 }
 
 .header {
-  position: relative;
-  isolation: isolate;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: 200px;
   margin-bottom: 48px;
 }
 
@@ -31,7 +25,7 @@
 }
 
 .header h2 em {
-  font-style: italic;
+  font-style: normal;
   color: var(--gold-soft);
 }
 
@@ -44,7 +38,7 @@
 
 .body p {
   font-size: 1.03rem;
-  color: var(--ink-soft);
+  color: rgba(255, 255, 255, .72);
   line-height: 1.6;
 }
 
@@ -52,7 +46,7 @@
   font-family: var(--display);
   font-size: 1.25rem;
   font-weight: 500;
-  color: var(--ink);
+  color: var(--gold);
   margin-top: 8px;
   margin-bottom: 0;
 }
@@ -61,15 +55,15 @@
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, .10);
   border-radius: 0;
   overflow: hidden;
-  background: var(--bg-elevated);
+  background: rgba(255, 255, 255, .04);
 }
 
 .card {
   padding: 28px 24px;
-  border-right: 1px solid var(--line);
+  border-right: 1px solid rgba(255, 255, 255, .10);
 }
 
 .card:last-child { border-right: none; }
@@ -93,26 +87,26 @@
   font-family: var(--display);
   font-size: 1rem;
   font-weight: 500;
-  color: var(--ink);
+  color: rgba(255, 255, 255, .90);
   margin-bottom: 10px;
 }
 
 .card p {
   font-size: 0.875rem;
-  color: var(--ink-mute);
+  color: rgba(255, 255, 255, .55);
   line-height: 1.6;
 }
 
 @media (max-width: 900px) {
   .cards { grid-template-columns: repeat(2, 1fr); }
   .card:nth-child(2) { border-right: none; }
-  .card:nth-child(3) { border-right: 1px solid var(--line); border-top: 1px solid var(--line); }
-  .card:nth-child(4) { border-right: none; border-top: 1px solid var(--line); }
+  .card:nth-child(3) { border-right: 1px solid rgba(255, 255, 255, .10); border-top: 1px solid rgba(255, 255, 255, .10); }
+  .card:nth-child(4) { border-right: none; border-top: 1px solid rgba(255, 255, 255, .10); }
 }
 
 @media (max-width: 560px) {
   .cards { grid-template-columns: 1fr; }
-  .card { border-right: none; border-bottom: 1px solid var(--line); }
+  .card { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, .10); }
   .card:last-child { border-bottom: none; }
   .card:nth-child(3) { border-right: none; }
 }

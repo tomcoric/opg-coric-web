@@ -27,7 +27,7 @@ export default function Header() {
       <Container className={styles.inner}>
 
         <a href="/" className={styles.brand}>
-          <img src="/images/Kulin_Coric_Logo_Web.png" alt="" className={styles.brandLogo} />
+          <img src="/images/logo_bez%20natpisa_final_1.png" alt="" className={styles.brandLogo} />
           Kulin Ćorić
         </a>
 

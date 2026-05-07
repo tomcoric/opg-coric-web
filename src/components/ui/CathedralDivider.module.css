@@ -1,64 +1,13 @@
 .divider {
-  position: relative;
-  width: 100%;
-  height: 340px;
-  overflow: hidden;
-  border-top: 1px solid var(--line-gold);
-  border-bottom: 1px solid var(--line-gold);
+  background: var(--bg-deep);
 }
 
-.img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  filter: sepia(80%) saturate(100%) hue-rotate(350deg) brightness(.5) contrast(1.15);
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(21, 16, 11, .15) 0%,
-    rgba(21, 16, 11, .62) 100%
-  );
-}
-
-.caption {
-  position: absolute;
-  bottom: 40px;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 0 24px;
-}
-
-.line {
+.divider img {
   display: block;
-  flex: 0 0 48px;
-  height: 1px;
-  background: var(--gold);
-  opacity: .55;
-}
-
-.text {
-  font-family: var(--display);
-  font-style: italic;
-  font-size: 1.15rem;
-  font-weight: 400;
-  color: #fff;
-  letter-spacing: .06em;
-  white-space: nowrap;
-  line-height: 1;
-}
-
-@media (max-width: 768px) {
-  .divider { height: 220px; }
-  .caption { bottom: 24px; }
-  .text    { font-size: 0.95rem; }
-  .line    { flex: 0 0 28px; }
+  width: 100%;
+  height: auto;
+  filter: grayscale(1) brightness(5) contrast(0.5);
+  opacity: 0.15;
+  pointer-events: none;
+  user-select: none;
 }

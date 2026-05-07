@@ -51,7 +51,6 @@ export default function Media() {
     <section id="mediji" className={styles.section}>
       <Container>
         <div className={styles.header}>
-          <img src="/images/katedrala.png" alt="" aria-hidden="true" className="cathedralHeader" />
           <span className={styles.label}>U medijima</span>
           <h2>Medijska <em>pokrivenost</em></h2>
         </div>

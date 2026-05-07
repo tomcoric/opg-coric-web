@@ -57,7 +57,7 @@
   font-size: 17px;
   line-height: 1.6;
   color: var(--ink-soft);
-  background: var(--bg);
+  background: var(--bg-deep);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 
@@ -75,7 +75,7 @@ html { scroll-behavior: smooth; }
   padding: 0;
 }
 
-body { background: var(--bg); color: var(--ink-soft); }
+body { background: var(--bg-deep); color: var(--ink-soft); }
 
 #root { min-height: 100svh; display: flex; flex-direction: column; }
 
@@ -116,9 +116,15 @@ button { cursor: pointer; font-family: var(--body); border: none; background: no
   transform: translateX(-50%);
   width: 100%;
   height: auto;
-  filter: sepia(80%) saturate(100%) hue-rotate(350deg) brightness(.45) contrast(1.15);
-  opacity: 0.22;
+  filter: grayscale(1) brightness(6) contrast(0.45);
+  opacity: 0.18;
   z-index: -1;
   pointer-events: none;
   user-select: none;
+}
+
+/* ═══ DARK SECTION NASLOVI ═══ */
+main section:not(#hero) h2,
+main section:not(#hero) h3 {
+  color: var(--gold);
 }

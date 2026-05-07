@@ -1,18 +1,13 @@
 .section {
+  position: relative;
+  z-index: 1;
   padding: var(--section-py) 0;
-  background: var(--bg-warm);
-  border-top: 1px solid var(--line);
+  background: var(--bg-deep);
 }
 
 .inner { max-width: 780px; margin: 0 auto; }
 
 .header {
-  position: relative;
-  isolation: isolate;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: 200px;
   margin-bottom: 52px;
 }
 
@@ -27,7 +22,7 @@
 }
 
 .header h2 em {
-  font-style: italic;
+  font-style: normal;
   color: var(--gold-soft);
 }
 
@@ -42,10 +37,23 @@
 
 .infoItem {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+  text-align: left;
+}
+
+.infoIcon {
+  flex-shrink: 0;
+  color: var(--gold);
+  margin-top: 2px;
+  line-height: 0;
+}
+
+.infoText {
+  display: flex;
   flex-direction: column;
-  gap: 6px;
-  align-items: center;
-  text-align: center;
+  gap: 4px;
 }
 
 .infoItem strong {
@@ -53,18 +61,18 @@
   font-weight: 600;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--ink-mute);
+  color: rgba(255, 255, 255, .40);
 }
 
 .infoItem span {
   font-size: 0.97rem;
-  color: var(--ink);
+  color: rgba(255, 255, 255, .82);
   font-weight: 500;
 }
 
 .infoItem a {
   font-size: 0.97rem;
-  color: var(--ink);
+  color: rgba(255, 255, 255, .82);
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s;

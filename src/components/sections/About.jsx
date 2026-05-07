@@ -7,7 +7,6 @@ export default function About() {
       <Container>
         <div className={styles.inner}>
           <div className={styles.header}>
-            <img src="/images/katedrala.png" alt="" aria-hidden="true" className="cathedralHeader" />
             <span className={styles.label}>O nama</span>
             <h2>OPG Kulin <em>Ćorić</em></h2>
           </div>

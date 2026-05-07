@@ -1,5 +1,7 @@
 .stats {
-  background: var(--bg-warm);
+  position: relative;
+  z-index: 1;
+  background: var(--bg-deep);
   padding: 64px 0;
 }
 
@@ -21,14 +23,14 @@
   font-family: var(--display);
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 500;
-  color: var(--ink);
+  color: #fff;
   line-height: 1;
 }
 
 .label {
   font-size: 11px;
   font-weight: 500;
-  color: var(--ink-mute);
+  color: rgba(255, 255, 255, .50);
   letter-spacing: .18em;
   text-transform: uppercase;
 }

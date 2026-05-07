@@ -60,7 +60,6 @@ export default function KulinInfo() {
       <Container>
         <div className={styles.inner}>
           <div className={styles.header}>
-            <img src="/images/katedrala.png" alt="" aria-hidden="true" className="cathedralHeader" />
             <span className={styles.label}>Tradicija</span>
             <h2>Što je <em>kulin?</em></h2>
           </div>

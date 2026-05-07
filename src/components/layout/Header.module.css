@@ -2,17 +2,15 @@
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 22px 0;
-  border-bottom: 1px solid transparent;
-  transition: background 0.4s ease, padding 0.3s ease, border-color 0.4s ease;
-}
-
-.scrolled {
+  padding: 14px 0;
   background: rgba(21, 16, 11, 0.96);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom-color: var(--line-gold);
-  padding: 14px 0;
+  border-bottom: 1px solid var(--line-gold);
+}
+
+.scrolled {
+  /* header je uvijek crn, scrolled ne mjenja ništa */
 }
 
 .inner {
@@ -25,7 +23,7 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0;
   text-decoration: none;
   font-family: var(--display);
   font-size: 22px;
@@ -38,16 +36,12 @@
 .brand:hover { opacity: 0.82; color: #fff; }
 
 .brandLogo {
-  height: 32px;
+  height: 52px;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
-  filter: brightness(0) invert(1);
+  filter: brightness(0) saturate(100%) invert(44%) sepia(80%) saturate(600%) hue-rotate(8deg) brightness(0.92);
   transition: filter 0.4s;
-}
-
-.header.scrolled .brandLogo {
-  filter: brightness(0) invert(1);
 }
 
 /* ── Nav ── */

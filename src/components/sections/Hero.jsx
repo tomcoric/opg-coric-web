@@ -1,4 +1,16 @@
+import { useState, useEffect } from 'react'
 import styles from './Hero.module.css'
+
+const headlines = [
+  { before: 'Dobro došli u srce ', em: 'slavonske', after: ' tradicije' },
+  { before: 'Tradicija koja se ', em: 'nasljeđuje', after: '' },
+  { before: 'Pravi okus ', em: 'Slavonije', after: ' — direktno k vama' },
+  { before: 'Kulin po receptu ', em: 'predaka', after: '' },
+  { before: 'Dim, sol i ', em: 'strast', after: ' od 1987.' },
+  { before: 'Okus koji ', em: 'pamtite', after: ' zauvijek' },
+]
+
+const INTERVAL = 15000
 
 function ShieldIcon() {
   return (
@@ -20,30 +32,39 @@ function PinIcon() {
 }
 
 export default function Hero() {
+  const [current, setCurrent] = useState(0)
+  const [visible, setVisible] = useState(true)
+
+  useEffect(() => {
+    if (headlines.length <= 1) return
+    const timer = setInterval(() => {
+      setVisible(false)
+      setTimeout(() => {
+        setCurrent(prev => (prev + 1) % headlines.length)
+        setVisible(true)
+      }, 500)
+    }, INTERVAL)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.bg} style={{ backgroundImage: 'url(/images/title-slika.jpg)' }} />
       <div className={styles.overlay} />
 
-      <div className={styles.content}>
-        <img src="/images/Kulin_Coric_Logo_Web.png" alt="Kulin Ćorić" className={styles.logo} />
-
-        <h1 className={styles.title}>
-          Dobro došli u srce <em>slavonske</em> tradicije
+      <div className={styles.logoGroup}>
+        <div className={styles.logoGlow} />
+        <img src="/images/logo_finalna_verzija_1.png" alt="Kulin Ćorić" className={styles.logo} />
+        <h1 className={`${styles.title} ${visible ? styles.visible : styles.hidden}`}>
+          {headlines[current].before}<em>{headlines[current].em}</em>{headlines[current].after}
         </h1>
+      </div>
 
-        <p className={styles.subtitle}>
-          Čuvamo tradiciju slavonskog kulina i promičemo kvalitetu domaćih
-          proizvoda već više od petnaest godina.
-        </p>
-
-        <div className={styles.rule} />
-
+      <div className={styles.content}>
         <div className={styles.actions}>
           <a href="#kontakt"  className={styles.ctaPrimary}>Naruči kulin</a>
           <a href="#o-nama"   className={styles.ctaSecondary}>Naša priča</a>
         </div>
-
         <div className={styles.trust}>
           <span className={styles.trustItem}><ShieldIcon />EU IGP zaštita</span>
           <span className={styles.trustDivider} />

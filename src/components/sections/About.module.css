@@ -1,6 +1,8 @@
 .about {
+  position: relative;
+  z-index: 1;
   padding: var(--section-py) 0;
-  background: var(--bg);
+  background: var(--bg-deep);
 }
 
 .inner {
@@ -9,12 +11,6 @@
 }
 
 .header {
-  position: relative;
-  isolation: isolate;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: 200px;
   margin-bottom: 48px;
 }
 
@@ -29,7 +25,7 @@
 }
 
 .header h2 em {
-  font-style: italic;
+  font-style: normal;
   color: var(--gold-soft);
 }
 
@@ -41,7 +37,7 @@
 
 .body p {
   font-size: 1.03rem;
-  color: var(--ink-soft);
+  color: rgba(255, 255, 255, .68);
   line-height: 1.6;
 }
 
@@ -49,5 +45,5 @@
   font-family: var(--display);
   font-style: italic;
   font-weight: 500;
-  color: var(--ink);
+  color: rgba(255, 255, 255, .90);
 }
