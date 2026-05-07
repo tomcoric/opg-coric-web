@@ -1,8 +1,8 @@
 .section {
   padding: var(--section-py) 0;
-  background: var(--bg-alt);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  background: var(--bg-warm);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .inner {
@@ -22,13 +22,17 @@
 
 .label {
   display: block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .32em;
   text-transform: uppercase;
-  color: var(--primary);
+  color: var(--gold);
   margin-bottom: 14px;
-  opacity: 0.85;
+}
+
+.header h2 em {
+  font-style: italic;
+  color: var(--gold-soft);
 }
 
 .body {
@@ -40,66 +44,75 @@
 
 .body p {
   font-size: 1.03rem;
-  color: var(--text);
-  line-height: 1.85;
+  color: var(--ink-soft);
+  line-height: 1.6;
 }
 
 .subheading {
-  font-size: 1.3rem;
-  color: var(--text-heading);
-  margin-top: 12px;
-  margin-bottom: 4px;
-  font-weight: 600;
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-top: 8px;
+  margin-bottom: 0;
 }
 
 /* Kartice */
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  border-radius: 0;
   overflow: hidden;
-  background: var(--bg);
+  background: var(--bg-elevated);
 }
 
 .card {
   padding: 28px 24px;
-  border-right: 1px solid var(--border);
+  border-right: 1px solid var(--line);
 }
 
 .card:last-child { border-right: none; }
 
 .icon {
-  font-size: 1.8rem;
   display: block;
-  margin-bottom: 14px;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 16px;
+  color: var(--gold);
+  line-height: 0;
+}
+
+.icon svg {
+  width: 36px;
+  height: 36px;
+  stroke: var(--gold);
 }
 
 .card h4 {
-  font-family: var(--font-heading);
+  font-family: var(--display);
   font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-heading);
+  font-weight: 500;
+  color: var(--ink);
   margin-bottom: 10px;
 }
 
 .card p {
-  font-size: 0.86rem;
-  color: var(--text-muted);
-  line-height: 1.7;
+  font-size: 0.875rem;
+  color: var(--ink-mute);
+  line-height: 1.6;
 }
 
 @media (max-width: 900px) {
   .cards { grid-template-columns: repeat(2, 1fr); }
   .card:nth-child(2) { border-right: none; }
-  .card:nth-child(3) { border-right: 1px solid var(--border); border-top: 1px solid var(--border); }
-  .card:nth-child(4) { border-right: none; border-top: 1px solid var(--border); }
+  .card:nth-child(3) { border-right: 1px solid var(--line); border-top: 1px solid var(--line); }
+  .card:nth-child(4) { border-right: none; border-top: 1px solid var(--line); }
 }
 
 @media (max-width: 560px) {
   .cards { grid-template-columns: 1fr; }
-  .card { border-right: none; border-bottom: 1px solid var(--border); }
+  .card { border-right: none; border-bottom: 1px solid var(--line); }
   .card:last-child { border-bottom: none; }
   .card:nth-child(3) { border-right: none; }
 }

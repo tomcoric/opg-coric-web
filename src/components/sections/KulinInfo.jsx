@@ -1,6 +1,59 @@
 import Container from '../ui/Container'
 import styles from './KulinInfo.module.css'
 
+const LeafIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" />
+    <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+  </svg>
+)
+
+const FlameIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2c-2.8 3.5-5 6.5-5 10a5 5 0 0 0 10 0c0-3.5-2.2-6.5-5-10z" />
+    <path d="M12 14a2 2 0 0 1-2-2c0-1.5 2-3 2-3s2 1.5 2 3a2 2 0 0 1-2 2z" />
+  </svg>
+)
+
+const HourglassIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M5 2h14M5 22h14" />
+    <path d="M5 2l7 9 7-9" />
+    <path d="M5 22l7-9 7 9" />
+    <path d="M12 13v.01" />
+  </svg>
+)
+
+const ShieldCheckIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2L3 7v5c0 5.25 3.8 10.15 9 11.25C17.2 22.15 21 17.25 21 12V7L12 2z" />
+    <path d="M9 12l2 2 4-4" />
+  </svg>
+)
+
+const cards = [
+  {
+    Icon: LeafIcon,
+    title: 'Sastojci',
+    desc: 'Svinjsko meso, svinjska leđna masnoća (10%), mljevena crvena paprika, češnjak, sol — i ništa više. Bez konzervansa, bez aditiva.',
+  },
+  {
+    Icon: FlameIcon,
+    title: 'Dimljenje',
+    desc: 'Toplo ili hladno dimljenje bukvom ili grabom, nekoliko tjedana. Dim daje karakterističnu aromu i boju — nema prečice.',
+  },
+  {
+    Icon: HourglassIcon,
+    title: 'Zrenje',
+    desc: 'Nakon dimljenja kulin dozrijeva u hladnom i prozračnom prostoru. Pravi kulin zrije najmanje 5 do 6 mjeseci.',
+  },
+  {
+    Icon: ShieldCheckIcon,
+    title: 'Zaštita EU',
+    desc: '„Slavonski kulen / Slavonski kulin" nosi zaštićenu oznaku izvornosti EU — priznanje autentičnosti i tradicije slavonskog kraja.',
+  },
+]
+
 export default function KulinInfo() {
   return (
     <section id="sto-je-kulin" className={styles.section}>
@@ -9,7 +62,7 @@ export default function KulinInfo() {
           <div className={styles.header}>
             <img src="/images/katedrala.png" alt="" aria-hidden="true" className="cathedralHeader" />
             <span className={styles.label}>Tradicija</span>
-            <h2>Što je kulin?</h2>
+            <h2>Što je <em>kulin?</em></h2>
           </div>
 
           <div className={styles.body}>
@@ -30,54 +83,22 @@ export default function KulinInfo() {
 
             <h3 className={styles.subheading}>Kulin ili kulen — koja je razlika?</h3>
             <p>
-              U Slavoniji se oduvijek nije pričalo samo o hrani, nego o običajima, obitelji i naslijeđu
-              koje se prenosi s koljena na koljeno. Zato kod nas nije neobično što se češće kaže kulin,
-              a ne kulen. Ta riječ ne nosi samo naziv proizvoda, nego i duh kraja, domaću riječ, miris
-              zime, pušnice i starih recepata koji su se čuvali u svakoj kući.
-            </p>
-            <p>
-              Iako se u standardnim jezičnim izvorima češće susreće oblik kulen, isti izvori navode i
-              kulin kao istoznačan naziv. Drugim riječima, kad u Slavoniji kažemo kulin, govorimo
-              autentično, prirodno i u skladu s tradicijom svoga kraja.
-            </p>
-            <p>
-              To potvrđuju i službeni izvori. Zaštićeni naziv proizvoda na hrvatskom i europskoj razini
-              glasi <strong>„Slavonski kulen / Slavonski kulin"</strong>, što jasno pokazuje da su oba
-              naziva priznata, ravnopravna i ukorijenjena u istoj tradiciji.
-            </p>
-            <p>
-              Zato, kada mi kažemo kulin, ne biramo samo jednu riječ umjesto druge. Mi biramo govor
-              svoga kraja. Biramo tradiciju Slavonije. Biramo naziv koji zvuči domaće, toplo i istinski,
-              onako kako su ga izgovarali naši stari.
-            </p>
-            <p>
-              Za nas, kulin nije samo delicija. On je dio slavonskoga stola, dio običaja i dio priče o
-              kraju iz kojega dolazimo. Na našem je stolu slavonski kulin – riječ našega kraja, okus
-              naše tradicije i ponos naše Slavonije.
+              U Slavoniji se oduvijek nije pričalo samo o hrani, nego o običajima, obitelji i naslijeđu.
+              Zato kod nas nije neobično što se češće kaže kulin, a ne kulen — ta riječ nosi duh kraja,
+              domaću riječ, miris zime i starih recepata. Zaštićeni naziv na europskoj razini glasi{' '}
+              <strong>„Slavonski kulen / Slavonski kulin"</strong>, što potvrđuje da su oba naziva
+              ravnopravna i ukorijenjena u istoj tradiciji.
             </p>
           </div>
 
           <div className={styles.cards}>
-            <div className={styles.card}>
-              <span className={styles.icon}>🌶️</span>
-              <h4>Sastojci</h4>
-              <p>Svinjsko meso, svinjska leđna masnoća (10%), mljevena crvena paprika (slatka i ljuta), češnjak, sol — i ništa više. Bez konzervansa, bez aditiva.</p>
-            </div>
-            <div className={styles.card}>
-              <span className={styles.icon}>🔥</span>
-              <h4>Dimljenje</h4>
-              <p>Toplo ili hladno dimljenje bukvom ili grabom, nekoliko tjedana. Dim daje karakterističnu aromu i boju — nema prečice.</p>
-            </div>
-            <div className={styles.card}>
-              <span className={styles.icon}>⏳</span>
-              <h4>Zrenje</h4>
-              <p>Nakon dimljenja kulin dozrijeva u hladnom i prozračnom prostoru. Pravi kulin zrije najmanje 5 do 6 mjeseci.</p>
-            </div>
-            <div className={styles.card}>
-              <span className={styles.icon}>🏅</span>
-              <h4>Zaštita EU</h4>
-              <p>„Slavonski kulen / Slavonski kulin" nosi zaštićenu oznaku izvornosti EU — priznanje autentičnosti i tradicije slavonskog kraja.</p>
-            </div>
+            {cards.map(({ Icon, title, desc }) => (
+              <div key={title} className={styles.card}>
+                <span className={styles.icon}><Icon /></span>
+                <h4>{title}</h4>
+                <p>{desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </Container>
