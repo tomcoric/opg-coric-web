@@ -26,8 +26,6 @@ export default function Hero() {
       <div className={styles.overlay} />
 
       <div className={styles.content}>
-        <p className={styles.eyebrow}>OPG Kulin Ćorić · Đakovo, Slavonija · Od 2009.</p>
-
         <h1 className={styles.title}>
           Dobro došli u srce <em>slavonske</em> tradicije
         </h1>

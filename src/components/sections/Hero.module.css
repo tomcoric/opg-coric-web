@@ -24,15 +24,13 @@
     rgba(21, 16, 11, 0.42);
 }
 
-/* Jedan container, jedna lijeva linija — bez inner padding-a */
 .content {
   position: relative;
   z-index: 2;
-  text-align: left;
-  padding: 0;
-  max-width: 640px;
-  margin-left: max(80px, 6vw);
-  margin-right: auto;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 /* Eyebrow — samo gold tekst, bez boxa */
@@ -76,7 +74,7 @@
   width: 60px;
   height: 1px;
   background: var(--gold);
-  margin: 0 0 32px;
+  margin: 0 auto 32px;
   opacity: 0.65;
 }
 
@@ -84,7 +82,7 @@
 .actions {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 16px;
   margin-bottom: 40px;
   flex-wrap: wrap;
@@ -131,7 +129,7 @@
 .trust {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
 }
@@ -156,18 +154,8 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* Mobile */
 @media (max-width: 768px) {
-  .content {
-    text-align: center;
-    margin-left: 0;
-    margin-right: 0;
-    max-width: 100%;
-    padding: 0 24px;
-  }
-  .rule    { margin: 0 auto 32px; }
-  .actions { justify-content: center; }
-  .trust   { justify-content: center; }
+  .content { max-width: 100%; }
 }
 
 @media (max-width: 640px) {
