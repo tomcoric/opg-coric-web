@@ -116,8 +116,8 @@ button { cursor: pointer; font-family: var(--body); border: none; background: no
   transform: translateX(-50%);
   width: 100%;
   height: auto;
-  filter: blur(1px) sepia(10%) brightness(0.95);
-  opacity: 0.38;
+  filter: sepia(80%) saturate(100%) hue-rotate(350deg) brightness(.45) contrast(1.15);
+  opacity: 0.22;
   z-index: -1;
   pointer-events: none;
   user-select: none;

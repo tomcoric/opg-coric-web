@@ -8,7 +8,6 @@ import About from './components/sections/About'
 import KulinInfo from './components/sections/KulinInfo'
 import Media from './components/sections/Media'
 import Contact from './components/sections/Contact'
-import CathedralDivider from './components/ui/CathedralDivider'
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
         <Stats />
         <About />
         <KulinInfo />
-        <CathedralDivider />
         <Media />
         <Contact />
       </main>
