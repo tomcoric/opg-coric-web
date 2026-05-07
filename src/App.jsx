@@ -22,6 +22,7 @@ function App() {
         <Stats />
         <About />
         <KulinInfo />
+        <CathedralDivider />
         <Media />
         <Contact />
       </main>
