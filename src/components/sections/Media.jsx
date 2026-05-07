@@ -53,7 +53,7 @@ export default function Media() {
         <div className={styles.header}>
           <img src="/images/katedrala.png" alt="" aria-hidden="true" className="cathedralHeader" />
           <span className={styles.label}>U medijima</span>
-          <h2>Medijska pokrivenost</h2>
+          <h2>Medijska <em>pokrivenost</em></h2>
         </div>
 
         <div className={styles.list}>

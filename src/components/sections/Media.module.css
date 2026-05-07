@@ -16,13 +16,17 @@
 
 .label {
   display: block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .32em;
   text-transform: uppercase;
-  color: var(--primary);
+  color: var(--gold);
   margin-bottom: 14px;
-  opacity: 0.85;
+}
+
+.header h2 em {
+  font-style: italic;
+  color: var(--gold-soft);
 }
 
 .list {
@@ -33,61 +37,67 @@
 }
 
 .article {
-  padding: 36px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.2s;
 }
 
-.article:first-child {
-  border-top: 1px solid var(--border);
-}
+.article:first-child { border-top: 1px solid var(--line); }
 
 .meta {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .source {
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--primary);
-  opacity: 0.85;
+  color: var(--gold);
 }
 
 .date {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--ink-mute);
 }
 
 .title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-heading);
-  line-height: 1.35;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
   margin-bottom: 10px;
+  transition: color 0.2s;
 }
 
+.article:hover .title { color: var(--ink); }
+
 .desc {
-  font-size: 0.93rem;
-  color: var(--text-muted);
-  line-height: 1.72;
-  margin-bottom: 16px;
+  font-size: 0.9rem;
+  color: var(--ink-mute);
+  line-height: 1.6;
+  margin-bottom: 14px;
   max-width: 640px;
 }
 
 .link {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
   text-decoration: none;
-  letter-spacing: 0.2px;
-  transition: color 0.2s, letter-spacing 0.2s;
+  transition: color 0.2s, gap 0.2s;
 }
 
 .link:hover {
-  color: var(--primary-dark);
-  letter-spacing: 0.5px;
+  color: var(--gold-deep);
+  gap: 10px;
 }

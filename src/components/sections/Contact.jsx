@@ -9,7 +9,7 @@ export default function Contact() {
           <div className={styles.header}>
             <img src="/images/katedrala.png" alt="" aria-hidden="true" className="cathedralHeader" />
             <span className={styles.label}>Kontakt</span>
-            <h2>Kontaktirajte nas</h2>
+            <h2>Kontaktirajte <em>nas</em></h2>
           </div>
 
           <div className={styles.info}>
