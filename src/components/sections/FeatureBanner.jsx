@@ -21,10 +21,10 @@ const Leaf = () => (
 
 const Truck = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3" />
-    <rect x="9" y="11" width="14" height="10" rx="2" />
-    <circle cx="12" cy="21" r="1" />
-    <circle cx="20" cy="21" r="1" />
+    <rect x="1" y="4" width="15" height="12" />
+    <path d="M16 8h4l3 5v3h-7V8z" />
+    <circle cx="5.5" cy="18.5" r="2.5" />
+    <circle cx="18.5" cy="18.5" r="2.5" />
   </svg>
 )
 
