@@ -4,6 +4,8 @@
 }
 
 .header {
+  position: relative;
+  isolation: isolate;
   max-width: 780px;
   margin: 0 auto 56px;
 }

@@ -11,6 +11,8 @@
 }
 
 .header {
+  position: relative;
+  isolation: isolate;
   margin-bottom: 48px;
 }
 

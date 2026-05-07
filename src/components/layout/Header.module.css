@@ -42,6 +42,10 @@
   filter: brightness(0) invert(1);
 }
 
+.header.scrolled .logoImg {
+  filter: brightness(0) invert(1) sepia(1) saturate(4) hue-rotate(320deg) brightness(0.6);
+}
+
 .logoText {
   font-family: var(--font-heading);
   font-size: 1.2rem;

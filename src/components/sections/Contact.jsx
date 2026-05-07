@@ -14,6 +14,7 @@ export default function Contact() {
       <Container>
         <div className={styles.inner}>
           <div className={styles.header}>
+            <img src="/images/katedrala.png" alt="" aria-hidden="true" className="cathedralHeader" />
             <span className={styles.label}>Kontakt</span>
             <h2>Kontaktirajte nas</h2>
             <p className={styles.subtitle}>Imate pitanja o proizvodima ili narudžbama? Javite nam se.</p>

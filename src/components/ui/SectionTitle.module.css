@@ -1,5 +1,20 @@
 .wrapper {
+  position: relative;
   margin-bottom: 72px;
+}
+
+.cathedral {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 110px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.06;
+  pointer-events: none;
+  user-select: none;
+  filter: sepia(1);
 }
 
 .center { text-align: center; }

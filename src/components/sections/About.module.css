@@ -1,4 +1,4 @@
-.about {
+﻿.about {
   padding: var(--section-py) 0;
   background: var(--bg);
 }
@@ -9,6 +9,8 @@
 }
 
 .header {
+  position: relative;
+  isolation: isolate;
   margin-bottom: 48px;
 }
 

@@ -15,13 +15,13 @@ function App() {
     <>
       <Header />
       <main>
-        <Hero />
-        <FeatureBanner />
+        <div style={{ position: 'relative' }}>
+          <Hero />
+          <FeatureBanner />
+        </div>
         <Stats />
         <About />
-        <CathedralDivider />
         <KulinInfo />
-        <CathedralDivider />
         <Media />
         <Contact />
       </main>

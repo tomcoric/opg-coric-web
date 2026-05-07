@@ -37,7 +37,6 @@ export default function Hero() {
       <div className={styles.overlay} />
 
       <div className={styles.content}>
-        <img src="/images/logo_veliki.png" alt="OPG Kulin Ćorić" className={styles.logo} />
         <h1 className={`${styles.title} ${visible ? styles.visible : styles.hidden}`}>
           {headlines[current]}
         </h1>

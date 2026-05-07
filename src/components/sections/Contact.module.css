@@ -6,7 +6,11 @@
 
 .inner { max-width: 780px; margin: 0 auto; }
 
-.header { margin-bottom: 52px; }
+.header {
+  position: relative;
+  isolation: isolate;
+  margin-bottom: 52px;
+}
 
 .label {
   display: block;
