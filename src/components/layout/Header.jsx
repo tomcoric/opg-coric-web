@@ -25,9 +25,10 @@ export default function Header() {
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <Container className={styles.inner}>
-        <a href="/" className={styles.logo}>
-          <img src="/images/logo_veliki.png" alt="OPG Kulin Ćorić" className={styles.logoImg} />
-          <span className={styles.logoText}>Kulin Ćorić</span>
+
+        <a href="/" className={styles.brand}>
+          <span className={styles.brandMark}>K</span>
+          Kulin Ćorić
         </a>
 
         <nav className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
@@ -36,7 +37,7 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <a href="#kontakt" className={styles.navCta} onClick={closeMenu}>Kontaktiraj nas</a>
+          <a href="#kontakt" className={styles.navCta} onClick={closeMenu}>Naruči</a>
         </nav>
 
         <button
@@ -48,8 +49,8 @@ export default function Header() {
           <span />
           <span />
         </button>
-      </Container>
 
+      </Container>
       {menuOpen && <div className={styles.backdrop} onClick={closeMenu} />}
     </header>
   )
