@@ -1,11 +1,109 @@
 .footer {
-  background: var(--bg-dark);
-  padding: 28px 0;
-  border-top: 3px solid var(--primary);
+  background: var(--bg-deep);
+  border-top: 3px solid var(--gold);
+  padding: 64px 0 0;
 }
 
-.text {
-  font-size: 0.83rem;
-  color: rgba(255, 255, 255, 0.3);
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, .07);
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.brandLogo {
+  height: 28px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: .8;
+}
+
+.brandName {
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -.01em;
+}
+
+.tagline {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, .38);
+  line-height: 1.6;
+}
+
+/* Column heading */
+.colHeading {
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+/* Link list */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, .45);
+  text-decoration: none;
+  line-height: 1.5;
+  transition: color 0.2s;
+}
+.link:hover { color: rgba(255, 255, 255, .9); }
+
+/* Legal */
+.legal {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, .3);
+  line-height: 1.5;
+}
+
+.legalLink {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, .45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.legalLink:hover { color: var(--gold-soft); }
+
+/* Bottom bar */
+.bottom {
+  padding: 24px 0;
+}
+
+.copy {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, .2);
   text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 32px;
+  }
+  .col:first-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; gap: 36px; }
+  .col:first-child { grid-column: auto; }
 }
