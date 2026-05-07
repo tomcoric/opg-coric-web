@@ -6,6 +6,10 @@
 .header {
   position: relative;
   isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 200px;
   max-width: 780px;
   margin: 0 auto 56px;
 }

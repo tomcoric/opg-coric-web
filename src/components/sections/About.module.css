@@ -11,6 +11,10 @@
 .header {
   position: relative;
   isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 200px;
   margin-bottom: 48px;
 }
 

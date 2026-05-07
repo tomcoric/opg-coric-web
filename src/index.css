@@ -72,9 +72,9 @@ button { cursor: pointer; font-family: var(--font-body); border: none; backgroun
 
 .cathedralHeader {
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   width: 100%;
   height: auto;
   filter: blur(1px) sepia(10%) brightness(0.95);
