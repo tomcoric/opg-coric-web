@@ -1,4 +1,4 @@
-﻿.about {
+.about {
   padding: var(--section-py) 0;
   background: var(--bg);
 }
@@ -20,37 +20,34 @@
 
 .label {
   display: block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .32em;
   text-transform: uppercase;
-  color: var(--primary);
+  color: var(--gold);
   margin-bottom: 14px;
-  opacity: 0.85;
+}
+
+.header h2 em {
+  font-style: italic;
+  color: var(--gold-soft);
 }
 
 .body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 40px;
 }
 
 .body p {
-  font-size: 1.05rem;
-  color: var(--text);
-  line-height: 1.85;
+  font-size: 1.03rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
 }
 
-.highlight {
-  padding-top: 28px;
-  border-top: 1px solid var(--border);
-}
-
-.highlight strong {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
+.name {
+  font-family: var(--display);
   font-style: italic;
-  color: var(--text-heading);
+  font-weight: 500;
+  color: var(--ink);
 }
