@@ -26,8 +26,6 @@ export default function Hero() {
       <div className={styles.overlay} />
 
       <div className={styles.content}>
-        <div className={styles.crest}>K</div>
-
         <p className={styles.eyebrow}>OPG Kulin Ćorić · Đakovo, Slavonija · Od 2009.</p>
 
         <h1 className={styles.title}>
@@ -42,8 +40,8 @@ export default function Hero() {
         <div className={styles.rule} />
 
         <div className={styles.actions}>
-          <a href="#o-nama"   className={styles.ctaPrimary}>Saznaj više</a>
-          <a href="#kontakt"  className={styles.ctaSecondary}>Kontaktiraj nas</a>
+          <a href="#kontakt"  className={styles.ctaPrimary}>Naruči kulin</a>
+          <a href="#o-nama"   className={styles.ctaSecondary}>Naša priča</a>
         </div>
 
         <div className={styles.trust}>

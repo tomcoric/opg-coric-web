@@ -27,29 +27,16 @@
 .content {
   position: relative;
   z-index: 2;
-  text-align: center;
+  text-align: left;
   padding: 0 24px;
-  max-width: 800px;
-}
-
-/* Monogram */
-.crest {
-  width: 64px;
-  height: 64px;
-  border: 1px solid var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 24px;
-  font-family: var(--display);
-  font-style: italic;
-  font-size: 28px;
-  color: var(--gold);
-  letter-spacing: -0.02em;
+  max-width: 720px;
+  margin-left: 80px;
+  margin-right: auto;
 }
 
 /* Eyebrow */
 .eyebrow {
+  display: inline-block;
   font-size: 11px;
   font-weight: 500;
   text-transform: uppercase;
@@ -57,6 +44,9 @@
   color: var(--gold-soft);
   margin-bottom: 20px;
   line-height: 1;
+  padding: 6px 16px;
+  background: rgba(21, 16, 11, .4);
+  border: 1px solid rgba(184, 134, 11, .3);
 }
 
 /* Headline */
@@ -90,7 +80,7 @@
   width: 60px;
   height: 1px;
   background: var(--gold);
-  margin: 0 auto 32px;
+  margin: 0 0 32px;
   opacity: 0.65;
 }
 
@@ -98,7 +88,7 @@
 .actions {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 16px;
   margin-bottom: 40px;
   flex-wrap: wrap;
@@ -109,10 +99,10 @@
   background: var(--ink);
   color: #fff;
   border: 1px solid var(--ink);
-  padding: 13px 36px;
+  padding: 18px 32px;
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: .08em;
+  letter-spacing: .18em;
   text-transform: uppercase;
   text-decoration: none;
   transition: background 0.2s, border-color 0.2s, color 0.2s;
@@ -128,10 +118,10 @@
   background: transparent;
   color: var(--gold);
   border: 1px solid var(--gold);
-  padding: 13px 36px;
+  padding: 18px 32px;
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: .08em;
+  letter-spacing: .18em;
   text-transform: uppercase;
   text-decoration: none;
   transition: background 0.2s, color 0.2s;
@@ -145,7 +135,7 @@
 .trust {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 16px;
   flex-wrap: wrap;
 }
@@ -170,10 +160,21 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
+@media (max-width: 768px) {
+  .content {
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+  }
+  .rule    { margin: 0 auto 32px; }
+  .actions { justify-content: center; }
+  .trust   { justify-content: center; }
+}
+
 @media (max-width: 640px) {
-  .hero       { padding-bottom: 128px; }
-  .crest      { width: 52px; height: 52px; font-size: 22px; }
-  .actions    { gap: 12px; }
+  .hero { padding-bottom: 128px; }
+  .actions { gap: 12px; }
   .ctaPrimary,
-  .ctaSecondary { padding: 12px 28px; }
+  .ctaSecondary { padding: 14px 24px; }
 }
