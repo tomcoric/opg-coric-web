@@ -64,7 +64,6 @@ export default function Contact() {
               <span className={styles.infoIcon}><PhoneIcon /></span>
               <div className={styles.infoText}>
                 <strong>Za sve informacije</strong>
-                <span>Vladimir Ćorić</span>
                 <a href="tel:+38598223844">+385 98 223 844</a>
               </div>
             </div>

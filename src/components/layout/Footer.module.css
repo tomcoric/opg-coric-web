@@ -21,10 +21,10 @@
 }
 
 .brandLogo {
-  height: 28px;
+  height: 59px;
   width: auto;
-  filter: brightness(0) invert(1);
-  opacity: .8;
+  object-fit: contain;
+  margin-right: 8px;
 }
 
 .brandName {

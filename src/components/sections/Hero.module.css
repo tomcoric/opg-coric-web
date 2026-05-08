@@ -7,24 +7,24 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding-top: 80px;
+  padding-top: 59px;
   padding-bottom: 160px;
   gap: 36px;
 }
 
 .bg {
   position: absolute;
-  top: 80px; left: 0; right: 0; bottom: 0;
+  top: 59px; left: 0; right: 0; bottom: 0;
   background-size: cover;
   background-position: center;
 }
 
 .overlay {
   position: absolute;
-  top: 80px; left: 0; right: 0; bottom: 0;
+  top: 59px; left: 0; right: 0; bottom: 0;
   background:
-    radial-gradient(ellipse at center, transparent 25%, rgba(21, 16, 11, .5) 100%),
-    rgba(21, 16, 11, 0.42);
+    radial-gradient(ellipse at center, transparent 25%, rgba(26, 26, 26, .5) 100%),
+    rgba(26, 26, 26, 0.42);
 }
 
 /* Logo group — logo + title grouped tightly */
@@ -52,11 +52,11 @@
 
 /* Hero logo */
 .logo {
-  width: min(1060px, 92vw);
+  width: min(492px, 49vw);
   height: auto;
-  max-height: 480px;
+  max-height: 252px;
   object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(44%) sepia(80%) saturate(600%) hue-rotate(8deg) brightness(0.88)
+  filter:
     drop-shadow(0 1px 0px rgba(0,0,0,1))
     drop-shadow(1px 2px 1px rgba(0,0,0,0.95))
     drop-shadow(0 3px 4px rgba(0,0,0,0.85))
@@ -78,7 +78,7 @@
 
 /* Headline */
 .title {
-  color: #fff;
+  color: rgba(255, 255, 255, .72);
   font-size: clamp(1rem, 2.2vw, 1.6rem);
   font-weight: 500;
   line-height: 1.2;
@@ -165,8 +165,8 @@
 .trustItem {
   display: flex;
   align-items: center;
-  gap: 7px;
-  font-size: 11px;
+  gap: 14px;
+  font-size: 22px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: .18em;
@@ -196,7 +196,6 @@
 
 /* Kratki ekrani */
 @media (max-height: 800px) {
-  .hero { padding-top: 72px; gap: 16px; }
-  .logo { max-height: 200px; }
+  .hero { padding-top: 52px; gap: 16px; }
   .actions { margin-bottom: 12px; }
 }

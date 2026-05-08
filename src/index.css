@@ -1,6 +1,6 @@
 :root {
   /* ═══ PALETA ═══ */
-  --ink:         #15100B;
+  --ink:         #1A1A1A;
   --ink-soft:    #3A3027;
   --ink-mute:    #7A6A5A;
 
@@ -16,7 +16,7 @@
   --bg:          #FAF7F2;
   --bg-elevated: #FFFFFF;
   --bg-warm:     #F2EBE0;
-  --bg-deep:     #15100B;
+  --bg-deep:     #1A1A1A;
 
   /* Linije */
   --line:        #E8DFD2;
@@ -24,9 +24,9 @@
   --line-gold:   rgba(184, 134, 11, .35);
 
   /* Sjene */
-  --shadow-sm: 0 1px 4px rgba(21, 16, 11, 0.06);
-  --shadow-md: 0 4px 20px rgba(21, 16, 11, 0.09);
-  --shadow-lg: 0 16px 48px rgba(21, 16, 11, 0.13);
+  --shadow-sm: 0 1px 4px rgba(26, 26, 26, 0.06);
+  --shadow-md: 0 4px 20px rgba(26, 26, 26, 0.09);
+  --shadow-lg: 0 16px 48px rgba(26, 26, 26, 0.13);
 
   /* ═══ TIPOGRAFIJA ═══ */
   --display: 'EB Garamond', Georgia, serif;

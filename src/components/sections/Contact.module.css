@@ -66,13 +66,13 @@
 
 .infoItem span {
   font-size: 0.97rem;
-  color: rgba(255, 255, 255, .82);
+  color: rgba(255, 255, 255, .72);
   font-weight: 500;
 }
 
 .infoItem a {
   font-size: 0.97rem;
-  color: rgba(255, 255, 255, .82);
+  color: rgba(255, 255, 255, .72);
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s;
