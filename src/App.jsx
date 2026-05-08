@@ -6,6 +6,7 @@ import FeatureBanner from './components/sections/FeatureBanner'
 import Stats from './components/sections/Stats'
 import About from './components/sections/About'
 import KulinInfo from './components/sections/KulinInfo'
+import Products from './components/sections/Products'
 import Media from './components/sections/Media'
 import Contact from './components/sections/Contact'
 import CathedralDivider from './components/ui/CathedralDivider'
@@ -24,6 +25,8 @@ function App() {
         <About />
         <CathedralDivider />
         <KulinInfo />
+        <CathedralDivider />
+        <Products />
         <CathedralDivider />
         <Media />
         <CathedralDivider />

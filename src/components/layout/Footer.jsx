@@ -5,6 +5,7 @@ const navLinks = [
   { href: '#hero',         label: 'Naslovnica' },
   { href: '#o-nama',       label: 'O nama' },
   { href: '#sto-je-kulin', label: 'Što je kulin?' },
+  { href: '#proizvodi',   label: 'Proizvodi' },
   { href: '#mediji',       label: 'Mediji' },
   { href: '#kontakt',      label: 'Kontakt' },
 ]

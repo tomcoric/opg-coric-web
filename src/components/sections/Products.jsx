@@ -1,62 +1,75 @@
 import Container from '../ui/Container'
-import SectionTitle from '../ui/SectionTitle'
 import styles from './Products.module.css'
 
 const products = [
   {
-    id: 1,
-    name: 'Domaći med',
-    desc: 'Čisti prirodni med iz naših košnica, bogat vitaminima i hranjivim tvarima.',
-    tag: 'Bestseler',
-    img: '/images/Spice-backgrounds.jpg',
+    name: 'Kulin',
+    img: null,
+    desc: 'Kralj slavonskog stola. Od birane svinjetine i leđne slanine, uz dodatak paprike, češnjaka i soli, nastaje delicija koja se polako dimi na bukovu drvu i dozrijeva najmanje 5 do 6 mjeseci. Punog okusa, plemenite arome i autentičnog slavonskog karaktera.',
   },
   {
-    id: 2,
-    name: 'Svježe povrće',
-    desc: 'Sezonsko povrće uzgojeno bez pesticida, ubrano u pravom trenutku.',
-    tag: 'Sezonski',
-    img: '/images/title-slika.jpg',
+    name: 'Kulinova seka',
+    img: null,
+    desc: 'Tanja verzija kulina, jednako bogata okusom. Izrađena po istoj recepturi, punjena u tanje crijevo — savršena za svaki stol.',
   },
   {
-    id: 3,
-    name: 'Domaći sir',
-    desc: 'Tradicionalno pripremljen sir od svježeg mlijeka naših krava.',
-    tag: 'Novo',
-    img: '/images/Spice-backgrounds.jpg',
+    name: 'Domaća kobasica',
+    img: null,
+    desc: 'Od biranog svježeg svinjskog mesa, uz skladan omjer slatke i ljute paprike, češnjaka i soli, nastaje kobasica punog okusa, profinjene arome i prepoznatljivog karaktera domaće slavonske kuhinje.',
   },
   {
-    id: 4,
-    name: 'Zimnica',
-    desc: 'Domaće pekmeze, džemove i ukiseljeno povrće prema starim receptima.',
-    tag: null,
-    img: '/images/title-slika.jpg',
+    name: 'Šunka',
+    img: null,
+    desc: 'Suha šunka od svinjskog buta, dimljena i dugo zrena. Intenzivnog okusa, čvrste teksture — pravi slavonski specijalitet.',
+  },
+  {
+    name: 'Slanina',
+    img: null,
+    desc: 'Dimljena svinjska slanina s tankim slojevima mesa. Bogata aromom dima, idealna uz domaći kruh ili kao dodatak jelima.',
+  },
+  {
+    name: 'Buđola',
+    img: null,
+    desc: 'Suhomesnata delicija od svinjskog vrata, blage začinjenosti i fine teksture. Dugim zrenjem dobiva prepoznatljiv okus.',
+  },
+  {
+    name: 'Pečenica',
+    img: null,
+    desc: 'Dimljena svinjska pečenica — nježnog mesa i lagane, ugodne arome. Jedna od omiljenih slavonskih delicija.',
   },
 ]
 
 export default function Products() {
   return (
-    <section id="products" className={styles.products}>
+    <section id="proizvodi" className={styles.section}>
       <Container>
-        <SectionTitle
-          label="Naši proizvodi"
-          title="Sve s naše farme"
-          subtitle="Odabrali smo samo ono najkvalitetnije što naša zemlja može ponuditi."
-        />
+        <div className={styles.header}>
+          <span className={styles.label}>Ponuda</span>
+          <h2>Naši <em>proizvodi</em></h2>
+        </div>
 
         <div className={styles.grid}>
-          {products.map(product => (
-            <div key={product.id} className={styles.card}>
+          {products.map(p => (
+            <div key={p.name} className={styles.card}>
               <div className={styles.imgWrap}>
-                <img src={product.img} alt={product.name} className={styles.img} />
-                {product.tag && <span className={styles.tag}>{product.tag}</span>}
+                {p.img
+                  ? <img src={p.img} alt={p.name} className={styles.img} />
+                  : <div className={styles.placeholder}><span>Fotografija uskoro</span></div>
+                }
+                <div className={styles.overlay}>
+                  <p className={styles.desc}>{p.desc}</p>
+                </div>
               </div>
-              <div className={styles.body}>
-                <h3 className={styles.name}>{product.name}</h3>
-                <p className={styles.desc}>{product.desc}</p>
-                <a href="#contact" className={styles.cta}>Naruči →</a>
+              <div className={styles.cardFooter}>
+                <span className={styles.rule} />
+                <h3 className={styles.name}>{p.name}</h3>
               </div>
             </div>
           ))}
+        </div>
+
+        <div className={styles.cta}>
+          <a href="#kontakt" className={styles.ctaBtn}>Naruči proizvod</a>
         </div>
       </Container>
     </section>
