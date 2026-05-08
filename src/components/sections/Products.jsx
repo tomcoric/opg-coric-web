@@ -4,7 +4,7 @@ import styles from './Products.module.css'
 const products = [
   {
     name: 'Kulin',
-    img: null,
+    img: '/images/proizvodi/kulin_1.png',
     desc: 'Kralj slavonskog stola. Od birane svinjetine i leđne slanine, uz dodatak paprike, češnjaka i soli, nastaje delicija koja se polako dimi na bukovu drvu i dozrijeva najmanje 5 do 6 mjeseci. Punog okusa, plemenite arome i autentičnog slavonskog karaktera.',
   },
   {
