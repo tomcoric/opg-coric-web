@@ -65,6 +65,7 @@ export default function Contact() {
               <div className={styles.infoText}>
                 <strong>Za sve informacije</strong>
                 <a href="tel:+38598223844">+385 98 223 844</a>
+                <a href="tel:+385981692161">+385 98 169 2161</a>
               </div>
             </div>
           </div>

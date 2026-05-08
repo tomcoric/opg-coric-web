@@ -114,8 +114,9 @@
 }
 
 @media (max-width: 480px) {
-  .grid { grid-template-columns: 1fr; }
-  .card { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
-  .card:last-child { border-bottom: none; }
-  .card:nth-child(3) { border-right: none; }
+  .wrapper { padding: 0; bottom: 24px; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .card { padding: 14px 14px; }
+  .icon { width: 24px; height: 24px; margin-bottom: 10px; }
+  .icon svg { width: 24px; height: 24px; }
 }

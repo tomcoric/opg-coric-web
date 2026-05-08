@@ -187,7 +187,8 @@
 }
 
 @media (max-width: 640px) {
-  .hero { padding-bottom: 168px; }
+  .hero { justify-content: center; padding-top: 75px; padding-bottom: 160px; gap: 20px; }
+  .logo { width: min(492px, 64vw); max-height: 210px; }
   .title { white-space: normal; font-size: clamp(0.95rem, 4vw, 1.2rem); }
   .actions { gap: 12px; }
   .ctaPrimary,

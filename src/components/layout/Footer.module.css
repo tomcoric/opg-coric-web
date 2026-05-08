@@ -28,11 +28,12 @@
 }
 
 .brandName {
-  font-family: var(--display);
-  font-size: 19px;
+  font-family: var(--body);
+  font-size: 13px;
   font-weight: 500;
-  color: #fff;
-  letter-spacing: -.01em;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .tagline {
