@@ -54,7 +54,9 @@ export default function Hero() {
 
       <div className={styles.logoGroup}>
         <div className={styles.logoGlow} />
-        <img src="/images/kulin_coric_varijanta_1_gold_transparent_web.png" alt="Kulin Ćorić" className={styles.logo} />
+        <div className={styles.logoWrapper}>
+          <img src="/images/kulin_coric_donja_kruna_listovi_30posto_povecano_i_kompaktno.png" alt="Kulin Ćorić" className={styles.logo} />
+        </div>
         <h1 className={`${styles.title} ${visible ? styles.visible : styles.hidden}`}>
           {headlines[current].before}<em>{headlines[current].em}</em>{headlines[current].after}
         </h1>
