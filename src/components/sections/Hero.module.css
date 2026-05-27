@@ -17,7 +17,7 @@
   top: 59px; left: 0; right: 0; bottom: 0;
   background-size: cover;
   background-position: center;
-  filter: contrast(1.18) saturate(1.12) brightness(1.04);
+  filter: contrast(1.18) saturate(1.12) brightness(0.82);
 }
 
 .overlay {
@@ -25,7 +25,7 @@
   top: 59px; left: 0; right: 0; bottom: 0;
   background:
     radial-gradient(ellipse at center, transparent 25%, rgba(26, 26, 26, .5) 100%),
-    rgba(26, 26, 26, 0.50);
+    rgba(26, 26, 26, 0.62);
 }
 
 /* Logo group — logo + title grouped tightly */
@@ -163,15 +163,15 @@
 .trustItem {
   display: flex;
   align-items: center;
-  gap: 14px;
-  font-size: 22px;
+  gap: 10px;
+  font-size: 15px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: .18em;
   color: rgba(255, 255, 255, .6);
 }
 
-.trustItem svg { color: var(--gold); flex-shrink: 0; }
+.trustItem svg { color: var(--gold); flex-shrink: 0; width: 15px; height: 15px; }
 
 .trustDivider {
   display: inline-block;
@@ -192,6 +192,9 @@
   .actions { gap: 12px; }
   .ctaPrimary,
   .ctaSecondary { padding: 14px 24px; }
+  .trust { display: flex; }
+  .trustItem { font-size: 13px; gap: 8px; letter-spacing: .12em; }
+  .trustItem svg { width: 13px; height: 13px; }
 }
 
 /* Kratki ekrani */
