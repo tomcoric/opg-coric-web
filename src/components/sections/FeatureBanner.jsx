@@ -51,7 +51,7 @@ const features = [
   {
     Icon: Truck,
     title: 'Direktna dostava',
-    desc: 'Naručite i primite svježe proizvode na kućnu adresu.',
+    desc: 'Domaći suhomesnati proizvodi, pažljivo zapakirani i dostavljeni ravno na vašu adresu.',
   },
   {
     Icon: Medal,

@@ -18,11 +18,6 @@ const products = [
     desc: 'Od biranog svježeg svinjskog mesa, uz skladan omjer slatke i ljute paprike, češnjaka i soli, nastaje kobasica punog okusa, profinjene arome i prepoznatljivog karaktera domaće slavonske kuhinje.',
   },
   {
-    name: 'Šunka',
-    img: null,
-    desc: 'Suha šunka od svinjskog buta, dimljena i dugo zrena. Intenzivnog okusa, čvrste teksture — pravi slavonski specijalitet.',
-  },
-  {
     name: 'Slanina',
     img: null,
     desc: 'Dimljena svinjska slanina s tankim slojevima mesa. Bogata aromom dima, idealna uz domaći kruh ili kao dodatak jelima.',

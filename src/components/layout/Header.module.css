@@ -37,11 +37,12 @@
 .brand:hover { opacity: 0.82; color: rgba(255, 255, 255, 0.72); }
 
 .brandLogo {
-  height: 59px;
+  height: 47px;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
   margin-right: 8px;
+  margin-top: 5px;
 }
 
 /* ── Nav ── */

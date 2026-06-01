@@ -2,21 +2,51 @@
   position: relative;
   z-index: 1;
   background: var(--bg-deep);
-  padding: 64px 0;
+  padding: 56px 0;
+}
+
+/* Dekorativna zlatna linija s krunom */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(184, 134, 11, 0.42), transparent);
+}
+
+.dividerCrown {
+  color: var(--gold);
+  opacity: 0.62;
+  flex-shrink: 0;
+  display: block;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  margin: 38px 0;
 }
 
 .item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   padding: 0 24px;
   text-align: center;
+}
+
+.icon {
+  color: var(--gold);
+  opacity: 0.70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
 }
 
 .value {
@@ -36,9 +66,12 @@
 }
 
 @media (max-width: 640px) {
+  .stats { padding: 44px 0; }
   .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px 0;
+    margin: 32px 0;
   }
   .item { padding: 0 16px; }
+  .icon svg { width: 20px; height: 20px; }
 }
