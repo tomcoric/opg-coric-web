@@ -64,9 +64,8 @@ export default function Footer() {
           <div className={styles.col}>
             <h4 className={styles.colHeading}>Pravne informacije</h4>
             <div className={styles.list}>
-              <span className={styles.legal}>OIB: —</span>
-              <span className={styles.legal}>MBPG: —</span>
-              <a href="#" className={styles.legalLink}>Politika privatnosti</a>
+              <span className={styles.legal}>Đakovo, Hrvatska</span>
+              <span className={styles.legal}>HACCP certificirano</span>
             </div>
           </div>
 
