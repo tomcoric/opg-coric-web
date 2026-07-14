@@ -128,14 +128,14 @@
 .mobileNav {
   display: none;
   position: fixed;
-  inset: 0;
+  top: 110px; left: 0; right: 0; bottom: 0;
   background: rgba(8, 8, 8, 0.97);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 110px 24px 60px;
+  padding: 20px 24px 60px;
   gap: 0;
   z-index: 106;
   opacity: 0;
@@ -197,7 +197,7 @@
 
   .navLeft, .navRight { display: none; }
   .mobileNav { display: flex; }
-  .burger { display: flex; }
+  .burger { display: flex; margin-left: auto; }
 
   .brand {
     position: absolute;
