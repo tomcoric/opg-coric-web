@@ -59,6 +59,7 @@ export default function Products() {
                 <span className={styles.rule} />
                 <h3 className={styles.name}>{p.name}</h3>
               </div>
+              <p className={styles.mobileDesc}>{p.desc}</p>
             </div>
           ))}
         </div>

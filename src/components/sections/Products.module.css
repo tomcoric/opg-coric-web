@@ -126,6 +126,11 @@
   line-height: 1.2;
 }
 
+/* Mobile-only description (visible below card on touch devices) */
+.mobileDesc {
+  display: none;
+}
+
 /* CTA */
 .cta {
   margin-top: 52px;
@@ -160,8 +165,14 @@
 @media (max-width: 560px) {
   .grid { grid-template-columns: 1fr 1fr; gap: 16px; }
   .imgWrap { height: 180px; }
-  .overlay { padding: 16px; }
-  .desc { font-size: 0.78rem; }
+  .overlay { display: none; }
+  .mobileDesc {
+    display: block;
+    font-size: 0.78rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, .50);
+    padding: 10px 0 4px;
+  }
 }
 
 @media (max-width: 380px) {
