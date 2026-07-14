@@ -6,7 +6,6 @@ const headlines = [
   { before: 'Tradicija koja se ', em: 'nasljeđuje', after: '' },
   { before: 'Pravi okus ', em: 'Slavonije', after: ' — direktno k vama' },
   { before: 'Kulin po receptu ', em: 'predaka', after: '' },
-  { before: 'Dim, sol i ', em: 'strast', after: ' od 1987.' },
   { before: 'Okus koji ', em: 'pamtite', after: ' zauvijek' },
 ]
 
