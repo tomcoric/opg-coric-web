@@ -1,12 +1,12 @@
 :root {
   /* ═══ PALETA ═══ */
-  --ink:         #1A1A1A;
+  --ink:         #080808;
   --ink-soft:    #3A3027;
   --ink-mute:    #7A6A5A;
 
-  --gold:        #B8860B;
-  --gold-soft:   #C9A24A;
-  --gold-deep:   #8C660A;
+  --gold:        #C9A227;
+  --gold-soft:   #D4B84A;
+  --gold-deep:   #9B7A18;
 
   /* Bordo — JEDINO u CathedralDivider */
   --bordo:       #6B1818;
@@ -16,7 +16,7 @@
   --bg:          #FAF7F2;
   --bg-elevated: #FFFFFF;
   --bg-warm:     #F2EBE0;
-  --bg-deep:     #1A1A1A;
+  --bg-deep:     #080808;
 
   /* Linije */
   --line:        #E8DFD2;
