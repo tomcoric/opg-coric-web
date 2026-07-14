@@ -2,18 +2,14 @@ import { useState, useEffect } from 'react'
 import Container from '../ui/Container'
 import styles from './Header.module.css'
 
-const navLeft = [
+const navLinks = [
   { href: '#hero',         label: 'Naslovnica' },
   { href: '#o-nama',       label: 'O nama' },
   { href: '#sto-je-kulin', label: 'Što je kulin?' },
+  { href: '#proizvodi',   label: 'Proizvodi' },
+  { href: '#mediji',       label: 'Mediji' },
+  { href: '#kontakt',      label: 'Kontakt' },
 ]
-
-const navRight = [
-  { href: '#proizvodi', label: 'Proizvodi' },
-  { href: '#mediji',    label: 'Mediji' },
-]
-
-const allLinks = [...navLeft, ...navRight, { href: '#kontakt', label: 'Kontakt' }]
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -31,31 +27,19 @@ export default function Header() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <Container className={styles.inner}>
 
-        {/* Lijeva navigacija — samo desktop */}
-        <nav className={styles.navLeft}>
-          {navLeft.map(link => (
-            <a key={link.href} href={link.href} className={styles.navLink}>
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        {/* Logo — centar */}
         <a href="/" className={styles.brand}>
-          <img src="/images/kulin_coric_donja_kruna_listovi_30posto_povecano_i_kompaktno.png" alt="Kulin Ćorić" className={styles.brandLogo} />
+          <img src="/images/kulin_coric_mali_logo_web.png" alt="" className={styles.brandLogo} />
+          Kulin Ćorić
         </a>
 
-        {/* Desna navigacija — samo desktop */}
-        <nav className={styles.navRight}>
-          {navRight.map(link => (
-            <a key={link.href} href={link.href} className={styles.navLink}>
+        <nav className={`${styles.nav} ${menuOpen ? styles.open : ''}`}>
+          {navLinks.map(link => (
+            <a key={link.href} href={link.href} className={styles.navLink} onClick={closeMenu}>
               {link.label}
             </a>
           ))}
-          <a href="#kontakt" className={styles.navCta}>Kontakt</a>
         </nav>
 
-        {/* Hamburger — samo mobile */}
         <button
           className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ''}`}
           onClick={() => setMenuOpen(prev => !prev)}
@@ -67,16 +51,7 @@ export default function Header() {
         </button>
 
       </Container>
-
-      {/* Mobile overlay — svi linkovi zajedno */}
-      <nav className={`${styles.mobileNav} ${menuOpen ? styles.mobileOpen : ''}`}>
-        <div className={styles.mobileRule} />
-        {allLinks.map(link => (
-          <a key={link.href} href={link.href} className={styles.mobileLink} onClick={closeMenu}>
-            {link.label}
-          </a>
-        ))}
-      </nav>
+      {menuOpen && <div className={styles.backdrop} onClick={closeMenu} />}
     </header>
   )
 }
