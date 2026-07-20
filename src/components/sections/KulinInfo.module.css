@@ -16,12 +16,11 @@
 .deco {
   position: absolute;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 420px;
-  max-width: 42%;
+  top: 0;
+  width: 440px;
+  max-width: 44%;
   height: auto;
-  opacity: 0.09;
+  opacity: 0.22;
   pointer-events: none;
   user-select: none;
   object-fit: contain;
