@@ -38,7 +38,7 @@ export default function Hero() {
 
   return (
     <section id="hero" className={styles.hero}>
-      <div className={styles.bg} style={{ backgroundImage: 'url(/images/title-slika.jpg)' }} />
+      <div className={styles.bg} style={{ backgroundImage: 'url(/images/title-slika.webp)' }} />
       <div className={styles.overlay} />
 
       <div className={styles.logoGroup}>

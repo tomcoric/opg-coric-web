@@ -42,7 +42,7 @@ export default function About() {
               </p>
             </div>
           </div>
-          <img src="/images/Otac_Vladimir.png" alt="Vladimir Ćorić" className={styles.photo} />
+          <img src="/images/Otac_Vladimir.webp" alt="Vladimir Ćorić" className={styles.photo} loading="lazy" decoding="async" />
         </div>
       </Container>
     </section>

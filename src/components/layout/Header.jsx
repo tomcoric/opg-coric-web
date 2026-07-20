@@ -43,7 +43,7 @@ export default function Header() {
 
           {/* Logo — centar */}
           <a href="/" className={styles.brand}>
-            <img src="/images/logo_final.png" alt="Kulin Ćorić" className={styles.brandLogo} />
+            <img src="/images/logo_final.webp" alt="Kulin Ćorić" className={styles.brandLogo} />
           </a>
 
           {/* Desna navigacija — samo desktop */}
