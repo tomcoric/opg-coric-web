@@ -15,10 +15,10 @@
 /* Dekorativna slika kulina desno, iza teksta */
 .deco {
   position: absolute;
-  right: 0;
-  top: 0;
-  width: 440px;
-  max-width: 44%;
+  right: -40px;
+  top: -16px;
+  width: 460px;
+  max-width: 46%;
   height: auto;
   opacity: 0.22;
   pointer-events: none;
