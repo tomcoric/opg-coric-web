@@ -43,7 +43,7 @@ export default function Header() {
 
           {/* Logo — centar */}
           <a href="/" className={styles.brand}>
-            <img src="/images/kulin_coric_donja_kruna_listovi_30posto_povecano_i_kompaktno.png" alt="Kulin Ćorić" className={styles.brandLogo} />
+            <img src="/images/logo_final.png" alt="Kulin Ćorić" className={styles.brandLogo} />
           </a>
 
           {/* Desna navigacija — samo desktop */}

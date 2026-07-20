@@ -19,7 +19,7 @@ export default function Footer() {
           {/* Brand */}
           <div className={styles.col}>
             <div className={styles.brand}>
-              <img src="/images/kulin_coric_donja_kruna_listovi_30posto_povecano_i_kompaktno.png" alt="Kulin Ćorić" className={styles.brandLogo} />
+              <img src="/images/logo_final.png" alt="Kulin Ćorić" className={styles.brandLogo} />
               <span className={styles.brandName}>Kulin Ćorić</span>
             </div>
             <p className={styles.tagline}>
