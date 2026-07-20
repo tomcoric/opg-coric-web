@@ -3,11 +3,32 @@
   z-index: 1;
   padding: var(--section-py) 0;
   background: var(--bg-deep);
+  overflow: hidden;
 }
 
 .inner {
   max-width: 780px;
   margin: 0 auto;
+  position: relative;
+}
+
+/* Dekorativna slika kulina desno, iza teksta */
+.deco {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 420px;
+  max-width: 42%;
+  height: auto;
+  opacity: 0.09;
+  pointer-events: none;
+  user-select: none;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .deco { display: none; }
 }
 
 .header {

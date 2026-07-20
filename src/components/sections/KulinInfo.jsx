@@ -57,6 +57,7 @@ const cards = [
 export default function KulinInfo() {
   return (
     <section id="sto-je-kulin" className={styles.section}>
+      <img src="/images/kulin_visi.webp" alt="" aria-hidden="true" className={styles.deco} loading="lazy" decoding="async" />
       <Container>
         <div className={styles.inner}>
           <div className={styles.header}>
