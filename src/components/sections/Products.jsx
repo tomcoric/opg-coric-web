@@ -9,27 +9,27 @@ const products = [
   },
   {
     name: 'Kulinova seka',
-    img: null,
+    img: '/images/proizvodi/seka.png',
     desc: 'Tanja verzija kulina, jednako bogata okusom. Izrađena po istoj recepturi, punjena u tanje crijevo — savršena za svaki stol.',
   },
   {
     name: 'Domaća kobasica',
-    img: null,
+    img: '/images/proizvodi/kobasica.png',
     desc: 'Od biranog svježeg svinjskog mesa, uz skladan omjer slatke i ljute paprike, češnjaka i soli, nastaje kobasica punog okusa, profinjene arome i prepoznatljivog karaktera domaće slavonske kuhinje.',
   },
   {
     name: 'Slanina',
-    img: null,
+    img: '/images/proizvodi/slanina.png',
     desc: 'Dimljena svinjska slanina s tankim slojevima mesa. Bogata aromom dima, idealna uz domaći kruh ili kao dodatak jelima.',
   },
   {
     name: 'Buđola',
-    img: null,
+    img: '/images/proizvodi/budola.png',
     desc: 'Suhomesnata delicija od svinjskog vrata, blage začinjenosti i fine teksture. Dugim zrenjem dobiva prepoznatljiv okus.',
   },
   {
     name: 'Pečenica',
-    img: null,
+    img: '/images/proizvodi/pecenica.png',
     desc: 'Dimljena svinjska pečenica — nježnog mesa i lagane, ugodne arome. Jedna od omiljenih slavonskih delicija.',
   },
 ]
