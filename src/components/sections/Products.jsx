@@ -1,3 +1,4 @@
+import { useState, useEffect, useCallback } from 'react'
 import Container from '../ui/Container'
 import styles from './Products.module.css'
 
@@ -35,6 +36,21 @@ const products = [
 ]
 
 export default function Products() {
+  const [active, setActive] = useState(null)
+
+  const close = useCallback(() => setActive(null), [])
+
+  useEffect(() => {
+    if (!active) return
+    const onKey = (e) => { if (e.key === 'Escape') close() }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [active, close])
+
   return (
     <section id="proizvodi" className={styles.section}>
       <Container>
@@ -45,7 +61,15 @@ export default function Products() {
 
         <div className={styles.grid}>
           {products.map(p => (
-            <div key={p.name} className={styles.card}>
+            <div
+              key={p.name}
+              className={styles.card}
+              onClick={() => p.img && setActive(p)}
+              role={p.img ? 'button' : undefined}
+              tabIndex={p.img ? 0 : undefined}
+              onKeyDown={e => e.key === 'Enter' && p.img && setActive(p)}
+              aria-label={p.img ? `Otvori sliku: ${p.name}` : undefined}
+            >
               <div className={styles.imgWrap}>
                 {p.img
                   ? <img src={p.img} alt={p.name} className={styles.img} loading="lazy" decoding="async" />
@@ -68,6 +92,19 @@ export default function Products() {
           <a href="#kontakt" className={styles.ctaBtn}>Naruči proizvod</a>
         </div>
       </Container>
+
+      {active && (
+        <div className={styles.lightbox} onClick={close} role="dialog" aria-modal="true" aria-label={active.name}>
+          <button className={styles.lightboxClose} onClick={close} aria-label="Zatvori">✕</button>
+          <div className={styles.lightboxInner} onClick={e => e.stopPropagation()}>
+            <img src={active.img} alt={active.name} className={styles.lightboxImg} />
+            <div className={styles.lightboxCaption}>
+              <h3 className={styles.lightboxName}>{active.name}</h3>
+              <p className={styles.lightboxDesc}>{active.desc}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
