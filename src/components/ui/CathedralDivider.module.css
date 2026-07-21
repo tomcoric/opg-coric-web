@@ -1,13 +1,17 @@
 .divider {
   background: var(--bg-deep);
+  height: clamp(64px, 9vw, 150px);
+  overflow: hidden;
 }
 
 .divider img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
   filter: grayscale(1) brightness(5) contrast(0.5);
-  opacity: 0.15;
+  opacity: 0.22;
   pointer-events: none;
   user-select: none;
 }

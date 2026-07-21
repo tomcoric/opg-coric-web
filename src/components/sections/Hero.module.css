@@ -95,6 +95,16 @@
 .visible { opacity: 1; transform: translateY(0); }
 .hidden  { opacity: 0; transform: translateY(8px); }
 
+.brandLine {
+  color: var(--gold-soft);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  text-align: center;
+  opacity: 0.85;
+}
+
 /* Gold rule */
 .rule {
   width: 60px;
@@ -188,10 +198,10 @@
   .hero { justify-content: center; padding-top: 75px; padding-bottom: 160px; gap: 20px; }
   .logoWrapper { padding: 10px; }
   .logo { width: min(492px, 60vw); max-height: 200px; }
-  .title { white-space: normal; font-size: clamp(0.95rem, 4vw, 1.2rem); }
+  .title { white-space: normal; font-size: clamp(1.15rem, 5.2vw, 1.5rem); }
   .actions { gap: 12px; }
   .ctaPrimary,
-  .ctaSecondary { padding: 14px 24px; }
+  .ctaSecondary { padding: 17px 28px; font-size: 14px; }
   .trust { display: flex; }
   .trustItem { font-size: 13px; gap: 8px; letter-spacing: .12em; }
   .trustItem svg { width: 13px; height: 13px; }
