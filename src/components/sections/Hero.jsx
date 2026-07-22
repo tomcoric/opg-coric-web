@@ -45,7 +45,7 @@ export default function Hero() {
         <h1 className={`${styles.title} ${visible ? styles.visible : styles.hidden}`}>
           {headlines[current].before}<em>{headlines[current].em}</em>{headlines[current].after}
         </h1>
-        <p className={styles.brandLine}>OPG Kulin Ćorić · Đakovo</p>
+        <p className={styles.brandLine}>OPG Ćorić Vladimir · Đakovo</p>
       </div>
 
       <div className={styles.content}>

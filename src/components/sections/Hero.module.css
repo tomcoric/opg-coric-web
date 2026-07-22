@@ -103,6 +103,12 @@
   text-transform: uppercase;
   text-align: center;
   opacity: 0.85;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 /* Gold rule */
@@ -199,6 +205,7 @@
   .logoWrapper { padding: 10px; }
   .logo { width: min(492px, 60vw); max-height: 200px; }
   .title { white-space: normal; font-size: clamp(1.15rem, 5.2vw, 1.5rem); }
+  .brandLine { font-size: clamp(0.58rem, 3vw, 0.72rem); letter-spacing: .14em; padding: 0 12px; }
   .actions { gap: 12px; }
   .ctaPrimary,
   .ctaSecondary { padding: 17px 28px; font-size: 14px; }
