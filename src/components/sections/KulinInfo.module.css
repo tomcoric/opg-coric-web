@@ -21,8 +21,8 @@
   width: 420px;
   max-width: 62%;
   height: auto;
-  opacity: 0.34;
-  filter: brightness(1.4);
+  opacity: 0.18;
+  filter: brightness(0.9);
   pointer-events: none;
   user-select: none;
   object-fit: contain;
