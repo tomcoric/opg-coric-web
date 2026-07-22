@@ -12,15 +12,17 @@
   position: relative;
 }
 
-/* Dekorativna slika kulina desno, iza teksta */
+/* Dekorativna slika kulina, centrirana, iza texta */
 .deco {
   position: absolute;
-  right: -40px;
-  top: -16px;
-  width: 340px;
-  max-width: 36%;
+  left: 50%;
+  top: -8px;
+  transform: translateX(-50%);
+  width: 420px;
+  max-width: 62%;
   height: auto;
-  opacity: 0.22;
+  opacity: 0.34;
+  filter: brightness(1.4);
   pointer-events: none;
   user-select: none;
   object-fit: contain;
