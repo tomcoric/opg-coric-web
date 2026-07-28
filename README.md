@@ -91,12 +91,30 @@ npm run lint
 
 ## Deploy
 
-Stranica se gradi kao **statični site** (output u `/dist`). Može se hostati na:
+Stranica se gradi kao **statični site** (output u `/dist`). Trenutno ide na dva mjesta:
 
-- **Vercel** — povežite GitHub repozitorij, automatski detektira Vite
+- **Vercel** (`opg-coric-web.vercel.app`) — automatski, za razvoj/testiranje/pregled. Povezan na GitHub, svaki push na `main` odmah objavi preview.
+- **Klasični hosting** (`www.kulin-coric.hr`) — javna domena. Automatski se objavljuje preko `.github/workflows/deploy.yml` (build + FTPS upload `dist/` mape) na svaki push na `main`.
+
+### Potrebni GitHub secrets za FTPS deploy
+
+Settings → Secrets and variables → Actions → New repository secret (u GitHub webu), ili `gh secret set IME_SECRETA` u terminalu — nikad ne pišite lozinke direktno u kod ili chat:
+
+| Secret | Opis |
+|---|---|
+| `FTP_SERVER` | Adresa FTP servera, npr. `ftp.kulin-coric.hr` |
+| `FTP_USERNAME` | FTP korisničko ime |
+| `FTP_PASSWORD` | FTP lozinka |
+| `FTP_SERVER_DIR` | Ciljni direktorij na serveru, npr. `/public_html/` |
+| `VITE_WEB3FORMS_KEY` | Web3Forms API ključ (za kontakt formu — vidi `.env.example`) |
+
+Nakon što su secreti dodani, workflow se pokreće automatski. Ručno pokretanje: GitHub repo → Actions → "Deploy to hosting (FTPS)" → Run workflow.
+
+### Alternative (bez FTPS automatizacije)
+
 - **Netlify** — drag & drop `/dist` mape ili GitHub integracija
 - **GitHub Pages** — uz `vite.config.js` `base` podešavanje
-- **Bilo koji web hosting** — uploadajte sadržaj `/dist` mape
+- **Bilo koji web hosting** — ručno uploadajte sadržaj `/dist` mape (nakon `npm run build`)
 
 ---
 
