@@ -27,6 +27,16 @@ jobs:
         env:
           VITE_WEB3FORMS_KEY: ${{ secrets.VITE_WEB3FORMS_KEY }}
 
+      - name: Normalize server dir
+        id: normalize
+        run: |
+          DIR="${{ secrets.FTP_SERVER_DIR }}"
+          case "$DIR" in
+            */) ;;
+            *) DIR="$DIR/" ;;
+          esac
+          echo "dir=$DIR" >> "$GITHUB_OUTPUT"
+
       - name: Deploy dist/ via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -35,4 +45,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           local-dir: ./dist/
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          server-dir: ${{ steps.normalize.outputs.dir }}
