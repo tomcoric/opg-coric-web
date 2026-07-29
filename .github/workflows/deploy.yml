@@ -46,3 +46,7 @@ jobs:
           protocol: ftps
           local-dir: ./dist/
           server-dir: ${{ steps.normalize.outputs.dir }}
+
+      - name: DEBUG - list remote directory after deploy
+        run: |
+          curl --ssl-reqd -k -v --list-only "ftp://${{ secrets.FTP_SERVER }}${{ steps.normalize.outputs.dir }}" --user "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" 2>&1 | tail -80
