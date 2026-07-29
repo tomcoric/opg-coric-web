@@ -112,12 +112,12 @@ function ContactForm() {
           <label htmlFor="product" className={styles.fieldLabel}>Što vas zanima?</label>
           <select id="product" name="product" className={styles.input}>
             <option value="">Odaberite proizvod...</option>
-            <option>Kulin</option>
-            <option>Kulinova seka</option>
-            <option>Domaća kobasica</option>
-            <option>Slanina</option>
-            <option>Buđola</option>
-            <option>Pečenica</option>
+            <option>Đakovački Kulin</option>
+            <option>Đakovačka Kulinova Seka</option>
+            <option>Đakovačka Kobasica</option>
+            <option>Đakovačka Slanina</option>
+            <option>Đakovačka Buđola</option>
+            <option>Đakovačka Pečenica</option>
             <option>Više proizvoda / upit</option>
           </select>
         </div>

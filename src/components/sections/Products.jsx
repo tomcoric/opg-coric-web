@@ -4,32 +4,32 @@ import styles from './Products.module.css'
 
 const products = [
   {
-    name: 'Kulin',
+    name: 'Đakovački Kulin',
     img: '/images/proizvodi/kulin_1.webp',
     desc: 'Kralj slavonskog stola. Od birane svinjetine i leđne slanine, uz dodatak paprike, češnjaka i soli, nastaje delicija koja se polako dimi na bukovu drvu i dozrijeva najmanje 5 do 6 mjeseci. Punog okusa, plemenite arome i autentičnog slavonskog karaktera.',
   },
   {
-    name: 'Kulinova seka',
+    name: 'Đakovačka Kulinova Seka',
     img: '/images/proizvodi/seka.webp',
     desc: 'Tanja verzija kulina, jednako bogata okusom. Izrađena po istoj recepturi, punjena u tanje crijevo — savršena za svaki stol.',
   },
   {
-    name: 'Domaća kobasica',
+    name: 'Đakovačka Kobasica',
     img: '/images/proizvodi/kobasica.webp',
     desc: 'Od biranog svježeg svinjskog mesa, uz skladan omjer slatke i ljute paprike, češnjaka i soli, nastaje kobasica punog okusa, profinjene arome i prepoznatljivog karaktera domaće slavonske kuhinje.',
   },
   {
-    name: 'Slanina',
+    name: 'Đakovačka Slanina',
     img: '/images/proizvodi/slanina.webp',
     desc: 'Dimljena svinjska slanina s tankim slojevima mesa. Bogata aromom dima, idealna uz domaći kruh ili kao dodatak jelima.',
   },
   {
-    name: 'Buđola',
+    name: 'Đakovačka Buđola',
     img: '/images/proizvodi/budola.webp',
     desc: 'Suhomesnata delicija od svinjskog vrata, blage začinjenosti i fine teksture. Dugim zrenjem dobiva prepoznatljiv okus.',
   },
   {
-    name: 'Pečenica',
+    name: 'Đakovačka Pečenica',
     img: '/images/proizvodi/pecenica.webp',
     desc: 'Dimljena svinjska pečenica — nježnog mesa i lagane, ugodne arome. Jedna od omiljenih slavonskih delicija.',
   },
