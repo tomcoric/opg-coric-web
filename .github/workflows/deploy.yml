@@ -37,6 +37,14 @@ jobs:
           esac
           echo "dir=$DIR" >> "$GITHUB_OUTPUT"
 
+      - name: DEBUG - raw upload + listing test
+        run: |
+          echo "debug test file $(date)" > /tmp/debug-test.txt
+          echo "--- Uploading test file ---"
+          curl --ssl-reqd -k -v -T /tmp/debug-test.txt "ftp://${{ secrets.FTP_SERVER }}${{ steps.normalize.outputs.dir }}debug-test.txt" --user "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" 2>&1 | tail -60
+          echo "--- Listing directory after upload ---"
+          curl --ssl-reqd -k --list-only "ftp://${{ secrets.FTP_SERVER }}${{ steps.normalize.outputs.dir }}" --user "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" 2>&1
+
       - name: Deploy dist/ via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -46,3 +54,4 @@ jobs:
           protocol: ftps
           local-dir: ./dist/
           server-dir: ${{ steps.normalize.outputs.dir }}
+          state-name: .ftp-deploy-sync-state-v2.json
