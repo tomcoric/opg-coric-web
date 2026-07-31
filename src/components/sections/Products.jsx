@@ -12,6 +12,7 @@ const products = [
     name: 'Đakovačka Kulinova Seka',
     img: '/images/proizvodi/seka.webp',
     desc: 'Tanja verzija kulina, jednako bogata okusom. Izrađena po istoj recepturi, punjena u tanje crijevo — savršena za svaki stol.',
+    soldOut: true,
   },
   {
     name: 'Đakovačka Kobasica',
@@ -32,6 +33,7 @@ const products = [
     name: 'Đakovačka Pečenica',
     img: '/images/proizvodi/pecenica.webp',
     desc: 'Dimljena svinjska pečenica — nježnog mesa i lagane, ugodne arome. Jedna od omiljenih slavonskih delicija.',
+    soldOut: true,
   },
 ]
 
@@ -72,9 +74,10 @@ export default function Products() {
             >
               <div className={styles.imgWrap}>
                 {p.img
-                  ? <img src={p.img} alt={p.name} className={styles.img} loading="lazy" decoding="async" />
+                  ? <img src={p.img} alt={p.name} className={`${styles.img} ${p.soldOut ? styles.imgSoldOut : ''}`} loading="lazy" decoding="async" />
                   : <div className={styles.placeholder}><span>Fotografija uskoro</span></div>
                 }
+                {p.soldOut && <span className={styles.soldOutRibbon}>Rasprodano</span>}
                 <div className={styles.overlay}>
                   <p className={styles.desc}>{p.desc}</p>
                 </div>

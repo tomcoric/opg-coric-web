@@ -59,6 +59,31 @@
   transform: scale(1.05);
 }
 
+.imgSoldOut {
+  filter: grayscale(1) brightness(0.55);
+}
+
+.soldOutRibbon {
+  position: absolute;
+  top: 26px;
+  left: -42px;
+  width: 200px;
+  padding: 7px 0;
+  transform: rotate(-40deg);
+  transform-origin: center;
+  background: var(--ink);
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  color: var(--gold-soft);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  z-index: 2;
+  pointer-events: none;
+}
+
 /* Placeholder */
 .placeholder {
   width: 100%;
