@@ -63,10 +63,12 @@ export default function Footer() {
           {/* Pravno */}
           <div className={styles.col}>
             <h4 className={styles.colHeading}>Pravne informacije</h4>
-            <div className={styles.list}>
-              <span className={styles.legal}>Đakovo, Hrvatska</span>
-              <span className={styles.legal}>HACCP certificirano</span>
-            </div>
+            <nav className={styles.list}>
+              <a href="/politika-privatnosti.html" className={styles.link}>Politika privatnosti</a>
+              <a href="/politika-kolacica.html" className={styles.link}>Politika kolačića</a>
+              <a href="/uvjeti-koristenja.html" className={styles.link}>Uvjeti korištenja</a>
+              <a href="/impressum.html" className={styles.link}>Impressum</a>
+            </nav>
           </div>
 
         </div>

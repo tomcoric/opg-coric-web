@@ -70,13 +70,6 @@
 }
 .link:hover { color: rgba(255, 255, 255, .9); }
 
-/* Legal */
-.legal {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, .3);
-  line-height: 1.5;
-}
-
 .legalLink {
   font-size: 0.875rem;
   color: rgba(255, 255, 255, .45);
