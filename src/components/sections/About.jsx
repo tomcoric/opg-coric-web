@@ -9,7 +9,7 @@ export default function About() {
           <div className={styles.content}>
             <div className={styles.header}>
               <span className={styles.label}>O nama</span>
-              <h2>OPG Kulin <em>Ćorić</em></h2>
+              <h2>Kulin <em>Ćorić</em></h2>
             </div>
             <div className={styles.body}>
               <p>
@@ -35,7 +35,7 @@ export default function About() {
                 dimljenja i zrenja, pa sve do pakiranja gotovog proizvoda.
               </p>
               <p>
-                OPG Kulin Ćorić osnovan je s ciljem očuvanja, zaštite i promocije autohtonih slavonskih
+                OPG Ćorić Vladimir osnovan je s ciljem očuvanja, zaštite i promocije autohtonih slavonskih
                 suhomesnatih proizvoda. Kao ponosni član Udruge kulinara „Đakovački kulin",
                 redovito sudjelujemo na ocjenjivanjima i natjecanjima diljem regije, gdje su naši
                 proizvodi prepoznati i nagrađivani na regionalnim i nacionalnim razinama.

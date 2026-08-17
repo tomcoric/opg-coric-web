@@ -75,7 +75,7 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <p className={styles.copy}>
-            &copy; {new Date().getFullYear()} OPG Kulin Ćorić &mdash; Sva prava pridržana
+            &copy; {new Date().getFullYear()} OPG Ćorić Vladimir &mdash; Sva prava pridržana
           </p>
         </div>
       </Container>

@@ -25,7 +25,7 @@ const overlaySvg = Buffer.from(`
   </defs>
   <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#vign)"/>
   <text x="50%" y="470" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="600" fill="#F5F1E8">
-    OPG Kulin Ćorić
+    OPG Ćorić Vladimir
   </text>
   <text x="50%" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="600" letter-spacing="4" fill="#D4B84A">
     DOMAĆI KULIN I SUHOMESNATI PROIZVODI — ĐAKOVO
