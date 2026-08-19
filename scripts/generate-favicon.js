@@ -7,8 +7,7 @@ const BG = '#0A0A0A'
 
 const ringSvg = Buffer.from(`
 <svg width="${CANVAS}" height="${CANVAS}" xmlns="http://www.w3.org/2000/svg">
-  <rect width="${CANVAS}" height="${CANVAS}" fill="${BG}"/>
-  <circle cx="${CANVAS / 2}" cy="${CANVAS / 2}" r="${CANVAS / 2 - 14}" fill="none" stroke="${GOLD}" stroke-width="14"/>
+  <circle cx="${CANVAS / 2}" cy="${CANVAS / 2}" r="${CANVAS / 2 - 14}" fill="${BG}" stroke="${GOLD}" stroke-width="14"/>
 </svg>
 `)
 
