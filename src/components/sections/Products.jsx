@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import Container from '../ui/Container'
+import { scrollToAnchor } from '../../utils/scrollToAnchor'
 import styles from './Products.module.css'
 
 const products = [
@@ -92,7 +93,7 @@ export default function Products() {
         </div>
 
         <div className={styles.cta}>
-          <a href="#kontakt" className={styles.ctaBtn}>Naruči proizvod</a>
+          <a href="#kontakt" className={styles.ctaBtn} onClick={e => { e.preventDefault(); scrollToAnchor('#kontakt') }}>Naruči proizvod</a>
         </div>
       </Container>
 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Container from '../ui/Container'
+import { scrollToAnchor } from '../../utils/scrollToAnchor'
 import styles from './Header.module.css'
 
 const navLeft = [
@@ -27,6 +28,12 @@ export default function Header() {
 
   const closeMenu = () => setMenuOpen(false)
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault()
+    closeMenu()
+    scrollToAnchor(href)
+  }
+
   return (
     <>
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
@@ -35,7 +42,7 @@ export default function Header() {
           {/* Lijeva navigacija — samo desktop */}
           <nav className={styles.navLeft}>
             {navLeft.map(link => (
-              <a key={link.href} href={link.href} className={styles.navLink}>
+              <a key={link.href} href={link.href} className={styles.navLink} onClick={e => handleNavClick(e, link.href)}>
                 {link.label}
               </a>
             ))}
@@ -49,11 +56,11 @@ export default function Header() {
           {/* Desna navigacija — samo desktop */}
           <nav className={styles.navRight}>
             {navRight.map(link => (
-              <a key={link.href} href={link.href} className={styles.navLink}>
+              <a key={link.href} href={link.href} className={styles.navLink} onClick={e => handleNavClick(e, link.href)}>
                 {link.label}
               </a>
             ))}
-            <a href="#kontakt" className={styles.navCta}>Kontakt</a>
+            <a href="#kontakt" className={styles.navCta} onClick={e => handleNavClick(e, '#kontakt')}>Kontakt</a>
           </nav>
 
           {/* Hamburger — samo mobile */}
@@ -74,7 +81,7 @@ export default function Header() {
       <nav className={`${styles.mobileNav} ${menuOpen ? styles.mobileOpen : ''}`}>
         <div className={styles.mobileRule} />
         {allLinks.map(link => (
-          <a key={link.href} href={link.href} className={styles.mobileLink} onClick={closeMenu}>
+          <a key={link.href} href={link.href} className={styles.mobileLink} onClick={e => handleNavClick(e, link.href)}>
             {link.label}
           </a>
         ))}

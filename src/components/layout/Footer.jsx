@@ -1,4 +1,5 @@
 import Container from '../ui/Container'
+import { scrollToAnchor } from '../../utils/scrollToAnchor'
 import styles from './Footer.module.css'
 
 const navLinks = [
@@ -33,7 +34,12 @@ export default function Footer() {
             <h4 className={styles.colHeading}>Navigacija</h4>
             <nav className={styles.list}>
               {navLinks.map(link => (
-                <a key={link.href} href={link.href} className={styles.link}>
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={styles.link}
+                  onClick={e => { e.preventDefault(); scrollToAnchor(link.href) }}
+                >
                   {link.label}
                 </a>
               ))}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { scrollToAnchor } from '../../utils/scrollToAnchor'
 import styles from './Hero.module.css'
 
 const headlines = [
@@ -50,7 +51,7 @@ export default function Hero() {
 
       <div className={styles.content}>
         <div className={styles.actions}>
-          <a href="#kontakt" className={styles.ctaPrimary}>Naruči proizvod</a>
+          <a href="#kontakt" className={styles.ctaPrimary} onClick={e => { e.preventDefault(); scrollToAnchor('#kontakt') }}>Naruči proizvod</a>
         </div>
         <div className={styles.trust}>
           <span className={styles.trustItem}><ShieldIcon />EU IGP zaštita</span>
