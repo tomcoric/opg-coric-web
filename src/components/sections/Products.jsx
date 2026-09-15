@@ -29,6 +29,7 @@ const products = [
     name: 'Đakovačka Buđola',
     img: '/images/proizvodi/budola.webp',
     desc: 'Suhomesnata delicija od svinjskog vrata, blage začinjenosti i fine teksture. Dugim zrenjem dobiva prepoznatljiv okus.',
+    soldOut: true,
   },
   {
     name: 'Đakovačka Pečenica',
