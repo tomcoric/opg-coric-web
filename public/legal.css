@@ -194,7 +194,7 @@ main.legal {
 
 .priceTable {
   width: 100%;
-  min-width: 480px;
+  min-width: 560px;
   border-collapse: collapse;
   font-size: 14px;
 }
@@ -212,7 +212,9 @@ main.legal {
   border-bottom: 1px solid rgba(255, 255, 255, .18);
 }
 .priceTable tbody tr:last-child td { border-bottom: none; }
-.priceTable td:nth-child(2) { text-align: right; white-space: nowrap; color: rgba(255,255,255,.92); font-weight: 500; }
+.priceTable th:nth-child(2), .priceTable th:nth-child(3) { text-align: right; }
+.priceTable td.priceAnchor { text-align: right; white-space: nowrap; color: rgba(255,255,255,.5); }
+.priceTable td:nth-child(3) { text-align: right; white-space: nowrap; color: rgba(255,255,255,.92); font-weight: 500; }
 .priceTable .unavailable td { color: rgba(255, 255, 255, .4); }
 .priceTable .unavailableTag {
   display: inline-block;

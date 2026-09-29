@@ -34,6 +34,7 @@
           <thead>
             <tr>
               <th scope="col">Proizvod</th>
+              <th scope="col">Sidrena cijena (€/kg)</th>
               <th scope="col">Cijena (€/kg)</th>
             </tr>
           </thead>
@@ -101,8 +102,10 @@
 
           bodyEl.innerHTML = products.map(p => {
             const available = p.dostupnost === 'dostupno'
+            const anchorPrice = p.sidrena_cijena ? `${Number(p.sidrena_cijena).toFixed(2)} €` : '—'
             return `<tr${available ? '' : ' class="unavailable"'}>
               <td>${p.naziv}${available ? '' : '<span class="unavailableTag">Nedostupno</span>'}</td>
+              <td class="priceAnchor">${anchorPrice}</td>
               <td>${Number(p.maloprodajna_cijena).toFixed(2)} €</td>
             </tr>`
           }).join('')
