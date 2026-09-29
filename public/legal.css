@@ -147,6 +147,90 @@ main.legal {
   color: rgba(255, 255, 255, .4);
 }
 
+/* ═══ CJENIK ═══ */
+.priceIntro { max-width: 60ch; }
+
+.priceMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin: 24px 0 32px;
+}
+
+.priceUpdated {
+  font-size: 13px;
+  color: rgba(255, 255, 255, .5);
+}
+.priceUpdated strong { color: rgba(255, 255, 255, .8); font-weight: 600; }
+
+.downloadBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  min-height: 44px;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background-color .2s ease, box-shadow .2s ease;
+}
+.downloadBtn:hover {
+  background: var(--gold-soft);
+  box-shadow: var(--shadow-md, 0 4px 20px rgba(0,0,0,.25));
+}
+
+.priceTableWrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid rgba(255, 255, 255, .1);
+  margin-bottom: 24px;
+}
+
+.priceTable {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.priceTable th, .priceTable td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.priceTable thead th {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(255, 255, 255, .18);
+}
+.priceTable tbody tr:last-child td { border-bottom: none; }
+.priceTable td:nth-child(2) { text-align: right; white-space: nowrap; color: rgba(255,255,255,.92); font-weight: 500; }
+.priceTable .unavailable td { color: rgba(255, 255, 255, .4); }
+.priceTable .unavailableTag {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .45);
+}
+
+.priceState {
+  padding: 32px 16px;
+  text-align: center;
+  color: rgba(255, 255, 255, .5);
+  font-size: 14px;
+}
+.priceState.priceStateError { color: #E8A3A3; }
+
 @media (max-width: 640px) {
   main.legal { padding: 40px 20px 64px; }
   .infoRow { flex-direction: column; gap: 4px; }

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cjenik | OPG Ćorić Vladimir</title>
+    <meta name="description" content="Aktualni cjenik OPG Ćorić Vladimir — kulin, kobasice, slanina i suhomesnati proizvodi iz Đakova. Preuzmite cjenik u CSV formatu." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.kulin-coric.hr/cjenik.html" />
+    <link rel="stylesheet" href="/legal.css" />
+  </head>
+  <body>
+    <header class="legalHeader">
+      <a href="/" class="brand">
+        <img src="/images/logo_final.webp" alt="Kulin Ćorić" />
+        <span class="brandName">Kulin Ćorić</span>
+      </a>
+      <a href="/" class="backLink">← Natrag na naslovnicu</a>
+    </header>
+
+    <main class="legal">
+      <span class="eyebrow">Cjenik</span>
+      <h1>Aktualni cjenik</h1>
+      <p class="priceIntro">Cijene svih proizvoda OPG Ćorić Vladimir, izražene po kilogramu. Cjenik se generira automatski svaki dan.</p>
+
+      <div class="priceMeta">
+        <span class="priceUpdated" id="priceUpdated"></span>
+        <a href="/cjenici/latest.csv" class="downloadBtn" download>Preuzmi cjenik (CSV)</a>
+      </div>
+
+      <div class="priceTableWrap">
+        <table class="priceTable" id="priceTable" hidden>
+          <thead>
+            <tr>
+              <th scope="col">Proizvod</th>
+              <th scope="col">Cijena (€/kg)</th>
+            </tr>
+          </thead>
+          <tbody id="priceTableBody"></tbody>
+        </table>
+        <p class="priceState" id="priceState">Učitavanje cjenika…</p>
+      </div>
+    </main>
+
+    <footer class="legalFooter"></footer>
+
+    <script>
+      function parseCsv(text) {
+        const clean = text.replace(/^﻿/, '').trim()
+        const lines = clean.split(/\r\n|\n/)
+        const rows = lines.map(line => {
+          const cells = []
+          let cur = '', inQuotes = false
+          for (let i = 0; i < line.length; i++) {
+            const ch = line[i]
+            if (inQuotes) {
+              if (ch === '"' && line[i + 1] === '"') { cur += '"'; i++ }
+              else if (ch === '"') { inQuotes = false }
+              else { cur += ch }
+            } else if (ch === '"') {
+              inQuotes = true
+            } else if (ch === ';') {
+              cells.push(cur); cur = ''
+            } else {
+              cur += ch
+            }
+          }
+          cells.push(cur)
+          return cells
+        })
+        const header = rows[0]
+        return rows.slice(1).map(row => Object.fromEntries(header.map((h, i) => [h, row[i]])))
+      }
+
+      function formatDate(isoDate) {
+        const [y, m, d] = isoDate.split('-')
+        return `${d}.${m}.${y}.`
+      }
+
+      async function loadPriceList() {
+        const stateEl = document.getElementById('priceState')
+        const tableEl = document.getElementById('priceTable')
+        const bodyEl = document.getElementById('priceTableBody')
+        const updatedEl = document.getElementById('priceUpdated')
+
+        try {
+          const [csvRes, metaRes] = await Promise.all([
+            fetch('/cjenici/latest.csv', { cache: 'no-store' }),
+            fetch('/cjenici/latest.json', { cache: 'no-store' }),
+          ])
+          if (!csvRes.ok) throw new Error('csv')
+
+          const csvText = await csvRes.text()
+          const products = parseCsv(csvText)
+
+          if (products.length === 0) {
+            stateEl.textContent = 'Cjenik trenutno nije dostupan.'
+            return
+          }
+
+          bodyEl.innerHTML = products.map(p => {
+            const available = p.dostupnost === 'dostupno'
+            return `<tr${available ? '' : ' class="unavailable"'}>
+              <td>${p.naziv}${available ? '' : '<span class="unavailableTag">Nedostupno</span>'}</td>
+              <td>${Number(p.maloprodajna_cijena).toFixed(2)} €</td>
+            </tr>`
+          }).join('')
+
+          tableEl.hidden = false
+          stateEl.hidden = true
+
+          if (metaRes.ok) {
+            const meta = await metaRes.json()
+            updatedEl.innerHTML = `Cjenik ažuriran: <strong>${formatDate(meta.date)}</strong>`
+          }
+        } catch {
+          stateEl.textContent = 'Cjenik trenutno nije moguće učitati. Pokušajte kasnije ili preuzmite CSV izravno.'
+          stateEl.classList.add('priceStateError')
+        }
+      }
+
+      loadPriceList()
+    </script>
+  </body>
+</html>

@@ -43,6 +43,7 @@ export default function Footer() {
                   {link.label}
                 </a>
               ))}
+              <a href="/cjenik.html" className={styles.link}>Cjenik</a>
             </nav>
           </div>
 

@@ -1,0 +1,41 @@
+name: Generate daily price list
+
+# Cron je u UTC-u i NE prati Europe/Zagreb DST. 05:00 UTC = 07:00 CEST (ljeto) / 06:00 CET (zima) —
+# u oba slučaja prije 08:00 po lokalnom vremenu. Sam generator (scripts/generate-price-list.js)
+# ionako datum i naziv datoteke uvijek računa u Europe/Zagreb vremenu, neovisno o ovom UTC okidaču.
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Generate price list
+        run: npm run generate:prices
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/cjenici
+          if git diff --cached --quiet; then
+            echo "Nema promjena za commit."
+            exit 0
+          fi
+          git commit -m "chore: automatski generiraj dnevni cjenik ($(date -u +%Y-%m-%d))"
+          git push

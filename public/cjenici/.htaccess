@@ -1,0 +1,15 @@
+# latest.csv / latest.json moraju uvijek stizati svježi (nikad iz preglednika/CDN/NGINX cachea).
+<FilesMatch "^latest\.(csv|json)$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </IfModule>
+</FilesMatch>
+
+# Datirane arhivske datoteke (cjenik-YYYY-MM-DD.csv) se nikad ne mijenjaju nakon što nastanu — smiju se trajno cachati.
+<FilesMatch "^cjenik-\d{4}-\d{2}-\d{2}\.csv$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </IfModule>
+</FilesMatch>
