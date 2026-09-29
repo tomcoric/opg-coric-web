@@ -125,11 +125,12 @@ dodatna zaštita neovisno o HTTP headerima.
 
 ## Što je još potrebno ručno popuniti
 
-Ovo automatski **nije** pretpostavljeno niti izmišljeno — namjerno je ostavljeno prazno/`null`:
+- **Sidrene (referentne) cijene na 02.05.2025.** — potvrđeno: cijene se od 02.05.2025. nisu mijenjale, pa je
+  `anchorPrice` postavljen jednako trenutnoj `price` vrijednosti za sve proizvode, a `anchorPriceDate` je
+  `"2025-05-02"`. **Važno:** ako se cijena ubuduće promijeni, `anchorPrice`/`anchorPriceDate` se ne mijenjaju
+  automatski (namjerno — to je fiksna povijesna referenca) — ostaju kakvi jesu dok se ručno ne odluči drugačije.
+- **Barkodovi** — `barcode` je prazan string za sve proizvode jer stvarni EAN/GTIN kodovi nisu bili dostupni
+  (namjerno nisu izmišljeni). Kad postanu dostupni, unijeti ih ručno u `src/data/products.json`.
 
-- **Sidrene (referentne) cijene na 02.05.2025.** — `anchorPrice`/`anchorPriceDate` su `null` za sve proizvode jer
-  stvarni povijesni podaci nisu bili dostupni. Kad se potvrde, unijeti ih ručno u `src/data/products.json`.
-- **Barkodovi** — `barcode` je prazan string za sve proizvode. Kad postanu dostupni EAN/GTIN kodovi, unijeti ih ručno.
-
-Dok ta polja ostanu prazna, generirani CSV za te stupce ispisuje prazne vrijednosti (nije popunjeno izmišljenim
-brojevima), a stranica jednostavno ne prikazuje sidrenu cijenu/barkod.
+Dok `barcode` ostane prazan, generirani CSV za taj stupac ispisuje praznu vrijednost (nije popunjeno izmišljenim
+brojevima).

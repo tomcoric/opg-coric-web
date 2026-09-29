@@ -1,15 +1,15 @@
 ﻿naziv;sifra;marka;jedinica_mjere;cijena_po_jedinici;maloprodajna_cijena;posebna_prodaja;naziv_posebne_prodaje;sidrena_cijena;datum_sidrene_cijene;barkod;dostupnost
-Kulin;KULIN-001;Kulin Ćorić;kg;40.00;40.00;false;;;;;dostupno
-Kulinova Seka;SEKA-001;Kulin Ćorić;kg;30.00;30.00;false;;;;;dostupno
-Slanina;SLANINA-001;Kulin Ćorić;kg;20.00;20.00;false;;;;;dostupno
-Kobasica s dima;KOBASICA-DIM-001;Kulin Ćorić;kg;13.00;13.00;false;;;;;dostupno
-Kobasica prosušena;KOBASICA-PROSUSENA-001;Kulin Ćorić;kg;15.00;15.00;false;;;;;dostupno
-Kobasica suha;KOBASICA-SUHA-001;Kulin Ćorić;kg;20.00;20.00;false;;;;;dostupno
-Vrat/Buđola;BUDOLA-001;Kulin Ćorić;kg;25.00;25.00;false;;;;;dostupno
-Pečenica;PECENICA-001;Kulin Ćorić;kg;25.00;25.00;false;;;;;dostupno
-Čvarci;CVARCI-001;Kulin Ćorić;kg;20.00;20.00;false;;;;;dostupno
-Buncek;BUNCEK-001;Kulin Ćorić;kg;8.00;8.00;false;;;;;dostupno
-Švargl;SVARGL-001;Kulin Ćorić;kg;8.00;8.00;false;;;;;dostupno
-Špic rebra;SPIC-REBRA-001;Kulin Ćorić;kg;7.00;7.00;false;;;;;dostupno
-Nogice/Kosti;NOGICE-KOSTI-001;Kulin Ćorić;kg;4.00;4.00;false;;;;;dostupno
-Mast;MAST-001;Kulin Ćorić;kg;3.00;3.00;false;;;;;dostupno
+Kulin;KULIN-001;Kulin Ćorić;kg;40.00;40.00;false;;40.00;2025-05-02;;dostupno
+Kulinova Seka;SEKA-001;Kulin Ćorić;kg;30.00;30.00;false;;30.00;2025-05-02;;dostupno
+Slanina;SLANINA-001;Kulin Ćorić;kg;20.00;20.00;false;;20.00;2025-05-02;;dostupno
+Kobasica s dima;KOBASICA-DIM-001;Kulin Ćorić;kg;13.00;13.00;false;;13.00;2025-05-02;;dostupno
+Kobasica prosušena;KOBASICA-PROSUSENA-001;Kulin Ćorić;kg;15.00;15.00;false;;15.00;2025-05-02;;dostupno
+Kobasica suha;KOBASICA-SUHA-001;Kulin Ćorić;kg;20.00;20.00;false;;20.00;2025-05-02;;dostupno
+Vrat/Buđola;BUDOLA-001;Kulin Ćorić;kg;25.00;25.00;false;;25.00;2025-05-02;;dostupno
+Pečenica;PECENICA-001;Kulin Ćorić;kg;25.00;25.00;false;;25.00;2025-05-02;;dostupno
+Čvarci;CVARCI-001;Kulin Ćorić;kg;20.00;20.00;false;;20.00;2025-05-02;;dostupno
+Buncek;BUNCEK-001;Kulin Ćorić;kg;8.00;8.00;false;;8.00;2025-05-02;;dostupno
+Švargl;SVARGL-001;Kulin Ćorić;kg;8.00;8.00;false;;8.00;2025-05-02;;dostupno
+Špic rebra;SPIC-REBRA-001;Kulin Ćorić;kg;7.00;7.00;false;;7.00;2025-05-02;;dostupno
+Nogice/Kosti;NOGICE-KOSTI-001;Kulin Ćorić;kg;4.00;4.00;false;;4.00;2025-05-02;;dostupno
+Mast;MAST-001;Kulin Ćorić;kg;3.00;3.00;false;;3.00;2025-05-02;;dostupno
