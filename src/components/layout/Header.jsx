@@ -10,8 +10,9 @@ const navLeft = [
 ]
 
 const navRight = [
-  { href: '#proizvodi', label: 'Proizvodi' },
-  { href: '#mediji',    label: 'Mediji' },
+  { href: '#proizvodi',   label: 'Proizvodi' },
+  { href: '/cjenik.html', label: 'Cjenik' },
+  { href: '#mediji',      label: 'Mediji' },
 ]
 
 const allLinks = [...navLeft, ...navRight, { href: '#kontakt', label: 'Kontakt' }]
@@ -29,6 +30,10 @@ export default function Header() {
   const closeMenu = () => setMenuOpen(false)
 
   const handleNavClick = (e, href) => {
+    if (!href.startsWith('#')) {
+      closeMenu()
+      return
+    }
     e.preventDefault()
     closeMenu()
     scrollToAnchor(href)
