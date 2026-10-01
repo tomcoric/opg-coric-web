@@ -37,6 +37,21 @@ const products = [
     desc: 'Dimljena svinjska pečenica — nježnog mesa i lagane, ugodne arome. Jedna od omiljenih slavonskih delicija.',
     soldOut: true,
   },
+  {
+    name: 'Đakovački Buncek',
+    img: '/images/proizvodi/buncek.webp',
+    desc: 'Klasik domaće slavonske kuhinje. Mesnat i sočan svinjski buncek pažljivo se soli i dimi kako bi dobio prepoznatljivu aromu i puni okus. Idealan je za polagano kuhanje ili pečenje, a posebno dobro pristaje uz kiseli kupus, grah i druga tradicionalna jela.',
+  },
+  {
+    name: 'Đakovačka Špic rebra',
+    img: '/images/proizvodi/spic-rebra.webp',
+    desc: 'Pravi izbor za bogata domaća jela. Mesnata svinjska špic rebra pažljivo se sole i dime, čime dobivaju izraženu aromu i prepoznatljiv okus dima. Posebno su ukusna kuhana uz grah, kiseli kupus, ričet ili druga slavonska variva.',
+  },
+  {
+    name: 'Đakovački Švargl',
+    img: '/images/proizvodi/svargl.webp',
+    desc: 'Tradicija koja se prepoznaje u svakom zalogaju. Priprema se prema tradicionalnoj recepturi od karakterističnih svinjskih dijelova, uz dodatak soli, papra, paprike i češnjaka. Punog je okusa, bogate domaće arome i prepoznatljivog presjeka koji ga čini pravim klasikom slavonskog stola.',
+  },
 ]
 
 export default function Products() {

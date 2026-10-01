@@ -118,6 +118,9 @@ function ContactForm() {
             <option>Đakovačka Slanina</option>
             <option>Đakovačka Buđola</option>
             <option>Đakovačka Pečenica</option>
+            <option>Đakovački Buncek</option>
+            <option>Đakovačka Špic rebra</option>
+            <option>Đakovački Švargl</option>
             <option>Više proizvoda / upit</option>
           </select>
         </div>
