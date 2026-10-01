@@ -81,7 +81,8 @@ npm run test:prices
 
 ### Primarni mehanizam — GitHub Actions (preporučeno, ništa dodatno nije potrebno postaviti)
 
-`.github/workflows/generate-prices.yml` svaki dan u 05:00 UTC **i** 09:00 UTC (dva termina kao sigurnosna mreža —
+`.github/workflows/generate-prices.yml` svaki dan u 06:00 UTC **i** 06:30 UTC (= 08:00 / 08:30 CEST ljeti,
+07:00 / 07:30 CET zimi — cilj je da se cjenik mijenja od 8h ujutro po hrvatskom vremenu; dva termina kao sigurnosna mreža —
 GitHub Actions `schedule` okidač zna povremeno preskočiti zakazani termin pod opterećenjem njihove infrastrukture;
 ovo je potvrđeno u praksi, ne pretpostavka) pokreće `npm run generate:prices` i commita novonastale/izmijenjene
 datoteke u `public/cjenici/` na `main`.
@@ -105,9 +106,8 @@ koji koristi `scripts/generate-price-list.php`. Ta skripta čita `public/cjenici
 U cPanel → **Cron Jobs**, postavi:
 
 - **Minute:** `0`
-- **Hour:** `6` *(cPanel cron obično koristi vrijeme servera; provjeri u cPanel → Server Information koja je vremenska
-  zona servera i po potrebi prilagodi sat tako da izvršavanje bude oko 07:00 po srednjoeuropskom vremenu, a
-  svakako prije 08:00)*
+- **Hour:** `8` *(cPanel cron obično koristi vrijeme servera; provjeri u cPanel → Server Information koja je vremenska
+  zona servera i po potrebi prilagodi sat tako da izvršavanje bude oko 08:00 po srednjoeuropskom vremenu)*
 - **Day, Month, Weekday:** `*`
 - **Command:**
   ```

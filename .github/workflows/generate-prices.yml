@@ -1,7 +1,8 @@
 name: Generate daily price list
 
-# Cron je u UTC-u i NE prati Europe/Zagreb DST. 05:00 UTC = 07:00 CEST (ljeto) / 06:00 CET (zima) —
-# u oba slučaja prije 08:00 po lokalnom vremenu. Sam generator (scripts/generate-price-list.js)
+# Cron je u UTC-u i NE prati Europe/Zagreb DST. 06:00 UTC = 08:00 CEST (ljeto) / 07:00 CET (zima) —
+# cilj je da se cjenik mijenja od 8h ujutro po hrvatskom (ljeti točno, zimi sat ranije — GitHub
+# Actions schedule ne podržava lokalnu vremensku zonu). Sam generator (scripts/generate-price-list.js)
 # ionako datum i naziv datoteke uvijek računa u Europe/Zagreb vremenu, neovisno o ovom UTC okidaču.
 #
 # Dva termina umjesto jednog: GitHub Actions "schedule" okidač zna povremeno preskočiti
@@ -10,8 +11,8 @@ name: Generate daily price list
 # ponovno provjeri i ništa se ne commita (nema promjena).
 on:
   schedule:
-    - cron: '0 5 * * *'
-    - cron: '0 9 * * *'
+    - cron: '0 6 * * *'
+    - cron: '30 6 * * *'
   workflow_dispatch:
 
 permissions:
