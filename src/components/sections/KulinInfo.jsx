@@ -62,23 +62,25 @@ export default function KulinInfo() {
           <img src="/images/kulin_visi.webp" alt="" aria-hidden="true" className={styles.deco} loading="lazy" decoding="async" />
           <div className={styles.header}>
             <span className={styles.label}>Tradicija</span>
-            <h2>Što je <em>kulin?</em></h2>
+            <h2>Što je <em>kulin (kulen)?</em></h2>
           </div>
 
           <div className={styles.body}>
             <p>
-              <strong>Kulin</strong> je tradicionalna slavonska suhomesnata delicija — kobasica izrađena od
-              svinjetine i svinjske leđne masnoće (10%), začinjena mljevenom paprikom, češnjakom i solju,
-              punjena u svinjsko crijevo i dimljena bukvom ili grabom koji joj daju prepoznatljivu dimljenu notu.
+              <strong>Kulin</strong> — poznat diljem Hrvatske i pod nazivom <strong>kulen</strong> — tradicionalna je
+              slavonska suhomesnata delicija: kobasica izrađena od svinjetine i svinjske leđne masnoće (10%),
+              začinjena mljevenom paprikom, češnjakom i solju, punjena u svinjsko crijevo i dimljena bukvom ili
+              grabom koji joj daju prepoznatljivu dimljenu notu.
             </p>
             <p>
-              Svaki kulin je ručni rad. Meso se priprema prema obiteljskim recepturama koje se prenose s
-              koljena na koljeno, a proces sušenja traje tjednima — strpljenje i znanje razlikuju dobar
-              kulin od izvrsnog.
+              Svaki pravi, tradicionalni kulen je ručni rad. Meso se priprema prema obiteljskim recepturama koje
+              se prenose s koljena na koljeno, a proces sušenja traje tjednima — strpljenje i znanje razlikuju
+              dobar kulin od izvrsnog.
             </p>
             <p>
-              Slavonija je oduvijek bila zemlja svinjogojstva i mesnih delicija. Kulin nije samo hrana —
-              on je simbol slavonskog identiteta, gostoljubivosti i ponosa na vlastitu zemlju.
+              Slavonija je oduvijek bila zemlja svinjogojstva i mesnih delicija, a kulen (ili kulin, kako ga
+              zovemo u Đakovu) nije samo hrana — on je simbol slavonskog identiteta, gostoljubivosti i ponosa
+              na vlastitu zemlju.
             </p>
 
             <h3 className={styles.subheading}>Kulin ili kulen — koja je razlika?</h3>
@@ -87,7 +89,7 @@ export default function KulinInfo() {
               Zato kod nas nije neobično što se češće kaže kulin, a ne kulen — ta riječ nosi duh kraja,
               domaću riječ, miris zime i starih recepata. Zaštićeni naziv na europskoj razini glasi{' '}
               <strong>„Slavonski kulen / Slavonski kulin"</strong>, što potvrđuje da su oba naziva
-              ravnopravna i ukorijenjena u istoj tradiciji.
+              ravnopravna i ukorijenjena u istoj tradiciji — isti tradicionalni kulen, dva imena.
             </p>
           </div>
 
