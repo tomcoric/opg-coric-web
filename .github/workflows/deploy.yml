@@ -4,15 +4,24 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Push s GITHUB_TOKEN-om (npr. automatski commit iz generate-prices.yml) ne okida
+  # "push" event na drugim workflowima — zato se ovaj deploy dodatno oslanja na
+  # dovršetak tog workflowa, bez obzira kojim je tokenom pushao.
+  workflow_run:
+    workflows: ["Generate daily price list"]
+    types: [completed]
 
 permissions:
   contents: read
 
 jobs:
   deploy:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.ref }}
 
       - uses: actions/setup-node@v5
         with:
