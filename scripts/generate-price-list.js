@@ -1,11 +1,14 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, unlinkSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
+import sharp from 'sharp'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '..')
-const PRODUCTS_PATH = join(ROOT, 'src/data/products.json')
-const OUTPUT_DIR = join(ROOT, 'public/cjenici')
+// Testovi (scripts/test-price-list.js) pokreću ovu istu skriptu s izmijenjenim putanjama,
+// umjesto kopiranja u privremeni direktorij — tako sharp i dalje nalazi node_modules ovog projekta.
+const PRODUCTS_PATH = process.env.PRICE_LIST_PRODUCTS_PATH ?? join(ROOT, 'src/data/products.json')
+const OUTPUT_DIR = process.env.PRICE_LIST_OUTPUT_DIR ?? join(ROOT, 'public/cjenici')
 const RETENTION_DAYS = 30
 
 const CSV_COLUMNS = [
@@ -97,6 +100,58 @@ function buildCsv(products) {
   return `${bom}${lines.join('\r\n')}\r\n`
 }
 
+function xmlEscape(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+}
+
+function formatDateHr(isoDate) {
+  const [y, m, d] = isoDate.split('-')
+  return `${d}.${m}.${y}.`
+}
+
+async function generateImage(products, date, outputDir) {
+  const width = 960
+  const marginX = 60
+  const rowHeight = 48
+  const headerHeight = 172
+  const footerHeight = 76
+  const height = headerHeight + products.length * rowHeight + footerHeight
+
+  const rows = products.map((p, i) => {
+    const y = headerHeight + i * rowHeight
+    const available = p.available
+    const priceText = available ? `${formatPrice(p.price)} €` : 'Nedostupno'
+    const nameColor = available ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.4)'
+    const priceColor = available ? '#D4B84A' : 'rgba(255,255,255,0.4)'
+    return `
+      <line x1="${marginX}" y1="${y}" x2="${width - marginX}" y2="${y}" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <text x="${marginX}" y="${y + 31}" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="${nameColor}">${xmlEscape(p.name)}</text>
+      <text x="${width - marginX}" y="${y + 31}" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="600" fill="${priceColor}" text-anchor="end">${priceText}</text>
+    `
+  }).join('')
+
+  const tableBottom = headerHeight + products.length * rowHeight
+
+  const svg = Buffer.from(`
+    <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+      <rect width="${width}" height="${height}" fill="#080808"/>
+      <text x="${marginX}" y="54" font-family="Arial, sans-serif" font-size="13" font-weight="600" letter-spacing="4" fill="#C9A227">CJENIK</text>
+      <text x="${marginX}" y="108" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="600" fill="#F5F1E8">Kulin Ćorić</text>
+      <text x="${marginX}" y="140" font-family="Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.5)">Cijene su izražene po kilogramu</text>
+      <line x1="${marginX}" y1="${headerHeight - 14}" x2="${width - marginX}" y2="${headerHeight - 14}" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+      ${rows}
+      <line x1="${marginX}" y1="${tableBottom + 10}" x2="${width - marginX}" y2="${tableBottom + 10}" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+      <text x="${marginX}" y="${height - 28}" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">Cjenik ažuriran: ${formatDateHr(date)}</text>
+      <text x="${width - marginX}" y="${height - 28}" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)" text-anchor="end">www.kulin-coric.hr</text>
+    </svg>
+  `)
+
+  await sharp(svg).png().toFile(join(outputDir, 'latest.png'))
+}
+
 function cleanupOldFiles(dir, keepFiles) {
   const cutoff = Date.now() - RETENTION_DAYS * 24 * 60 * 60 * 1000
   const datedFilePattern = /^cjenik-(\d{4}-\d{2}-\d{2})\.csv$/
@@ -114,7 +169,7 @@ function cleanupOldFiles(dir, keepFiles) {
   return removed
 }
 
-function main() {
+async function main() {
   if (!existsSync(PRODUCTS_PATH)) {
     console.error(`Greška: nije pronađena konfiguracija proizvoda na ${PRODUCTS_PATH}`)
     process.exit(1)
@@ -144,6 +199,7 @@ function main() {
 
   writeFileSync(join(OUTPUT_DIR, datedFilename), csv, 'utf-8')
   writeFileSync(join(OUTPUT_DIR, 'latest.csv'), csv, 'utf-8')
+  await generateImage(products, date, OUTPUT_DIR)
 
   const generatedAt = nowInZagrebISO()
   const metadata = {
@@ -170,4 +226,7 @@ function main() {
   if (removed > 0) console.log(`Obrisano ${removed} arhivskih datoteka starijih od ${RETENTION_DAYS} dana.`)
 }
 
-main()
+main().catch(err => {
+  console.error(`Greška: ${err.message}`)
+  process.exit(1)
+})

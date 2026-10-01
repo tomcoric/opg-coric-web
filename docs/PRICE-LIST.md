@@ -57,12 +57,13 @@ npm run generate:prices
 ```
 
 Generira/ažurira:
-- `public/cjenici/cjenik-YYYY-MM-DD.csv` — arhivska datoteka za taj dan (Europe/Zagreb datum), nikad se ne prepisuje sljedeći dan.
-- `public/cjenici/latest.csv` — uvijek odražava najnoviji cjenik.
+- `public/cjenici/cjenik-YYYY-MM-DD.csv` — arhivska datoteka za taj dan (Europe/Zagreb datum), nikad se ne prepisuje sljedeći dan. Namijenjena inspekcijskom nadzoru (zakonska obveza), ne kupcima — zato je na `/cjenik.html` diskretno ispod tablice.
+- `public/cjenici/latest.csv` — uvijek odražava najnoviji cjenik (isti sadržaj kao dnevna arhiva za taj dan).
+- `public/cjenici/latest.png` — vizualna slika cjenika (brend stil, generira se preko `sharp`), namijenjena kupcima za preuzimanje — gumb na vrhu `/cjenik.html`.
 - `public/cjenici/latest.json` — metapodaci (`generatedAt`, `date`, `file`, `productCount`), koristi ih `/cjenik.html` za prikaz datuma ažuriranja.
 - `public/cjenici/products-source.json` — kopija konfiguracije proizvoda, čita je PHP fallback skripta na hostingu.
 
-Arhivske datoteke starije od 30 dana automatski se brišu (osim `latest.csv`/`latest.json`/`products-source.json`, koje se nikad ne brišu).
+Arhivske datoteke starije od 30 dana automatski se brišu (osim `latest.csv`/`latest.json`/`latest.png`/`products-source.json`, koje se nikad ne brišu).
 
 Testovi (provjera generiranja, brojanja proizvoda, cijena, dostupnosti, ponašanja nakon promjene cijene, čišćenja arhive):
 
@@ -80,13 +81,20 @@ npm run test:prices
 
 ### Primarni mehanizam — GitHub Actions (preporučeno, ništa dodatno nije potrebno postaviti)
 
-`.github/workflows/generate-prices.yml` svaki dan u 05:00 UTC (07:00 CEST ljeti / 06:00 CET zimi — uvijek prije 08:00
-po lokalnom vremenu) pokreće `npm run generate:prices`, commita novonastale/izmijenjene datoteke u `public/cjenici/`
-i pušta na `main`. Taj push automatski pokreće postojeći `deploy.yml` FTPS deploy, koji objavljuje novi cjenik na
-live stranicu. Ovaj mehanizam koristi isključivo infrastrukturu koja već pouzdano radi za ovaj projekt (Node u
-GitHub Actions + FTPS deploy) i ne ovisi o tome ima li hosting (MyDataKnox/cPanel) uopće Node.js runtime.
+`.github/workflows/generate-prices.yml` svaki dan u 05:00 UTC **i** 09:00 UTC (dva termina kao sigurnosna mreža —
+GitHub Actions `schedule` okidač zna povremeno preskočiti zakazani termin pod opterećenjem njihove infrastrukture;
+ovo je potvrđeno u praksi, ne pretpostavka) pokreće `npm run generate:prices` i commita novonastale/izmijenjene
+datoteke u `public/cjenici/` na `main`.
 
-Ručno pokretanje bez čekanja na raspored: GitHub → Actions → "Generate daily price list" → Run workflow.
+Taj commit koristi zadani `GITHUB_TOKEN`, pa **ne** okida `deploy.yml` preko običnog `push` eventa (GitHub-ova
+zaštita od beskonačnih petlji). Zato `deploy.yml` dodatno sluša `workflow_run` dovršetak workflowa
+"Generate daily price list" i tada checkout-a točno taj commit prije builda i FTPS deploya — bez obzira na to
+je li taj commit okinuo običan push event ili ne. Ovaj mehanizam koristi isključivo infrastrukturu koja već
+pouzdano radi za ovaj projekt (Node u GitHub Actions + FTPS deploy) i ne ovisi o tome ima li hosting
+(MyDataKnox/cPanel) uopće Node.js runtime.
+
+Ručno pokretanje bez čekanja na raspored: GitHub → Actions → "Generate daily price list" → Run workflow (deploy
+će se automatski nastaviti nakon što taj run uspješno završi).
 
 ### Alternativa — cPanel Cron Job (opcionalno, ako je poželjna neovisnost o GitHubu)
 
@@ -115,8 +123,8 @@ identičnim sadržajem, arhivska datoteka za taj dan ostaje jedna).
 ## Zaštita od zastarjelog (cached) cjenika
 
 `public/cjenici/.htaccess` postavlja:
-- `latest.csv` i `latest.json` → `Cache-Control: no-cache, no-store, must-revalidate` (preglednik i cPanel NGINX Caching
-  sloj nikad ne smiju posluživati zastarjelu verziju).
+- `latest.csv`, `latest.json` i `latest.png` → `Cache-Control: no-cache, no-store, must-revalidate` (preglednik i
+  cPanel NGINX Caching sloj nikad ne smiju posluživati zastarjelu verziju).
 - Datirane arhivske datoteke (`cjenik-YYYY-MM-DD.csv`) → `Cache-Control: public, max-age=31536000, immutable`
   (sigurno se trajno cachaju jer se nikad ne mijenjaju nakon nastanka).
 
