@@ -55,3 +55,15 @@ jobs:
           protocol: ftps
           local-dir: ./dist/
           server-dir: ${{ steps.normalize.outputs.dir }}
+          # cjenici/latest.csv, latest.json i dnevne arhive piše isključivo cPanel cron
+          # (public/cjenici/generate-price-list.php) izravno na serveru. Isključeni su ovdje
+          # da ih obični deploy (npr. zbog nepovezane promjene u drugom dijelu sitea) ne
+          # prepiše starijom verzijom iz gita. latest.png i products-source.json i dalje
+          # normalno deploya GitHub Actions (generate-prices.yml).
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            cjenici/latest.csv
+            cjenici/latest.json
+            cjenici/cjenik-*.csv

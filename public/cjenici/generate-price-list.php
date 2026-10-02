@@ -1,19 +1,29 @@
 <?php
 /**
- * Fallback generator za cPanel Cron Jobs — koristi se SAMO ako GitHub Actions
- * scheduled workflow (.github/workflows/generate-prices.yml) iz bilo kojeg
- * razloga nije dostupan i treba generiranje izravno na hostingu.
+ * Primarni generator cjenika — pokreće se preko cPanel Cron Joba izravno na
+ * hostingu, neovisno o GitHub Actions dostupnosti/rasporedu.
  *
- * Čita public/cjenici/products-source.json (kopiju izvora istine
- * src/data/products.json koju na svaki deploy zapisuje scripts/generate-price-list.js)
- * i generira identičan CSV/latest.json kao Node skripta.
+ * Nalazi se u public/cjenici/ (ne u scripts/) jer se jedino taj direktorij
+ * deploya na server — Vite build ne kopira scripts/ u dist/. Dio je javno
+ * dostupnog direktorija, zato ispod ima zaštitu da se izvršava SAMO preko CLI-ja
+ * (cron), nikad preko HTTP zahtjeva.
  *
- * Pokretanje: php generate-price-list.php
+ * Čita products-source.json (kopiju izvora istine src/data/products.json koju
+ * na svaki deploy zapisuje scripts/generate-price-list.js) i generira
+ * cjenik-YYYY-MM-DD.csv / latest.csv / latest.json. latest.png (slika za kupce)
+ * i dalje generira isključivo Node skripta preko GitHub Actionsa.
+ *
+ * Pokretanje (cPanel Cron Jobs): php /puna/putanja/do/public_html/cjenici/generate-price-list.php
  */
+
+if (PHP_SAPI !== 'cli') {
+    http_response_code(403);
+    exit('Zabranjeno — ova skripta se pokreće samo preko cPanel Cron Joba.');
+}
 
 date_default_timezone_set('Europe/Zagreb');
 
-$outputDir = __DIR__ . '/../public/cjenici';
+$outputDir = __DIR__;
 $sourcePath = $outputDir . '/products-source.json';
 $retentionDays = 30;
 

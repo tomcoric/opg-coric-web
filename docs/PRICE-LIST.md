@@ -6,7 +6,7 @@ Nema baze podataka, nema admin panela — sve se uređuje ručno u jednoj JSON d
 ## Izvor istine
 
 [src/data/products.json](../src/data/products.json) je jedini izvor istine za proizvode i cijene.
-Web stranica (`/cjenik.html`), generator CSV-a i PHP fallback skripta svi čitaju (izravno ili neizravno) iz ove datoteke.
+Web stranica (`/cjenik.html`), Node generator i PHP cron skripta svi čitaju (izravno ili neizravno) iz ove datoteke.
 
 ## Kako promijeniti cijenu
 
@@ -61,7 +61,7 @@ Generira/ažurira:
 - `public/cjenici/latest.csv` — uvijek odražava najnoviji cjenik (isti sadržaj kao dnevna arhiva za taj dan).
 - `public/cjenici/latest.png` — vizualna slika cjenika (brend stil, generira se preko `sharp`), namijenjena kupcima za preuzimanje — gumb na vrhu `/cjenik.html`.
 - `public/cjenici/latest.json` — metapodaci (`generatedAt`, `date`, `file`, `productCount`), koristi ih `/cjenik.html` za prikaz datuma ažuriranja.
-- `public/cjenici/products-source.json` — kopija konfiguracije proizvoda, čita je PHP fallback skripta na hostingu.
+- `public/cjenici/products-source.json` — kopija konfiguracije proizvoda, čita je PHP cron skripta na hostingu.
 
 Arhivske datoteke starije od 30 dana automatski se brišu (osim `latest.csv`/`latest.json`/`latest.png`/`products-source.json`, koje se nikad ne brišu).
 
@@ -79,46 +79,77 @@ npm run test:prices
 
 ## Automatsko dnevno generiranje
 
-### Primarni mehanizam — GitHub Actions (preporučeno, ništa dodatno nije potrebno postaviti)
+Dva mehanizma rade usporedno, svaki odgovoran za drugi dio izlaza — **ne dupliciraju se**, nego se nadopunjuju:
 
-`.github/workflows/generate-prices.yml` svaki dan u 06:00 UTC **i** 06:30 UTC (= 08:00 / 08:30 CEST ljeti,
-07:00 / 07:30 CET zimi — cilj je da se cjenik mijenja od 8h ujutro po hrvatskom vremenu; dva termina kao sigurnosna mreža —
-GitHub Actions `schedule` okidač zna povremeno preskočiti zakazani termin pod opterećenjem njihove infrastrukture;
-ovo je potvrđeno u praksi, ne pretpostavka) pokreće `npm run generate:prices` i commita novonastale/izmijenjene
-datoteke u `public/cjenici/` na `main`.
+| Što | Generira | Kad |
+|---|---|---|
+| `cjenik-YYYY-MM-DD.csv`, `latest.csv`, `latest.json` (datum za "Cjenik ažuriran") | **cPanel Cron (PHP)** | točno 08:00 po hrvatskom vremenu, izravno na serveru |
+| `latest.png` (slika za kupce), `products-source.json` (sinkronizacija cijena za PHP) | **GitHub Actions (Node)** | svaki dan, vrijeme može varirati (vidi napomenu niže) |
 
-Taj commit koristi zadani `GITHUB_TOKEN`, pa **ne** okida `deploy.yml` preko običnog `push` eventa (GitHub-ova
-zaštita od beskonačnih petlji). Zato `deploy.yml` dodatno sluša `workflow_run` dovršetak workflowa
-"Generate daily price list" i tada checkout-a točno taj commit prije builda i FTPS deploya — bez obzira na to
-je li taj commit okinuo običan push event ili ne. Ovaj mehanizam koristi isključivo infrastrukturu koja već
-pouzdano radi za ovaj projekt (Node u GitHub Actions + FTPS deploy) i ne ovisi o tome ima li hosting
-(MyDataKnox/cPanel) uopće Node.js runtime.
+### Primarni mehanizam za datum/CSV — cPanel Cron Job
 
-Ručno pokretanje bez čekanja na raspored: GitHub → Actions → "Generate daily price list" → Run workflow (deploy
-će se automatski nastaviti nakon što taj run uspješno završi).
+**Zašto PHP, a ne GitHub Actions, za ovaj dio:** GitHub Actions `schedule` okidač pokazao se nepouzdanim za ovu
+svrhu — u praksi je jednom potpuno preskočio zakazani termin, drugi put kasnio ~6 sati. cPanel cron radi izravno
+na hostingu, neovisno o GitHub-ovoj dijeljenoj infrastrukturi, pa pouzdano pogađa točno vrijeme.
 
-### Alternativa — cPanel Cron Job (opcionalno, ako je poželjna neovisnost o GitHubu)
+Skripta `public/cjenici/generate-price-list.php` nalazi se namjerno u `public/cjenici/` (ne u `scripts/`) jer se
+jedino taj direktorij deploya na server — Vite build ne kopira `scripts/` u `dist/`. Čita
+`public/cjenici/products-source.json` (kopiju koju na svaki deploy zapisuje Node generator) pa ne treba Node.js
+na serveru. Zaštićena je da se izvršava samo preko CLI-ja (cron), ne i preko HTTP zahtjeva, iako joj je putanja
+tehnički javno dostupna.
 
-Ako hosting ima PHP (standardno na cPanel/MyDataKnox), može se dodatno postaviti cron izravno na serveru
-koji koristi `scripts/generate-price-list.php`. Ta skripta čita `public/cjenici/products-source.json`
-(kopiju koju na svaki deploy zapisuje Node generator) pa ne treba Node.js na serveru.
+**Preduvjet — PHP verzija:** skripta koristi `str_contains()` i typed properties, dostupno od **PHP 8.0**. U
+cPanel → **MultiPHP Manager** (ili slično) provjeri/postavi PHP 8.0 ili noviji za domenu, inače će cron javljati
+grešku. Ako cPanel za cron poslove koristi drugu (stariju) verziju PHP-a od one postavljene za domenu, u
+komandi niže možda treba koristiti puniju putanju do PHP 8 binarnog izvršnog file-a (vidljivo u MultiPHP
+Manageru ili uz pomoć hosting podrške) umjesto samo `php`.
+
+**Postavljanje — jednom, u cPanelu:**
 
 U cPanel → **Cron Jobs**, postavi:
 
 - **Minute:** `0`
-- **Hour:** `8` *(cPanel cron obično koristi vrijeme servera; provjeri u cPanel → Server Information koja je vremenska
-  zona servera i po potrebi prilagodi sat tako da izvršavanje bude oko 08:00 po srednjoeuropskom vremenu)*
+- **Hour:** `8` *(cPanel cron obično koristi vrijeme servera; provjeri u cPanel → Server Information koja je
+  vremenska zona servera — ako nije Europe/Zagreb, prilagodi sat tako da izvršavanje bude točno u 08:00 po
+  srednjoeuropskom vremenu)*
 - **Day, Month, Weekday:** `*`
 - **Command:**
   ```
-  php /home/KORISNICKO_IME/public_html/scripts/generate-price-list.php
+  php /home/KORISNICKO_IME/public_html/cjenici/generate-price-list.php
   ```
-  (zamijeni `KORISNICKO_IME` i putanju stvarnom apsolutnom putanjom do `public_html` na hostingu — vidljivo u
-  cPanel File Manageru ili u "Home Directory" na početnoj stranici cPanela)
+  (zamijeni `KORISNICKO_IME` stvarnim korisničkim imenom/putanjom do `public_html` na hostingu — vidljivo u
+  cPanel File Manageru ili na početnoj stranici cPanela pod "Home Directory")
 
-**Napomena:** ovo je isključivo fallback. Ako je uključen i GitHub Actions mehanizam i cPanel cron, cjenik će se
-jednostavno generirati dvaput dnevno bez štete (drugi poziv istog dana samo prepiše `latest.csv`/`latest.json`
-identičnim sadržajem, arhivska datoteka za taj dan ostaje jedna).
+**Provjera da radi:** ako cPanel ima Terminal (File Manager → Terminal, ili zasebna ikona), ručno pokreni istu
+komandu jednom i provjeri ispis (`Cjenik uspješno generiran: ...`). Ako Terminal nije dostupan, jednostavno
+pričekaj prvo zakazano izvršavanje i provjeri sutradan da se `https://www.kulin-coric.hr/cjenici/latest.json`
+promijenio na novi datum.
+
+**Važno — bez ovog koraka cjenik se više neće dnevno ažurirati.** `deploy.yml` sad namjerno isključuje
+`cjenici/latest.csv`, `cjenici/latest.json` i `cjenici/cjenik-*.csv` iz FTPS sinkronizacije (vidi niže zašto) —
+jedini preostali pisac tih datoteka na serveru je ovaj cPanel cron.
+
+### Sekundarni mehanizam — GitHub Actions (za sliku i sinkronizaciju cijena)
+
+`.github/workflows/generate-prices.yml` svaki dan (06:00 i 06:30 UTC, bez garancije točnog vremena zbog gore
+opisane nepouzdanosti) pokreće `npm run generate:prices` i commita izmjene u `public/cjenici/` na `main`, što
+okida `deploy.yml` (preko `workflow_run`, jer commit s `GITHUB_TOKEN`-om ne okida običan `push` event).
+
+Budući da `latest.csv`/`latest.json`/dnevna arhiva sad isključivo pripadaju cPanel cronu, ovaj mehanizam i dalje
+služi za dvije stvari koje PHP ne radi:
+- **`latest.png`** — sliku cjenika za kupce generira isključivo Node (`sharp`); PHP to ne radi.
+- **`products-source.json`** — kad se cijena ručno promijeni u `src/data/products.json`, ovaj mehanizam (ili
+  sljedeći obični deploy nakon commita) prenosi tu promjenu na server, odakle je cPanel cron sljedeće jutro čita.
+
+Ručno pokretanje bez čekanja na raspored: GitHub → Actions → "Generate daily price list" → Run workflow.
+
+### Zašto deploy.yml isključuje dio datoteka iz sinkronizacije
+
+`.github/workflows/deploy.yml` FTPS korak ima `exclude` za `cjenici/latest.csv`, `cjenici/latest.json` i
+`cjenici/cjenik-*.csv`. Bez toga bi SVAKI sljedeći deploy (npr. zbog posve nepovezane izmjene na stranici)
+prepisao te datoteke onim što trenutno stoji u gitu — a to bi mogla biti jučerašnja verzija ako GitHub Actions
+generiranje toga dana još nije (ili uopće nije) prošlo, čime bi se poništio jutarnji cPanel upis. `latest.png`
+i `products-source.json` NISU isključeni i dalje se normalno deployaju.
 
 ## Zaštita od zastarjelog (cached) cjenika
 
