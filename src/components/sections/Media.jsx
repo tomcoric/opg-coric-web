@@ -1,7 +1,15 @@
 import Container from '../ui/Container'
 import styles from './Media.module.css'
 
+// Kronološki poredano, najnoviji članak prvi.
 const articles = [
+  {
+    source: 'DNEVNIK.hr',
+    date: '28. 09. 2026.',
+    title: 'Jesenski sajam privukao brojne kupce: "Ovo je slavonski sushi"',
+    desc: 'Na Jesenskom sajmu u Osijeku Vladimir Ćorić predstavio je svoje suhomesnate proizvode — kulin, kobasice i slaninu. "Kad ste rekli kulin, rekli ste Slavonija", istaknuo je u prilogu o rastućem interesu za domaće i autohtono.',
+    href: 'https://dnevnik.hr/vijesti/hrvatska/mirisi-slavonije-privukli-brojne-kupce-to-nam-je-jedini-izlazak-na-trziste---1004362.html',
+  },
   {
     source: 'Visit Slavonia & Baranja',
     date: '31. 07. 2025.',
@@ -24,6 +32,13 @@ const articles = [
     href: 'https://www.vecernji.hr/vijesti/ponos-slavonije-vecina-ga-zove-kulin-ali-za-dva-sela-on-je-kuljen-1643251',
   },
   {
+    source: 'SiB.hr',
+    date: '19. 10. 2022.',
+    title: 'Bliže se kolinja, rastu i cijene slavonskih delicija',
+    desc: 'Kako se bliži tradicionalno vrijeme kolinja, rastu i cijene slavonskih specijaliteta — slanina, kobasice i kulin.',
+    href: 'https://sib.net.hr/vijesti/regija/76189/blize-se-kolinja-rastu-i-cijene-slavonskih-delicija-slanina-i-kobasica-na-100-a-kulen-na-260-kuna/',
+  },
+  {
     source: 'Općina Viškovci',
     date: '07. 12. 2020.',
     title: 'Primjer dobre prakse — OPG Vladimir Ćorić, Đakovo',
@@ -36,13 +51,6 @@ const articles = [
     title: 'Koja je razlika između kulena i kulina?',
     desc: 'Stručni pregled razlika između kulena i kulina — od naziva i porijekla do načina pripreme i zaštićenih oznaka izvornosti Europske unije.',
     href: 'https://www.agroklub.com/stocarstvo/koja-je-razlika-izmedu-kulena-i-kulina/37718/',
-  },
-  {
-    source: 'SiB.hr',
-    date: '19. 10. 2022.',
-    title: 'Bliže se kolinja, rastu i cijene slavonskih delicija',
-    desc: 'Kako se bliži tradicionalno vrijeme kolinja, rastu i cijene slavonskih specijaliteta — slanina, kobasice i kulin.',
-    href: 'https://sib.net.hr/vijesti/regija/76189/blize-se-kolinja-rastu-i-cijene-slavonskih-delicija-slanina-i-kobasica-na-100-a-kulen-na-260-kuna/',
   },
 ]
 
