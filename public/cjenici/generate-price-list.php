@@ -16,8 +16,14 @@
  * Pokretanje (cPanel Cron Jobs): php /puna/putanja/do/public_html/cjenici/generate-price-list.php
  */
 
-if (PHP_SAPI !== 'cli') {
+// NAPOMENA: na ovom hostingu cron poziva "php" binarku koja interno prijavljuje
+// PHP_SAPI === 'cgi-fcgi' (ne 'cli') iako se izvršava iz crona, pa provjera po SAPI
+// imenu netočno blokira legitimna pokretanja. Pouzdaniji signal je postoje li
+// HTTP-specifične $_SERVER varijable koje postavlja ISKLJUČIVO webserver pri
+// stvarnom HTTP zahtjevu — pri pokretanju iz crona (bilo koje SAPI varijante) ih nema.
+if (isset($_SERVER['REQUEST_METHOD']) || isset($_SERVER['HTTP_HOST'])) {
     http_response_code(403);
+    header('Content-type: text/plain; charset=UTF-8');
     exit('Zabranjeno — ova skripta se pokreće samo preko cPanel Cron Joba.');
 }
 
