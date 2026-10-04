@@ -1,5 +1,5 @@
-# latest.csv / latest.json / latest.png moraju uvijek stizati svježi (nikad iz preglednika/CDN/NGINX cachea).
-<FilesMatch "^latest\.(csv|json|png)$">
+# latest.csv / latest.json / latest.png / cron-log.txt moraju uvijek stizati svježi (nikad iz preglednika/CDN/NGINX cachea).
+<FilesMatch "^(latest\.(csv|json|png)|cron-log\.txt)$">
   <IfModule mod_headers.c>
     Header set Cache-Control "no-cache, no-store, must-revalidate"
     Header set Pragma "no-cache"

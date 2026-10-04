@@ -25,26 +25,55 @@ date_default_timezone_set('Europe/Zagreb');
 
 $outputDir = __DIR__;
 $sourcePath = $outputDir . '/products-source.json';
+$logPath = $outputDir . '/cron-log.txt';
 $retentionDays = 30;
 
-function fail(string $message): void {
+// Dnevnik svakog pokretanja — javno čitljiv (dijagnostika, nema osjetljivih podataka), jer
+// cPanel cron izlaz (STDOUT/STDERR) ide samo na e-mail koji ne provjeravamo redovito.
+function log_line(string $logPath, string $message): void {
+    $line = '[' . date('Y-m-d H:i:s') . '] ' . $message . "\n";
+    @file_put_contents($logPath, $line, FILE_APPEND | LOCK_EX);
+    $lines = @file($logPath);
+    if ($lines !== false && count($lines) > 100) {
+        @file_put_contents($logPath, implode('', array_slice($lines, -100)));
+    }
+}
+
+log_line($logPath, 'Pokrenuto. PHP ' . PHP_VERSION . ', SAPI=' . PHP_SAPI
+    . ', user=' . (function_exists('get_current_user') ? get_current_user() : '?')
+    . ', cwd=' . getcwd() . ', writable=' . (is_writable($outputDir) ? 'da' : 'NE'));
+
+set_error_handler(function ($severity, $message, $file, $line) use ($logPath) {
+    log_line($logPath, "PHP upozorenje: {$message} u {$file}:{$line}");
+    return false;
+});
+
+register_shutdown_function(function () use ($logPath) {
+    $error = error_get_last();
+    if ($error !== null && in_array($error['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR], true)) {
+        log_line($logPath, "FATALNA GREŠKA: {$error['message']} u {$error['file']}:{$error['line']}");
+    }
+});
+
+function fail(string $logPath, string $message): void {
+    log_line($logPath, "Greška: {$message}");
     fwrite(STDERR, "Greška: {$message}\n");
     exit(1);
 }
 
 if (!is_file($sourcePath)) {
-    fail("nije pronađen {$sourcePath} — provjeri da je zadnji deploy uspješno objavio public/cjenici/products-source.json");
+    fail($logPath, "nije pronađen {$sourcePath} — provjeri da je zadnji deploy uspješno objavio public/cjenici/products-source.json");
 }
 
 $raw = file_get_contents($sourcePath);
 $data = json_decode($raw, true);
 if (json_last_error() !== JSON_ERROR_NONE) {
-    fail('neispravan JSON u products-source.json — ' . json_last_error_msg());
+    fail($logPath, 'neispravan JSON u products-source.json — ' . json_last_error_msg());
 }
 
 $products = $data['products'] ?? null;
 if (!is_array($products) || count($products) === 0) {
-    fail('konfiguracija proizvoda je prazna ili nedostaje "products".');
+    fail($logPath, 'konfiguracija proizvoda je prazna ili nedostaje "products".');
 }
 
 $errors = [];
@@ -61,13 +90,11 @@ foreach ($products as $i => $p) {
     }
 }
 if (!empty($errors)) {
-    fwrite(STDERR, "Greška: konfiguracija proizvoda nije valjana:\n");
-    foreach ($errors as $e) fwrite(STDERR, "  - {$e}\n");
-    exit(1);
+    fail($logPath, 'konfiguracija proizvoda nije valjana: ' . implode(' | ', $errors));
 }
 
 if (!is_dir($outputDir) && !mkdir($outputDir, 0755, true)) {
-    fail("ne mogu kreirati direktorij {$outputDir}");
+    fail($logPath, "ne mogu kreirati direktorij {$outputDir}");
 }
 
 function csv_escape(string $value): string {
@@ -110,8 +137,11 @@ $csv = "\xEF\xBB\xBF" . implode("\r\n", $lines) . "\r\n";
 $date = date('Y-m-d');
 $datedFilename = "cjenik-{$date}.csv";
 
-file_put_contents("{$outputDir}/{$datedFilename}", $csv);
-file_put_contents("{$outputDir}/latest.csv", $csv);
+$w1 = file_put_contents("{$outputDir}/{$datedFilename}", $csv);
+$w2 = file_put_contents("{$outputDir}/latest.csv", $csv);
+if ($w1 === false || $w2 === false) {
+    log_line($logPath, "UPOZORENJE: zapis CSV-a nije uspio (dated=" . var_export($w1, true) . ", latest=" . var_export($w2, true) . ")");
+}
 
 $metadata = [
     'generatedAt' => date('c'),
@@ -119,7 +149,10 @@ $metadata = [
     'file' => $datedFilename,
     'productCount' => count($products),
 ];
-file_put_contents("{$outputDir}/latest.json", json_encode($metadata, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . "\n");
+$w3 = file_put_contents("{$outputDir}/latest.json", json_encode($metadata, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . "\n");
+if ($w3 === false) {
+    log_line($logPath, "UPOZORENJE: zapis latest.json nije uspio");
+}
 
 // Čišćenje arhive — briše samo datirane cjenik-YYYY-MM-DD.csv starije od $retentionDays dana.
 $cutoff = time() - $retentionDays * 86400;
@@ -131,6 +164,9 @@ foreach (scandir($outputDir) as $filename) {
     unlink("{$outputDir}/{$filename}");
     $removed++;
 }
+
+log_line($logPath, "Uspješno generirano: {$datedFilename}, " . count($products) . ' proizvoda'
+    . ($removed > 0 ? ", obrisano {$removed} arhivskih" : ''));
 
 echo "Cjenik uspješno generiran:\n";
 echo "{$datedFilename}\n";
