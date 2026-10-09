@@ -99,7 +99,12 @@ export default function Products() {
                   ? <img src={p.img} alt={p.name} className={`${styles.img} ${p.soldOut ? styles.imgSoldOut : ''}`} loading="lazy" decoding="async" />
                   : <div className={styles.placeholder}><span>Fotografija uskoro</span></div>
                 }
-                {p.soldOut && <span className={styles.soldOutRibbon}>Rasprodano</span>}
+                {p.soldOut && (
+                  <div className={styles.soldOutBadge}>
+                    <strong className={styles.soldOutTitle}>Nova sezona uskoro</strong>
+                    <p className={styles.soldOutText}>Trenutna zaliha je rasprodana. Novi proizvodi iz ovogodišnje proizvodnje uskoro će biti dostupni.</p>
+                  </div>
+                )}
                 <div className={styles.overlay}>
                   <p className={styles.desc}>{p.desc}</p>
                 </div>
