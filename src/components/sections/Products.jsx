@@ -64,6 +64,13 @@ export default function Products() {
 
   const close = useCallback(() => setActive(null), [])
 
+  const handleOrderClick = (e, productName) => {
+    e.stopPropagation()
+    const select = document.getElementById('product')
+    if (select) select.value = productName
+    scrollToAnchor('#kontakt')
+  }
+
   useEffect(() => {
     if (!active) return
     const onKey = (e) => { if (e.key === 'Escape') close() }
@@ -114,6 +121,13 @@ export default function Products() {
                 <h3 className={styles.name}>{p.name}</h3>
               </div>
               <p className={styles.mobileDesc}>{p.desc}</p>
+              <a
+                href="#kontakt"
+                className={styles.orderBtn}
+                onClick={e => handleOrderClick(e, p.name)}
+              >
+                Naruči proizvod
+              </a>
             </div>
           ))}
         </div>

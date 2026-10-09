@@ -53,7 +53,7 @@ export default function Hero() {
 
       <div className={styles.content}>
         <div className={styles.actions}>
-          <a href="#kontakt" className={styles.ctaPrimary} onClick={e => { e.preventDefault(); scrollToAnchor('#kontakt') }}>Naruči proizvod</a>
+          <a href="#proizvodi" className={styles.ctaPrimary} onClick={e => { e.preventDefault(); scrollToAnchor('#proizvodi') }}>Proizvodi</a>
         </div>
         <div className={styles.trust}>
           <span className={styles.trustItem}><ShieldIcon />EU IGP zaštita</span>
