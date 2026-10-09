@@ -187,31 +187,6 @@
   color: var(--ink);
 }
 
-/* CTA */
-.cta {
-  margin-top: 52px;
-  text-align: center;
-}
-
-.ctaBtn {
-  display: inline-block;
-  background: transparent;
-  color: var(--gold);
-  border: 1px solid var(--gold);
-  padding: 16px 40px;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background 0.2s, color 0.2s;
-}
-
-.ctaBtn:hover {
-  background: var(--gold);
-  color: var(--ink);
-}
-
 /* Tablet */
 @media (max-width: 900px) {
   .grid { grid-template-columns: repeat(2, 1fr); }

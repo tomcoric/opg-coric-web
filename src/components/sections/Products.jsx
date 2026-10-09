@@ -148,10 +148,6 @@ export default function Products() {
             </div>
           ))}
         </div>
-
-        <div className={styles.cta}>
-          <a href="#kontakt" className={styles.ctaBtn} onClick={e => { e.preventDefault(); scrollToAnchor('#kontakt') }}>Naruči proizvod</a>
-        </div>
       </Container>
 
       {active && (
