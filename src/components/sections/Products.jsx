@@ -19,11 +19,13 @@ const products = [
     name: 'Đakovačka Kobasica',
     img: '/images/proizvodi/kobasica.webp',
     desc: 'Od biranog svježeg svinjskog mesa, uz skladan omjer slatke i ljute paprike, češnjaka i soli, nastaje kobasica punog okusa, profinjene arome i prepoznatljivog karaktera domaće slavonske kuhinje.',
+    soldOut: true,
   },
   {
     name: 'Đakovačka Slanina',
     img: '/images/proizvodi/slanina.webp',
     desc: 'Dimljena svinjska slanina s tankim slojevima mesa. Bogata aromom dima, idealna uz domaći kruh ili kao dodatak jelima.',
+    soldOut: true,
   },
   {
     name: 'Đakovačka Buđola',
