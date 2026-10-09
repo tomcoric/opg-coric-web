@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import Container from '../ui/Container'
 import { scrollToAnchor } from '../../utils/scrollToAnchor'
+import NotifyModal from './NotifyModal'
 import styles from './Products.module.css'
 
 const products = [
@@ -61,6 +62,7 @@ const products = [
 
 export default function Products() {
   const [active, setActive] = useState(null)
+  const [notifyProduct, setNotifyProduct] = useState(null)
 
   const close = useCallback(() => setActive(null), [])
 
@@ -69,6 +71,11 @@ export default function Products() {
     const select = document.getElementById('product')
     if (select) select.value = productName
     scrollToAnchor('#kontakt')
+  }
+
+  const handleNotifyClick = (e, productName) => {
+    e.stopPropagation()
+    setNotifyProduct(productName)
   }
 
   useEffect(() => {
@@ -121,13 +128,23 @@ export default function Products() {
                 <h3 className={styles.name}>{p.name}</h3>
               </div>
               <p className={styles.mobileDesc}>{p.desc}</p>
-              <a
-                href="#kontakt"
-                className={styles.orderBtn}
-                onClick={e => handleOrderClick(e, p.name)}
-              >
-                Naruči proizvod
-              </a>
+              {p.soldOut ? (
+                <button
+                  type="button"
+                  className={styles.orderBtn}
+                  onClick={e => handleNotifyClick(e, p.name)}
+                >
+                  Obavijesti me o dostupnosti
+                </button>
+              ) : (
+                <a
+                  href="#kontakt"
+                  className={styles.orderBtn}
+                  onClick={e => handleOrderClick(e, p.name)}
+                >
+                  Naruči proizvod
+                </a>
+              )}
             </div>
           ))}
         </div>
@@ -148,6 +165,10 @@ export default function Products() {
             </div>
           </div>
         </div>
+      )}
+
+      {notifyProduct && (
+        <NotifyModal productName={notifyProduct} onClose={() => setNotifyProduct(null)} />
       )}
     </section>
   )
