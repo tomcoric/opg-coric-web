@@ -110,15 +110,10 @@ export default function Products() {
             >
               <div className={styles.imgWrap}>
                 {p.img
-                  ? <img src={p.img} alt={p.name} className={`${styles.img} ${p.soldOut ? styles.imgSoldOut : ''}`} loading="lazy" decoding="async" />
+                  ? <img src={p.img} alt={p.name} className={styles.img} loading="lazy" decoding="async" />
                   : <div className={styles.placeholder}><span>Fotografija uskoro</span></div>
                 }
-                {p.soldOut && (
-                  <div className={styles.soldOutBadge}>
-                    <strong className={styles.soldOutTitle}>Nova sezona uskoro</strong>
-                    <p className={styles.soldOutText}>Trenutna zaliha je rasprodana. Novi proizvodi iz ovogodišnje proizvodnje uskoro će biti dostupni.</p>
-                  </div>
-                )}
+                {p.soldOut && <span className={styles.soldOutTag}>Nova sezona uskoro</span>}
                 <div className={styles.overlay}>
                   <p className={styles.desc}>{p.desc}</p>
                 </div>
@@ -128,6 +123,11 @@ export default function Products() {
                 <h3 className={styles.name}>{p.name}</h3>
               </div>
               <p className={styles.mobileDesc}>{p.desc}</p>
+              {p.soldOut && (
+                <p className={styles.soldOutNote}>
+                  <strong>Nova sezona uskoro.</strong> Trenutna zaliha je rasprodana, novi proizvodi iz ovogodišnje proizvodnje uskoro će biti dostupni.
+                </p>
+              )}
               {p.soldOut ? (
                 <button
                   type="button"
