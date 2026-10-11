@@ -3,9 +3,9 @@ import { scrollToAnchor } from '../../utils/scrollToAnchor'
 import styles from './Hero.module.css'
 
 // Prvi naslov (index 0) je ono što Googlebot vidi u H1-u pri inicijalnom renderu
-// (rotacija kreće tek nakon 15s) — zato namjerno nosi "kulen", "kulin" i "Đakovo".
+// (rotacija kreće tek nakon 7s) — zato namjerno nosi "kulin", "kulen" i "Đakovački".
 const headlines = [
-  { before: 'Tradicionalni slavonski ', em: 'kulin', after: ' (kulen) iz Đakova' },
+  { before: 'Tradicionalni Đakovački ', em: 'Kulin', after: ' (Kulen)' },
   { before: 'Dobro došli u srce ', em: 'slavonske', after: ' tradicije' },
   { before: 'Pravi okus ', em: 'Slavonije', after: ' — direktno k vama' },
   { before: 'Kulin po receptu ', em: 'predaka', after: '' },
