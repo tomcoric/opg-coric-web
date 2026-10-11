@@ -63,7 +63,7 @@ function PinIcon() {
 }
 
 const stats = [
-  { value: '15+',     label: 'Godina tradicije',  icon: <WheatIcon /> },
+  { value: '20+',     label: 'Godina tradicije',  icon: <WheatIcon /> },
   { value: '2009.',   label: 'Član Udruge kulinara "Đakovački kulin"', icon: <SealIcon /> },
   { value: '100%',    label: 'Domaći proizvodi',  icon: <HomeIcon /> },
   { value: 'Đakovo', label: 'Srce Slavonije',     icon: <PinIcon /> },

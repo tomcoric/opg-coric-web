@@ -13,7 +13,7 @@ export default function About() {
             </div>
             <div className={styles.body}>
               <p>
-                Pod imenom Kulin Ćorić već više od petnaest godina u Đakovu njegujemo bogatu
+                Pod imenom Kulin Ćorić već više od dvadeset godina u Đakovu njegujemo bogatu
                 slavonsku tradiciju i proizvodimo kvalitetne suhomesnate delicije prepoznatljive
                 po autentičnom okusu domaće Slavonije.
               </p>

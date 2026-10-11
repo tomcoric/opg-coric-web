@@ -62,16 +62,16 @@
 /* Mala oznaka u kutu slike — proizvod ostaje u punoj boji, samo diskretan status */
 .soldOutTag {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 10px;
+  right: 10px;
   z-index: 2;
-  padding: 6px 12px;
+  padding: 4px 9px;
   background: rgba(8, 8, 8, 0.75);
   border: 1px solid var(--gold);
   color: var(--gold-soft);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
-  letter-spacing: .1em;
+  letter-spacing: .08em;
   text-transform: uppercase;
   pointer-events: none;
 }
@@ -201,7 +201,7 @@
     color: rgba(255, 255, 255, .50);
     padding: 10px 0 4px;
   }
-  .soldOutTag { font-size: 9px; padding: 5px 10px; top: 8px; left: 8px; }
+  .soldOutTag { font-size: 8px; padding: 4px 8px; top: 8px; right: 8px; }
   .soldOutNote { font-size: 0.74rem; }
 }
 
