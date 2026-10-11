@@ -10,7 +10,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background: rgba(26, 26, 26, 0.82);
+  background: rgba(26, 26, 26, 0.6);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-radius: 0;
