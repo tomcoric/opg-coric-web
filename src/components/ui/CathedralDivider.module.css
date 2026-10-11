@@ -7,7 +7,13 @@
   width: 100%;
   height: auto;
   filter: grayscale(1) brightness(5) contrast(0.5);
-  opacity: 0.15;
+  opacity: 0.22;
   pointer-events: none;
   user-select: none;
+}
+
+@media (max-width: 768px) {
+  .divider img {
+    opacity: 0.3;
+  }
 }
