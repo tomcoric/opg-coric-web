@@ -32,7 +32,7 @@ const headlines = [
   { before: 'Generacijama vjerni ', em: 'tradiciji', after: '' },
 ]
 
-const INTERVAL = 15000
+const INTERVAL = 7000
 
 function ShieldIcon() {
   return (
