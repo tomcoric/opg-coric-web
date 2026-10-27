@@ -1,5 +1,10 @@
 DirectoryIndex index.html
 
+# Bez ovoga .txt/.xml datoteke (llms.txt, humans.txt, robots.txt, sitemap.xml) šalju se
+# bez charseta u Content-Type headeru, pa preglednici krivo nagađaju kodiranje i hrvatski
+# dijakritici (Ć, Đ, č, š, ž) ispadnu kao mojibake.
+AddDefaultCharset UTF-8
+
 RewriteEngine On
 
 # Force HTTPS
