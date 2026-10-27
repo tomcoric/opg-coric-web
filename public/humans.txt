@@ -1,0 +1,10 @@
+/* TEAM */
+Vlasnik: OPG Ćorić Vladimir
+Lokacija: Đakovo, Hrvatska
+Kontakt: opgcoricvladimir@gmail.com
+
+/* SITE */
+Zadnje ažuriranje: 2026-10-27
+Jezik: Hrvatski
+Tehnologije: React, Vite, HTML5, CSS3
+Standardi: HTML5, CSS3, WCAG 2.1 AA
