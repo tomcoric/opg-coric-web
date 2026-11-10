@@ -76,6 +76,22 @@
   pointer-events: none;
 }
 
+/* Oznaka ponovne dostupnosti — puna zlatna, da se razlikuje od "uskoro" */
+.newSeasonTag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  padding: 4px 9px;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
 /* Puni tekst statusa — ispod slike, iznad gumba */
 .soldOutNote {
   font-size: 0.82rem;
@@ -201,7 +217,8 @@
     color: rgba(255, 255, 255, .50);
     padding: 10px 0 4px;
   }
-  .soldOutTag { font-size: 8px; padding: 4px 8px; top: 8px; right: 8px; }
+  .soldOutTag,
+  .newSeasonTag { font-size: 8px; padding: 4px 8px; top: 8px; right: 8px; }
   .soldOutNote { font-size: 0.74rem; }
 }
 

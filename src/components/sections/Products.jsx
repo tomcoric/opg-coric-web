@@ -20,7 +20,8 @@ const products = [
     name: 'Đakovačka Kobasica',
     img: '/images/proizvodi/kobasica.webp',
     desc: 'Od biranog svježeg svinjskog mesa, uz skladan omjer slatke i ljute paprike, češnjaka i soli, nastaje kobasica punog okusa, profinjene arome i prepoznatljivog karaktera domaće slavonske kuhinje.',
-    soldOut: true,
+    newSeason: true,
+    note: 'Trenutno imamo dimljene kobasice za pečenje. Suhe kobasice očekujemo oko 20. studenoga.',
   },
   {
     name: 'Đakovačka Slanina',
@@ -50,13 +51,13 @@ const products = [
     name: 'Đakovačka Špic rebra',
     img: '/images/proizvodi/spic-rebra.webp',
     desc: 'Pravi izbor za bogata domaća jela. Mesnata svinjska špic rebra pažljivo se sole i dime, čime dobivaju izraženu aromu i prepoznatljiv okus dima. Posebno su ukusna kuhana uz grah, kiseli kupus, ričet ili druga slavonska variva.',
-    soldOut: true,
+    newSeason: true,
   },
   {
     name: 'Đakovački Švargl',
     img: '/images/proizvodi/svargl.webp',
     desc: 'Tradicija koja se prepoznaje u svakom zalogaju. Priprema se prema tradicionalnoj recepturi od karakterističnih svinjskih dijelova, uz dodatak soli, papra, paprike i češnjaka. Punog je okusa, bogate domaće arome i prepoznatljivog presjeka koji ga čini pravim klasikom slavonskog stola.',
-    soldOut: true,
+    newSeason: true,
   },
 ]
 
@@ -114,6 +115,7 @@ export default function Products() {
                   : <div className={styles.placeholder}><span>Fotografija uskoro</span></div>
                 }
                 {p.soldOut && <span className={styles.soldOutTag}>Nova sezona uskoro</span>}
+                {p.newSeason && <span className={styles.newSeasonTag}>Nova sezona</span>}
                 <div className={styles.overlay}>
                   <p className={styles.desc}>{p.desc}</p>
                 </div>
@@ -126,6 +128,11 @@ export default function Products() {
               {p.soldOut && (
                 <p className={styles.soldOutNote}>
                   <strong>Nova sezona uskoro.</strong> Trenutna zaliha je rasprodana, novi proizvodi iz ovogodišnje proizvodnje uskoro će biti dostupni.
+                </p>
+              )}
+              {p.newSeason && (
+                <p className={styles.soldOutNote}>
+                  <strong>Ponovno dostupno.</strong> {p.note || 'Stiglo je iz ovogodišnje proizvodnje.'}
                 </p>
               )}
               {p.soldOut ? (
