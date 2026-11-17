@@ -93,13 +93,13 @@ function today() {
   rmSync(dir, { recursive: true, force: true })
 }
 
-// --- Test 3: nedostupnost i sidrena cijena ---
+// --- Test 3: nedostupnost i bazna cijena ---
 {
   const dir = setupProject([baseProduct({ available: false, anchorPrice: 38, anchorPriceDate: '2025-05-02' })])
   runGeneratorIn(dir)
   const csv = readFileSync(join(dir, 'public/cjenici/latest.csv'), 'utf-8')
   assert(csv.includes(';nedostupno'), 'available:false generira "nedostupno" u CSV-u')
-  assert(csv.includes(';38.00;2025-05-02;'), 'Sidrena cijena i datum se ispravno ispisuju kad su postavljeni')
+  assert(csv.includes(';38.00;2025-05-02;'), 'Bazna cijena i datum se ispravno ispisuju kad su postavljeni')
   rmSync(dir, { recursive: true, force: true })
 }
 

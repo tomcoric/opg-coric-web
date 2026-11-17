@@ -1,7 +1,7 @@
 {
   "_meta": {
     "description": "Jedinstveni izvor istine za proizvode i cijene. Web stranica, generator cjenika (scripts/generate-price-list.js) i PHP fallback skripta čitaju iz ove datoteke.",
-    "anchorPriceStatus": "Sidrena cijena (02.05.2025.) potvrđena kao identična trenutnoj cijeni za sve proizvode — cijene se nisu mijenjale od tog datuma.",
+    "anchorPriceStatus": "Bazna cijena (02.05.2025.) potvrđena kao identična trenutnoj cijeni za sve proizvode — cijene se nisu mijenjale od tog datuma.",
     "barcodeStatus": "TODO — barkodovi nisu dostupni niti za jedan proizvod. barcode je namjerno prazan string dok se ne unesu stvarni EAN/GTIN kodovi."
   },
   "products": [

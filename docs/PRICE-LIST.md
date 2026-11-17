@@ -41,8 +41,8 @@ Dodaj novi objekt u `products` niz u `src/data/products.json`. Obavezna polja:
 | `brand` | Marka — trenutno uvijek `"Kulin Ćorić"`. |
 | `unit` | Jedinica mjere, trenutno uvijek `"kg"`. |
 | `price` | Trenutna maloprodajna cijena (broj, npr. `18.00`). |
-| `anchorPrice` | Sidrena (referentna) cijena na 02.05.2025. — `null` dok se ne potvrdi stvarna vrijednost (vidi upozorenje niže). |
-| `anchorPriceDate` | Datum sidrene cijene — `null` dok se ne potvrdi. |
+| `anchorPrice` | Bazna (referentna) cijena na 02.05.2025. — `null` dok se ne potvrdi stvarna vrijednost (vidi upozorenje niže). |
+| `anchorPriceDate` | Datum bazne cijene — `null` dok se ne potvrdi. |
 | `barcode` | EAN/GTIN barkod — `""` dok se ne doda stvarni barkod. |
 | `available` | `true`/`false` — je li proizvod trenutno dostupan. |
 | `specialSale` | `true`/`false` — je li proizvod trenutno na posebnoj prodaji/akciji. |
@@ -164,7 +164,7 @@ dodatna zaštita neovisno o HTTP headerima.
 
 ## Što je još potrebno ručno popuniti
 
-- **Sidrene (referentne) cijene na 02.05.2025.** — potvrđeno: cijene se od 02.05.2025. nisu mijenjale, pa je
+- **Bazne (referentne) cijene na 02.05.2025.** — potvrđeno: cijene se od 02.05.2025. nisu mijenjale, pa je
   `anchorPrice` postavljen jednako trenutnoj `price` vrijednosti za sve proizvode, a `anchorPriceDate` je
   `"2025-05-02"`. **Važno:** ako se cijena ubuduće promijeni, `anchorPrice`/`anchorPriceDate` se ne mijenjaju
   automatski (namjerno — to je fiksna povijesna referenca) — ostaju kakvi jesu dok se ručno ne odluči drugačije.
