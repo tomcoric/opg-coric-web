@@ -33,6 +33,9 @@ $outputDir = __DIR__;
 $sourcePath = $outputDir . '/products-source.json';
 $logPath = $outputDir . '/cron-log.txt';
 $retentionDays = 30;
+// Datum stupanja zakona na snagu — arhiva počinje od tog dana; starije datirane
+// datoteke se brišu (mora biti isto kao ARCHIVE_START u scripts/generate-price-list.js).
+$archiveStart = '2026-11-17';
 
 // Dnevnik svakog pokretanja — javno čitljiv (dijagnostika, nema osjetljivih podataka), jer
 // cPanel cron izlaz (STDOUT/STDERR) ide samo na e-mail koji ne provjeravamo redovito.
@@ -117,7 +120,7 @@ function format_price($value): string {
 $columns = [
     'naziv', 'sifra', 'marka', 'jedinica_mjere', 'cijena_po_jedinici',
     'maloprodajna_cijena', 'posebna_prodaja', 'naziv_posebne_prodaje',
-    'sidrena_cijena', 'datum_sidrene_cijene', 'barkod', 'dostupnost',
+    'bazna_cijena', 'datum_bazne_cijene', 'barkod', 'dostupnost',
 ];
 
 $lines = [implode(';', $columns)];
@@ -160,13 +163,15 @@ if ($w3 === false) {
     log_line($logPath, "UPOZORENJE: zapis latest.json nije uspio");
 }
 
-// Čišćenje arhive — briše samo datirane cjenik-YYYY-MM-DD.csv starije od $retentionDays dana.
+// Čišćenje arhive — briše samo datirane cjenik-YYYY-MM-DD.csv starije od $retentionDays dana
+// ili starije od početka arhive ($archiveStart).
 $cutoff = time() - $retentionDays * 86400;
 $removed = 0;
 foreach (scandir($outputDir) as $filename) {
     if (!preg_match('/^cjenik-(\d{4}-\d{2}-\d{2})\.csv$/', $filename, $m)) continue;
     $fileTime = strtotime($m[1]);
-    if ($fileTime === false || $fileTime >= $cutoff) continue;
+    if ($fileTime === false) continue;
+    if ($fileTime >= $cutoff && $m[1] >= $archiveStart) continue;
     unlink("{$outputDir}/{$filename}");
     $removed++;
 }

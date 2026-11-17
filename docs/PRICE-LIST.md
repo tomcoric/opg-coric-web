@@ -63,6 +63,14 @@ Generira/ažurira:
 - `public/cjenici/latest.json` — metapodaci (`generatedAt`, `date`, `file`, `productCount`), koristi ih `/cjenik.html` za prikaz datuma ažuriranja.
 - `public/cjenici/products-source.json` — kopija konfiguracije proizvoda, čita je PHP cron skripta na hostingu.
 
+CSV stupci za baznu cijenu zovu se `bazna_cijena` i `datum_bazne_cijene` (do 17.11.2026. zvali su se
+`sidrena_cijena` / `datum_sidrene_cijene`; `/cjenik.html` čita oba naziva).
+
+Arhiva počinje **17.11.2026.** (stupanje zakona na snagu) — konstanta `ARCHIVE_START` u
+`scripts/generate-price-list.js` i `$archiveStart` u `public/cjenici/generate-price-list.php` (moraju biti iste).
+Oba generatora brišu svaku datiranu datoteku stariju od tog datuma. Ranije arhive spremljene su u backup
+`D:\AI-Projekti\Backup\opg-coric-web_cjenici-arhiva_2026-11-17.zip`.
+
 Arhivske datoteke starije od 30 dana automatski se brišu (osim `latest.csv`/`latest.json`/`latest.png`/`products-source.json`, koje se nikad ne brišu).
 
 Testovi (provjera generiranja, brojanja proizvoda, cijena, dostupnosti, ponašanja nakon promjene cijene, čišćenja arhive):

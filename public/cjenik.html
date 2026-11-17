@@ -107,7 +107,9 @@
 
           bodyEl.innerHTML = products.map(p => {
             const available = p.dostupnost === 'dostupno'
-            const anchorPrice = p.sidrena_cijena ? `${Number(p.sidrena_cijena).toFixed(2)} €` : '—'
+            // sidrena_cijena: stari naziv stupca (CSV-ovi generirani prije 17.11.2026.)
+            const basePriceRaw = p.bazna_cijena ?? p.sidrena_cijena
+            const anchorPrice = basePriceRaw ? `${Number(basePriceRaw).toFixed(2)} €` : '—'
             return `<tr${available ? '' : ' class="unavailable"'}>
               <td>${p.naziv}${available ? '' : '<span class="unavailableTag">Nedostupno</span>'}</td>
               <td class="priceAnchor">${anchorPrice}</td>

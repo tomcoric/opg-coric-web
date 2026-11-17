@@ -10,11 +10,14 @@ const ROOT = join(__dirname, '..')
 const PRODUCTS_PATH = process.env.PRICE_LIST_PRODUCTS_PATH ?? join(ROOT, 'src/data/products.json')
 const OUTPUT_DIR = process.env.PRICE_LIST_OUTPUT_DIR ?? join(ROOT, 'public/cjenici')
 const RETENTION_DAYS = 30
+// Datum stupanja zakona na snagu — arhiva počinje od tog dana; starije datirane
+// datoteke se brišu (mora biti isto kao $archiveStart u public/cjenici/generate-price-list.php).
+const ARCHIVE_START = '2026-11-17'
 
 const CSV_COLUMNS = [
   'naziv', 'sifra', 'marka', 'jedinica_mjere', 'cijena_po_jedinici',
   'maloprodajna_cijena', 'posebna_prodaja', 'naziv_posebne_prodaje',
-  'sidrena_cijena', 'datum_sidrene_cijene', 'barkod', 'dostupnost',
+  'bazna_cijena', 'datum_bazne_cijene', 'barkod', 'dostupnost',
 ]
 
 function todayInZagreb() {
@@ -162,7 +165,8 @@ function cleanupOldFiles(dir, keepFiles) {
     const match = filename.match(datedFilePattern)
     if (!match) continue
     const fileDate = new Date(`${match[1]}T00:00:00Z`).getTime()
-    if (Number.isNaN(fileDate) || fileDate >= cutoff) continue
+    if (Number.isNaN(fileDate)) continue
+    if (fileDate >= cutoff && match[1] >= ARCHIVE_START) continue
     unlinkSync(join(dir, filename))
     removed++
   }

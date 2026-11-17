@@ -100,6 +100,19 @@ function today() {
   const csv = readFileSync(join(dir, 'public/cjenici/latest.csv'), 'utf-8')
   assert(csv.includes(';nedostupno'), 'available:false generira "nedostupno" u CSV-u')
   assert(csv.includes(';38.00;2025-05-02;'), 'Bazna cijena i datum se ispravno ispisuju kad su postavljeni')
+  assert(csv.includes(';bazna_cijena;datum_bazne_cijene;'), 'Zaglavlje CSV-a koristi stupce bazna_cijena i datum_bazne_cijene')
+  assert(!csv.includes('sidren'), 'Zaglavlje CSV-a više ne sadrži "sidrena"')
+  rmSync(dir, { recursive: true, force: true })
+}
+
+// --- Test 3b: arhivske datoteke prije početka arhive (17.11.2026.) se brišu ---
+{
+  const dir = setupProject([baseProduct()])
+  const archiveDir = join(dir, 'public/cjenici')
+  writeFileSync(join(archiveDir, 'cjenik-2026-11-16.csv'), 'stara')
+  runGeneratorIn(dir)
+  assert(!existsSync(join(archiveDir, 'cjenik-2026-11-16.csv')), 'Datoteka od prije 17.11.2026. je obrisana')
+  assert(existsSync(join(archiveDir, `cjenik-${today()}.csv`)), 'Današnja arhivska datoteka je zadržana')
   rmSync(dir, { recursive: true, force: true })
 }
 

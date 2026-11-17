@@ -1,4 +1,4 @@
-﻿naziv;sifra;marka;jedinica_mjere;cijena_po_jedinici;maloprodajna_cijena;posebna_prodaja;naziv_posebne_prodaje;sidrena_cijena;datum_sidrene_cijene;barkod;dostupnost
+﻿naziv;sifra;marka;jedinica_mjere;cijena_po_jedinici;maloprodajna_cijena;posebna_prodaja;naziv_posebne_prodaje;bazna_cijena;datum_bazne_cijene;barkod;dostupnost
 Kulin;KULIN-001;Kulin Ćorić;kg;40.00;40.00;false;;40.00;2025-05-02;;dostupno
 Kulinova Seka;SEKA-001;Kulin Ćorić;kg;30.00;30.00;false;;30.00;2025-05-02;;dostupno
 Slanina;SLANINA-001;Kulin Ćorić;kg;20.00;20.00;false;;20.00;2025-05-02;;dostupno
