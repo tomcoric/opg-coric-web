@@ -45,6 +45,7 @@ export default function Footer() {
                 </a>
               ))}
               <a href="/cjenik.html" className={styles.link}>Cjenik</a>
+              <a href="/cuvanje-kulina.html" className={styles.link}>Kako čuvati kulin</a>
             </nav>
           </div>
 

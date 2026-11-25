@@ -14,6 +14,7 @@ const SITE_URL = 'https://www.kulin-coric.hr'
 const PAGES = [
   { path: '/', sources: ['index.html', 'src', 'public/images'], changefreq: 'weekly', priority: '1.0' },
   { path: '/cjenik.html', daily: true, changefreq: 'daily', priority: '0.7' },
+  { path: '/cuvanje-kulina.html', sources: ['public/cuvanje-kulina.html'], changefreq: 'monthly', priority: '0.6' },
   { path: '/impressum.html', sources: ['public/impressum.html'], changefreq: 'yearly', priority: '0.3' },
   { path: '/politika-privatnosti.html', sources: ['public/politika-privatnosti.html'], changefreq: 'yearly', priority: '0.3' },
   { path: '/politika-kolacica.html', sources: ['public/politika-kolacica.html'], changefreq: 'yearly', priority: '0.3' },

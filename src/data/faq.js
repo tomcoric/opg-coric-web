@@ -38,7 +38,8 @@ export const buyingFaq = [
   },
   {
     question: 'Kako čuvati kulin?',
-    answer: 'Cijeli kulin čuvajte na hladnom, suhom i prozračnom mjestu ili u hladnjaku, zamotan u papir ili platnenu krpu. Ne držite ga u plastičnoj vrećici jer se u njoj znoji. Načeti kraj prekrijte folijom da se ne isuši.',
+    answer: 'Cijeli kulin čuvajte na hladnom, tamnom i prozračnom mjestu, dalje od sunca i izvora topline, ili u hladnjaku, dobro zaštićen od isušivanja. Nakon rezanja presjek zaštitite prehrambenom folijom, vakuumiranjem ili tankim slojem svinjske masti, a kulin čuvajte u hladnjaku na 2 do 4 °C.',
+    link: { href: '/cuvanje-kulina.html', label: 'Pročitaj cijeli vodič' },
   },
   {
     question: 'Zašto neki proizvodi nisu dostupni?',
