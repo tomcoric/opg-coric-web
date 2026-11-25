@@ -141,7 +141,7 @@
       "anchorPrice": 8,
       "anchorPriceDate": "2025-05-02",
       "barcode": "",
-      "available": false,
+      "available": true,
       "specialSale": false,
       "specialSaleName": ""
     },

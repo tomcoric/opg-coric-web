@@ -56,6 +56,7 @@ const catalog = [
     img: '/images/proizvodi/buncek.webp',
     desc: 'Klasik domaće slavonske kuhinje. Mesnat i sočan svinjski buncek pažljivo se soli i dimi kako bi dobio prepoznatljivu aromu i puni okus. Idealan je za polagano kuhanje ili pečenje, a posebno dobro pristaje uz kiseli kupus, grah i druga tradicionalna jela.',
     priceIds: ['buncek'],
+    newSeason: true,
   },
   {
     name: 'Đakovačka Špic rebra',
