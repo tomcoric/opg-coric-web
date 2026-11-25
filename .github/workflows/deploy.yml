@@ -21,7 +21,10 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: ${{ github.event.workflow_run.head_sha || github.ref }}
+          # Nakon "Generate daily price list" mora se uzeti najnoviji vrh grane, ne head_sha
+          # okidača — head_sha je commit PRIJE automatskog commita s novim cjenikom, pa se
+          # svjež latest.png i products-source.json nikad ne bi objavili.
+          ref: ${{ github.event.workflow_run.head_branch || github.ref }}
           # Puna git povijest — scripts/sitemap.js iz nje čita datume zadnjih promjena
           # stranica za <lastmod> u sitemap.xml (plitki clone bi svugdje dao isti datum).
           fetch-depth: 0
