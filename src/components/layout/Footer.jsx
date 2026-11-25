@@ -24,7 +24,7 @@ export default function Footer() {
               <span className={styles.brandName}>Kulin Ćorić</span>
             </div>
             <p className={styles.tagline}>
-              Tradicija slavonskog stola od 2009.<br />
+              Tradicija slavonskog stola.<br />
               Đakovo, Slavonija.
             </p>
           </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Container from '../ui/Container'
+import { siteProducts } from '../../data/catalog'
 import styles from './Contact.module.css'
 
 function MapPinIcon() {
@@ -112,15 +113,9 @@ function ContactForm() {
           <label htmlFor="product" className={styles.fieldLabel}>Što vas zanima?</label>
           <select id="product" name="product" className={styles.input}>
             <option value="">Odaberite proizvod...</option>
-            <option>Đakovački Kulin</option>
-            <option>Đakovačka Kulinova Seka</option>
-            <option>Đakovačka Kobasica</option>
-            <option>Đakovačka Slanina</option>
-            <option>Đakovačka Buđola</option>
-            <option>Đakovačka Pečenica</option>
-            <option>Đakovački Buncek</option>
-            <option>Đakovačka Špic rebra</option>
-            <option>Đakovački Švargl</option>
+            {siteProducts.map(p => (
+              <option key={p.name}>{p.name}</option>
+            ))}
             <option>Više proizvoda / upit</option>
           </select>
         </div>

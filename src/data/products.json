@@ -29,7 +29,7 @@
       "anchorPrice": 30,
       "anchorPriceDate": "2025-05-02",
       "barcode": "",
-      "available": true,
+      "available": false,
       "specialSale": false,
       "specialSaleName": ""
     },
@@ -43,7 +43,7 @@
       "anchorPrice": 20,
       "anchorPriceDate": "2025-05-02",
       "barcode": "",
-      "available": true,
+      "available": false,
       "specialSale": false,
       "specialSaleName": ""
     },
@@ -85,7 +85,7 @@
       "anchorPrice": 20,
       "anchorPriceDate": "2025-05-02",
       "barcode": "",
-      "available": true,
+      "available": false,
       "specialSale": false,
       "specialSaleName": ""
     },
@@ -99,7 +99,7 @@
       "anchorPrice": 25,
       "anchorPriceDate": "2025-05-02",
       "barcode": "",
-      "available": true,
+      "available": false,
       "specialSale": false,
       "specialSaleName": ""
     },
@@ -113,7 +113,7 @@
       "anchorPrice": 25,
       "anchorPriceDate": "2025-05-02",
       "barcode": "",
-      "available": true,
+      "available": false,
       "specialSale": false,
       "specialSaleName": ""
     },
@@ -141,7 +141,7 @@
       "anchorPrice": 8,
       "anchorPriceDate": "2025-05-02",
       "barcode": "",
-      "available": true,
+      "available": false,
       "specialSale": false,
       "specialSaleName": ""
     },

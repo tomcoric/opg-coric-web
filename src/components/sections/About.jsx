@@ -24,9 +24,10 @@ export default function About() {
                 ručnu izradu i tradiciju koja se ne zaboravlja.
               </p>
               <p>
-                Naša ponuda obuhvaća kulin (kulen), kulinovu seku, domaću kobasicu, šunku, slaninu,
-                buđolu, pečenicu i druge tradicionalne proizvode. Svaka delicija nastaje ručnom
-                izradom, prema provjerenim recepturama koje su se prenosile s koljena na koljeno.
+                Naša ponuda obuhvaća kulin (kulen), kulinovu seku, domaću kobasicu, slaninu,
+                buđolu i pečenicu, a za domaća variva i buncek, špic rebra i švargl. Svaka
+                delicija nastaje ručnom izradom, prema provjerenim recepturama koje su se
+                prenosile s koljena na koljeno.
               </p>
               <p>
                 Posebnu pažnju posvećujemo sigurnosti hrane, kvaliteti sirovine i urednosti
