@@ -7,7 +7,8 @@
 // priceIds: id-jevi iz products.json koje kartica pokriva. Kartica je dostupna ako je
 // dostupan barem jedan od njih (npr. "Kobasica" pokriva tri vrste kobasica iz cjenika).
 // newSeason: prikazuje oznaku "Nova sezona" na dostupnom proizvodu (marketinška oznaka).
-// note: dodatna rečenica ispod oznake "Ponovno dostupno".
+// note: dodatna rečenica ispod oznake "Ponovno dostupno" — tekst ili funkcija
+//   (isAvailable) => tekst, ako bilješka ovisi o dostupnosti nekog proizvoda iz products.json.
 import priceList from './products.json'
 
 const availability = new Map(priceList.products.map(p => [p.id, p.available]))
@@ -31,7 +32,11 @@ const catalog = [
     desc: 'Od biranog svježeg svinjskog mesa, uz skladan omjer slatke i ljute paprike, češnjaka i soli, nastaje kobasica punog okusa, profinjene arome i prepoznatljivog karaktera domaće slavonske kuhinje.',
     priceIds: ['kobasica-s-dima', 'kobasica-prosusena', 'kobasica-suha'],
     newSeason: true,
-    note: 'Trenutno imamo dimljene kobasice za pečenje i prosušene kobasice. Suhe kobasice očekujemo oko 10. prosinca.',
+    // Bilješka ovisi o dostupnosti suhe kobasice u products.json (automatski se mijenja
+    // kad scripts/apply-scheduled-changes.js na zakazani datum označi suhu kobasicu dostupnom).
+    note: isAvailable => isAvailable('kobasica-suha')
+      ? 'Stigle su i suhe kobasice — uz dimljene kobasice za pečenje i prosušene kobasice.'
+      : 'Trenutno imamo dimljene kobasice za pečenje i prosušene kobasice. Suhe kobasice očekujemo oko 10. prosinca.',
   },
   {
     name: 'Đakovačka Slanina',
@@ -81,7 +86,10 @@ for (const item of catalog) {
   }
 }
 
+const isAvailable = id => availability.get(id) === true
+
 export const siteProducts = catalog.map(item => ({
   ...item,
-  available: item.priceIds.some(id => availability.get(id)),
+  available: item.priceIds.some(isAvailable),
+  note: typeof item.note === 'function' ? item.note(isAvailable) : item.note,
 }))

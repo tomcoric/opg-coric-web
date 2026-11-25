@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "description": "Zakazane promjene proizvoda u src/data/products.json. scripts/apply-scheduled-changes.js ih svaki dan (workflow 'Generate daily price list') primijeni čim dođe datum (Europe/Zagreb) i izbaci s popisa. Polja u 'set' smiju biti samo: available, price, specialSale, specialSaleName."
+  },
+  "changes": [
+    {
+      "date": "2026-12-10",
+      "description": "Suhe kobasice stižu — kobasica suha postaje dostupna",
+      "productId": "kobasica-suha",
+      "set": { "available": true }
+    }
+  ]
+}

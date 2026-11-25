@@ -32,6 +32,11 @@ jobs:
       - name: Install
         run: npm ci
 
+      # Zakazane promjene (npr. proizvod postaje dostupan na određeni datum) — vidi
+      # scripts/scheduled-changes.json. Mora biti prije generiranja da cjenik već ima novo stanje.
+      - name: Apply scheduled product changes
+        run: node scripts/apply-scheduled-changes.js
+
       - name: Generate price list
         run: npm run generate:prices
 
@@ -39,7 +44,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/cjenici
+          git add public/cjenici src/data/products.json scripts/scheduled-changes.json
           if git diff --cached --quiet; then
             echo "Nema promjena za commit."
             exit 0
