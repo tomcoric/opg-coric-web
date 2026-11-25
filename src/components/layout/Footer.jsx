@@ -8,6 +8,7 @@ const navLinks = [
   { href: '#sto-je-kulin', label: 'Što je kulin?' },
   { href: '#proizvodi',   label: 'Proizvodi' },
   { href: '#mediji',       label: 'Mediji' },
+  { href: '#kupnja',       label: 'Kupnja i dostava' },
   { href: '#kontakt',      label: 'Kontakt' },
 ]
 
