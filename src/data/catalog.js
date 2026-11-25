@@ -31,7 +31,7 @@ const catalog = [
     desc: 'Od biranog svježeg svinjskog mesa, uz skladan omjer slatke i ljute paprike, češnjaka i soli, nastaje kobasica punog okusa, profinjene arome i prepoznatljivog karaktera domaće slavonske kuhinje.',
     priceIds: ['kobasica-s-dima', 'kobasica-prosusena', 'kobasica-suha'],
     newSeason: true,
-    note: 'Trenutno imamo dimljene kobasice za pečenje. Suhe kobasice očekujemo oko 10. prosinca.',
+    note: 'Trenutno imamo dimljene kobasice za pečenje i prosušene kobasice. Suhe kobasice očekujemo oko 10. prosinca.',
   },
   {
     name: 'Đakovačka Slanina',
