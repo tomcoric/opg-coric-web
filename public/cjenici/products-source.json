@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T19:08:49+01:00",
+  "generatedAt": "2026-11-25T08:56:04+01:00",
   "products": [
     {
       "id": "kulin",
@@ -25,7 +25,7 @@
       "anchorPrice": 30,
       "anchorPriceDate": "2025-05-02",
       "barcode": "",
-      "available": true,
+      "available": false,
       "specialSale": false,
       "specialSaleName": ""
     },
@@ -39,7 +39,7 @@
       "anchorPrice": 20,
       "anchorPriceDate": "2025-05-02",
       "barcode": "",
-      "available": true,
+      "available": false,
       "specialSale": false,
       "specialSaleName": ""
     },
@@ -81,7 +81,7 @@
       "anchorPrice": 20,
       "anchorPriceDate": "2025-05-02",
       "barcode": "",
-      "available": true,
+      "available": false,
       "specialSale": false,
       "specialSaleName": ""
     },
@@ -95,7 +95,7 @@
       "anchorPrice": 25,
       "anchorPriceDate": "2025-05-02",
       "barcode": "",
-      "available": true,
+      "available": false,
       "specialSale": false,
       "specialSaleName": ""
     },
@@ -109,7 +109,7 @@
       "anchorPrice": 25,
       "anchorPriceDate": "2025-05-02",
       "barcode": "",
-      "available": true,
+      "available": false,
       "specialSale": false,
       "specialSaleName": ""
     },
