@@ -1,0 +1,122 @@
+.section {
+  position: relative;
+  z-index: 1;
+  padding: var(--section-py) 0;
+  background: var(--bg-deep);
+}
+
+.inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.header h2 em {
+  font-style: normal;
+  color: var(--gold-soft);
+}
+
+.list {
+  border-top: 1px solid rgba(255, 255, 255, .10);
+}
+
+.item {
+  border-bottom: 1px solid rgba(255, 255, 255, .10);
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 44px;
+  padding: 20px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.question::-webkit-details-marker { display: none; }
+
+.question h3 {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #fff;
+  transition: color 0.2s;
+}
+
+.question:hover h3,
+.item[open] .question h3 {
+  color: var(--gold-soft);
+}
+
+/* Plus koji se okreće u minus */
+.marker {
+  position: relative;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--gold);
+}
+
+.marker::before,
+.marker::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 1px;
+  background: currentColor;
+  transition: transform 0.2s ease-out;
+}
+
+.marker::after { transform: rotate(90deg); }
+.item[open] .marker::after { transform: rotate(0deg); }
+
+.answer {
+  padding: 0 0 24px;
+}
+
+.answer p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, .72);
+  line-height: 1.6;
+}
+
+.link {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.link:hover { color: var(--gold-soft); }
+
+@media (max-width: 768px) {
+  .question { padding: 16px 0; gap: 16px; }
+  .question h3 { font-size: 1.125rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marker::before,
+  .marker::after,
+  .question h3 { transition: none; }
+}

@@ -74,6 +74,7 @@ export default function Hero() {
       <div className={styles.content}>
         <div className={styles.actions}>
           <a href="#proizvodi" className={styles.ctaPrimary} onClick={e => { e.preventDefault(); scrollToAnchor('#proizvodi') }}>Proizvodi</a>
+          <a href="tel:+38598223844" className={styles.ctaSecondary} aria-label="Nazovite nas na 098 223 844">Nazovite nas</a>
         </div>
         <div className={styles.trust}>
           <span className={styles.trustItem}><ShieldIcon />EU IGP zaštita</span>

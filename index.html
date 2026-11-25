@@ -62,36 +62,14 @@
       "servesCuisine": "Croatian",
       "hasMap": "https://www.google.com/maps?q=Miroslava+Krleže+2,+31400+Đakovo",
       "priceRange": "$",
+      "paymentAccepted": "Gotovina, pouzeće, bankovna uplata",
       "image": "https://www.kulin-coric.hr/og-image.jpg",
       "sameAs": []
     }
     </script>
 
-    <!-- JSON-LD FAQPage — odgovara sadržaju sekcije "Što je kulin?" na stranici -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Što je kulin (kulen)?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Kulin (kulen) je tradicionalna slavonska suhomesnata delicija — kobasica izrađena od svinjetine i svinjske leđne masnoće, začinjena mljevenom paprikom, češnjakom i solju, punjena u svinjsko crijevo i dimljena bukvom ili grabom. Zrije najmanje 5 do 6 mjeseci."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Koja je razlika između kulena i kulina?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Kulin i kulen su naziv za isti tradicionalni slavonski proizvod. U Đakovu i okolici češće se kaže kulin, dok je kulen rašireniji naziv diljem Hrvatske. Zaštićeni naziv izvornosti na razini Europske unije glasi \"Slavonski kulen / Slavonski kulin\", čime su oba naziva službeno ravnopravna."
-          }
-        }
-      ]
-    }
-    </script>
+    <!-- JSON-LD FAQPage — generira se pri buildu iz src/data/faq.js (vite.config.js) -->
+    <!--FAQ_JSON_LD-->
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

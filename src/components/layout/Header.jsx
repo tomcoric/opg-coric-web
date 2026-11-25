@@ -15,7 +15,12 @@ const navRight = [
   { href: '#mediji',      label: 'Mediji' },
 ]
 
-const allLinks = [...navLeft, ...navRight, { href: '#kontakt', label: 'Kontakt' }]
+const allLinks = [
+  ...navLeft,
+  ...navRight,
+  { href: '#kupnja',  label: 'Kupnja i dostava' },
+  { href: '#kontakt', label: 'Kontakt' },
+]
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)

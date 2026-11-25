@@ -8,6 +8,7 @@ const navLinks = [
   { href: '#sto-je-kulin', label: 'Što je kulin?' },
   { href: '#proizvodi',   label: 'Proizvodi' },
   { href: '#mediji',       label: 'Mediji' },
+  { href: '#kupnja',       label: 'Kupnja i dostava' },
   { href: '#kontakt',      label: 'Kontakt' },
 ]
 
@@ -44,6 +45,7 @@ export default function Footer() {
                 </a>
               ))}
               <a href="/cjenik.html" className={styles.link}>Cjenik</a>
+              <a href="/cuvanje-kulina.html" className={styles.link}>Kako čuvati kulin</a>
             </nav>
           </div>
 

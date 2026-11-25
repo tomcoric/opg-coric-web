@@ -9,6 +9,8 @@ OPG Ćorić Vladimir (brend: Kulin Ćorić) proizvodi autentični slavonski kuli
 - [Naslovna stranica](https://www.kulin-coric.hr/): O proizvođaču, proizvodima, tradiciji i kontaktu
 - [Proizvodi](https://www.kulin-coric.hr/#proizvodi): Kulin, kulinova seka, kobasice, slanina, buđola, pečenica, čvarci, buncek, švargl, špic rebra i drugi proizvodi
 - [Cjenik](https://www.kulin-coric.hr/cjenik.html): Aktualne cijene svih proizvoda po kilogramu, automatski ažurirano svaki dan
+- [Kako čuvati kulin](https://www.kulin-coric.hr/cuvanje-kulina.html): Čuvanje kulina prije i nakon rezanja, vakuumiranje, zamrzavanje i posluživanje
+- [Kupnja i dostava](https://www.kulin-coric.hr/#kupnja): Naručivanje, osobno preuzimanje, dostava i slanje, načini plaćanja
 - [O nama](https://www.kulin-coric.hr/#o-nama): Povijest OPG-a i Vladimira Ćorića
 - [Što je kulin?](https://www.kulin-coric.hr/#sto-je-kulin): Objašnjenje proizvodnog procesa i razlike između naziva "kulin" i "kulen"
 - [Mediji](https://www.kulin-coric.hr/#mediji): Spomeni u medijima i novinski članci

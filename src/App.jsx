@@ -9,6 +9,8 @@ import KulinInfo from './components/sections/KulinInfo'
 import Products from './components/sections/Products'
 import Media from './components/sections/Media'
 import Contact from './components/sections/Contact'
+import HolidayNotice from './components/sections/HolidayNotice'
+import Buying from './components/sections/Buying'
 import CathedralDivider from './components/ui/CathedralDivider'
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
           <Hero />
           <FeatureBanner />
         </div>
+        <HolidayNotice />
         <Stats />
         <CathedralDivider />
         <About />
@@ -29,6 +32,8 @@ function App() {
         <Products />
         <CathedralDivider />
         <Media />
+        <CathedralDivider />
+        <Buying />
         <CathedralDivider />
         <Contact />
       </main>

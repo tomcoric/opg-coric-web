@@ -147,6 +147,85 @@ main.legal {
   color: rgba(255, 255, 255, .4);
 }
 
+/* ═══ VODIČ (cuvanje-kulina.html) ═══ */
+.guideLead {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-top: -16px;
+  margin-bottom: 32px;
+}
+
+.legal p.guideLead { color: rgba(255, 255, 255, .85); }
+
+.legal h3 {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, .92);
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.legal p.guideNote {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border-left: 2px solid var(--gold);
+  background: rgba(255, 255, 255, .04);
+  color: rgba(255, 255, 255, .82);
+}
+
+.legal p.guideSignature {
+  margin-top: 24px;
+  font-family: var(--display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--gold-soft);
+}
+
+.guideCta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 48px;
+  padding: 24px;
+  border: 1px solid rgba(201, 162, 39, .35);
+}
+
+.legal .guideCta p {
+  margin: 0;
+  color: rgba(255, 255, 255, .9);
+  font-family: var(--display);
+  font-size: 1.2rem;
+}
+
+.legal a.guideCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 12px 24px;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.legal a.guideCtaBtn:hover { background: var(--gold-soft); color: var(--ink); }
+
+.legal a:focus-visible,
+.backLink:focus-visible,
+.brand:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
 /* ═══ CJENIK ═══ */
 .priceIntro { max-width: 60ch; }
 
